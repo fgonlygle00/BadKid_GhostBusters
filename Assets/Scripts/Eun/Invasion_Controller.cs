@@ -26,7 +26,10 @@ public class Invasion_Controller : MonoBehaviour  //충돌체 갖고 있음
     {
         //태그 몬스터일 경우  
         //몬스터 스크립트에 붙은 Attack (공격력)을 가져와서 HP를 그만큼 깎을거에요
-        if (other.CompareTag == CompareTag("Enemy");
+        //if (other.CompareTag == CompareTag("Enemy"))
+        //{
+
+        //}
 
         if(Health<=0)
         {
