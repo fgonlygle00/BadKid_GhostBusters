@@ -1099,6 +1099,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7752464488703470050, guid: e31254ce3fd61ab48a64fc5c62dfefa8, type: 3}
   m_PrefabInstance: {fileID: 180869147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &189787395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189787396}
+  m_Layer: 0
+  m_Name: PathPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &189787396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189787395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.12163, y: 36.79977, z: -187.6074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &194584556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1820,6 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ead2b7878b85b40b5867022c813431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
 --- !u!1001 &339632662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4737,6 +4769,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8400360130582435995, guid: d61dc646f9d999947a2799691d798d9c, type: 3}
   m_PrefabInstance: {fileID: 658855531}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &666559885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666559887}
+  - component: {fileID: 666559886}
+  m_Layer: 0
+  m_Name: MonaterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &666559886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666559885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acefc5594a1efb40af7940dc2a0449b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spwanPos: {fileID: 1334902437}
+  _delay: 5
+  monsterPrefap: []
+  _monsters: []
+  Points: []
+--- !u!4 &666559887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666559885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6431427, y: 0.07437134, z: -127.86843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &675564965
 GameObject:
   m_ObjectHideFlags: 0
@@ -9845,6 +9926,37 @@ Transform:
   - {fileID: 1213613977}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1334902436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334902437}
+  m_Layer: 0
+  m_Name: SpwanPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334902437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334902436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.8, y: 3.56, z: -221.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1344044318
 PrefabInstance:
