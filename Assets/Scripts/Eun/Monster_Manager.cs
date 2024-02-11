@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Monster_Manager : MonoBehaviour
 {
-
+    [Header("Spwan")]
     [SerializeField] private Transform _spwanPos;
     [SerializeField] private float _delay; //»ý¼ºµÇ´Â ½Ã°£
     private float _curDelay;
     public GameObject[] monsterPrefap;
     public List<Monster_Controller> _monsters = new List<Monster_Controller>();
 
+    [Header("Path")]
+    public Transform[] Points;
 
 
     static public Monster_Manager Instanse; //½Ì±ÛÅæ
@@ -20,6 +22,7 @@ public class Monster_Manager : MonoBehaviour
     {
         Instanse = this;
         _curDelay = _delay;
+
     }
 
 
