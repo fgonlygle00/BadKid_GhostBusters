@@ -5,17 +5,55 @@ using UnityEngine;
 public class Tower_Manager : MonoBehaviour
 {
     // 타워 프리펩 정의
-    public GameObject towerA;
-    public GameObject towerB;
-    public GameObject towerC;
+    public GameObject NormalTower;
+    public GameObject SplashTower;
+    public GameObject SummonTower;
+    public GameObject BuffTower;
+
+    public GameObject Cube1;
+    public GameObject Cube2;
+    public GameObject Cube3;
+    public GameObject Cube4;
+    public GameObject Cube5;
+    public GameObject Cube6;
+    public GameObject Cube7;
+    public GameObject Cube8;
+    public GameObject Cube9;
+    public GameObject Cube10;
+    public GameObject Cube11;
+    public GameObject Cube12;
+    public GameObject Cube13;
+    public GameObject Cube14;
+    public GameObject Cube15;
+    public GameObject Cube16;
+    public GameObject Cube17;
+    public GameObject Cube18;
+    public GameObject Cube19;
+
+    public int Cookie = 0;
+
 
     // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
-    // 타워 좌표 배열은 각 칸의 고정 좌표값이 들어있는 배열. (UI가 타워 좌표 배열을 추가해주세요.)
+    // 타워 좌표 배열은 큐브들이 들어가있는 배열.
     GameObject[] Tower_Disposition_Arr = new GameObject[19];
-    Vector3[] Tower_Coordinate_Arr = new Vector3[19];
+    GameObject[] Tower_Coordinate_Arr = new GameObject[19];
+
 
     void Start()
     {
+        for (int i = 0; i < 19; i++)
+        {
+            Tower_Coordinate_Arr[i] = (GameObject)GetType().GetField("Cube" + (i + 1)).GetValue(this);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            // Enter 키 입력 시 tower_Arrange() 메서드 호출
+            tower_Arrange();
+        }
     }
 
     void tower_Arrange() //타워를 랜덤으로 골라 랜덤 칸에 배치하는 메서드
@@ -45,8 +83,13 @@ public class Tower_Manager : MonoBehaviour
             Tower_Disposition_Arr[randomEmptySlotIndex] = towerInstance;
 
             // 타워 인스턴스의 좌표를 타워 좌표 배열의 좌표로 변경한다.
-            towerInstance.transform.position = Tower_Coordinate_Arr[randomEmptySlotIndex];
+            Vector3 currentPosition = Tower_Coordinate_Arr[randomEmptySlotIndex].transform.position;
 
+            // Y 좌표에 10을 더함
+            currentPosition.y += 10;
+
+            // 새로운 위치로 설정
+            towerInstance.transform.position = currentPosition;
         }
     }
 
@@ -57,13 +100,15 @@ public class Tower_Manager : MonoBehaviour
         switch (randomIndex)
         {
             case 0:
-                return towerA;
+                return NormalTower;
             case 1:
-                return towerB;
+                return SplashTower;
             case 2:
-                return towerC;
+                return SummonTower;
+            case 3:
+                return BuffTower;
             default:
-                return towerA; // Default to towerA if something goes wrong
+                return NormalTower; // Default to towerA if something goes wrong
         }
     }
 }
