@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class Invasion_Controller : MonoBehaviour  //충돌체 갖고 있음
 {
-    [SerializeField]private int Health;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    [SerializeField]private float Health;
 
 
-    public int ReturnHealth()
+    public float ReturnHealth()
     {
         return Health;
     }
