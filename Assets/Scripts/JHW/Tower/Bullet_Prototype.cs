@@ -1,13 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewProjectile", menuName = "ScriptableObjects/Projectile")]
-public class ProjectilePrototype : ScriptableObject
+public class Bullet_Prototype : MonoBehaviour
 {
     public float bulletSpeed;
-    public float bulletDamageMultiplier; // 타워 공격력에 비례하는 값
+    public float bulletDamage; // 타워 공격력에 비례하는 값
     public float bulletWeight;
     public GameObject monsterPrefab;
+    public GameObject targetMonster = null;
+
+    public void SetAttackDamage(float damage)
+    {
+        bulletDamage = damage;
+    }
+
+    // Set the target monster for the bullet
+    public void SetTargetMonster(GameObject target)
+    {
+        targetMonster = target;
+    }
 
     public void OnCollisionWithMonster(Collider monsterCollider)
     {
@@ -22,7 +35,6 @@ public class ProjectilePrototype : ScriptableObject
 
     void ApplyDamageToMonster(Monster monster)
     {
-        float damage = bulletDamageMultiplier * /* 타워의 공격력 가져오기 */;
-        monster.TakeDamage(damage);
+        monster.TakeDamage(bulletDamage);
     }
 }

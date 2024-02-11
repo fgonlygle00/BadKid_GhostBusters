@@ -1,51 +1,69 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower_Manager : MonoBehaviour
 {
-    public GameObject[] towerPrefabs; // 타워 프리팹들을 저장하는 배열
-    public GameObject[,] towerGrid; // 타워가 배치된 그리드 배열
-    public int gridRows = 2;
-    public int gridColumns = 4;
+    // 타워 프리펩 정의
+    public GameObject towerA;
+    public GameObject towerB;
+    public GameObject towerC;
+
+    // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
+    // 타워 좌표 배열은 각 칸의 고정 좌표값이 들어있는 배열. (UI가 타워 좌표 배열을 추가해주세요.)
+    GameObject[] Tower_Disposition_Arr = new GameObject[19];
+    Vector3[] Tower_Coordinate_Arr = new Vector3[19];
 
     void Start()
     {
-        towerGrid = new GameObject[gridRows, gridColumns];
-        TowerPlacement(); // 게임 시작 시 타워 배치
     }
 
-    void TowerPlacement()
+    void tower_Arrange() //타워를 랜덤으로 골라 랜덤 칸에 배치하는 메서드
     {
-        for (int row = 0; row < gridRows; row++)
+        // 타워 배치 배열에 빈자리가 있는지 체크하고, 그 빈자리의 리스트를 만든다
+        List<int> emptySlots = new List<int>();
+        for (int i = 0; i < Tower_Disposition_Arr.Length; i++)
         {
-            for (int col = 0; col < gridColumns; col++)
+            if (Tower_Disposition_Arr[i] == null)
             {
-                if (towerGrid[row, col] == null)
-                {
-                    int randomTowerIndex = Random.Range(0, towerPrefabs.Length);
-                    GameObject newTower = Instantiate(towerPrefabs[randomTowerIndex], GetPosition(row, col), Quaternion.identity);
-                    towerGrid[row, col] = newTower;
-
-                    // 이웃한 타워를 확인하고 필요한 로직 추가
-                    CheckNeighboringTowers(row, col);
-                }
+                emptySlots.Add(i);
             }
+        }
+
+        // 타워 배치 배열의 빈자리가 있을 경우, 그 중 하나를 무작위로 고른다.
+        if (emptySlots.Count > 0)
+        {
+            int randomEmptySlotIndex = emptySlots[Random.Range(0, emptySlots.Count)];
+
+            // 생성할 타워를 무작위로 고른다.
+            GameObject selectedTowerPrefab = GetRandomTowerPrefab();
+
+            // 인스턴스 생성
+            GameObject towerInstance = Instantiate(selectedTowerPrefab);
+
+            // 타워 배치 배열에 타워 인스턴스를 추가한다.
+            Tower_Disposition_Arr[randomEmptySlotIndex] = towerInstance;
+
+            // 타워 인스턴스의 좌표를 타워 좌표 배열의 좌표로 변경한다.
+            towerInstance.transform.position = Tower_Coordinate_Arr[randomEmptySlotIndex];
+
         }
     }
 
-    Vector3 GetPosition(int row, int col)
+    GameObject GetRandomTowerPrefab() //타워를 무작위로 고르는 메서드
     {
-        float x = col * 2.0f; // 타워 사이의 간격 조정
-        float y = 0.0f; // 원하는 높이로 조정
-        float z = row * 2.0f; // 타워 사이의 간격 조정
-
-        return new Vector3(x, y, z);
+        // 타워 프리펩을 무작위로 선택합니다
+        int randomIndex = Random.Range(0, 3);
+        switch (randomIndex)
+        {
+            case 0:
+                return towerA;
+            case 1:
+                return towerB;
+            case 2:
+                return towerC;
+            default:
+                return towerA; // Default to towerA if something goes wrong
+        }
     }
-
-    void CheckNeighboringTowers(int row, int col)
-    {
-        // 이웃한 타워를 확인하고 필요한 로직 추가
-        // 상: towerGrid[row - 1, col], 하: towerGrid[row + 1, col], 좌: towerGrid[row, col - 1], 우: towerGrid[row, col + 1]
-    }
-
-    // 다른 메서드들은 필요에 따라 구현
 }

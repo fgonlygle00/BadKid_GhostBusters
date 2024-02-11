@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Tower_Prototype : MonoBehaviour
@@ -29,11 +31,29 @@ public class Tower_Prototype : MonoBehaviour
 
     void BasicAttack()
     {
-        MonsterTargeting();
-        // 기본 발사 로직 추가
-        // Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-    }
+        GameObject targetMonster = MonsterTargeting();
 
+        if (targetMonster != null)
+        {
+            // Instantiate the bullet prefab
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+            // Access the Bullet script on the instantiated bullet object
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+            // Check if the Bullet script is not null
+            if (bulletScript != null)
+            {
+                // Set the bullet's attack damage and target monster
+                bulletScript.SetAttackDamage(attackDamage);
+                bulletScript.SetTargetMonster(targetMonster);
+            }
+            else
+            {
+                Debug.LogError("Bullet script not found on the bullet prefab.");
+            }
+        }
+    }
     void UseSkill()
     {
         MonsterTargeting();
@@ -41,9 +61,42 @@ public class Tower_Prototype : MonoBehaviour
         // UniqueSkillEffect();
     }
 
-    void MonsterTargeting()
+    GameObject MonsterTargeting()
     {
-        // 몬스터를 타겟팅하는 로직 추가
+        List<GameObject> monsterList = monsterManager.Monster_list;
+
+        GameObject targetMonster = null;
+        float maxMoveDistance = float.MinValue;
+
+        foreach (GameObject monster in monsterList)
+        {
+            // Assuming 'Monster' class has a 'move_distance' variable
+            float monsterMoveDistance = monster.GetComponent<Monster>().move_distance;
+
+            if (monsterMoveDistance > maxMoveDistance)
+            {
+                maxMoveDistance = monsterMoveDistance;
+                targetMonster = monster;
+            }
+        }
+
+        return targetMonster;
+    }
+
+    void LookTargetMonster()
+    {
+        // Get the target monster from MonsterTargeting method
+        GameObject targetMonster = MonsterTargeting();
+
+        if (targetMonster != null)
+        {
+            // Calculate the direction to the target monster
+            Vector3 direction = targetMonster.transform.position - transform.position;
+            direction.y = 0f; // Optional: Keep the rotation only in the horizontal plane
+
+            // Rotate towards the target monster
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
     }
 
     // void UniqueSkillEffect()
