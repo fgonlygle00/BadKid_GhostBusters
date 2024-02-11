@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Invasion_Controller : MonoBehaviour  //충돌체 갖고 있음
 {
-    public int Health;
+
+    private int Health;
 
     void Start()
     {
@@ -17,9 +18,9 @@ public class Invasion_Controller : MonoBehaviour  //충돌체 갖고 있음
     }
 
 
-    public void FinalCheckpoint()
+    public int ReturnHealth()
     {
-
+        return Health;
     }
 
     private void OnTriggerEnter(Collider other)
