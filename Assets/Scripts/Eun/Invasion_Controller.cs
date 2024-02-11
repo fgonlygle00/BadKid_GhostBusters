@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Invasion_Controller : MonoBehaviour  //충돌체 갖고 있음
 {
-
     private int Health;
 
     void Start()

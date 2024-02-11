@@ -1766,7 +1766,7 @@ GameObject:
   - component: {fileID: 333955020}
   - component: {fileID: 333955022}
   m_Layer: 0
-  m_Name: "\uD0C0\uC6CC"
+  m_Name: "\uAC70\uC810"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1820,7 +1820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ead2b7878b85b40b5867022c813431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
 --- !u!1001 &339632662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6602,6 +6601,18 @@ PrefabInstance:
     - target: {fileID: 1156862032115976945, guid: f1a68bca09ac81c4d99267f98a64b06e, type: 3}
       propertyPath: m_Name
       value: testMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156862032115976945, guid: f1a68bca09ac81c4d99267f98a64b06e, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321587952426033540, guid: f1a68bca09ac81c4d99267f98a64b06e, type: 3}
+      propertyPath: Datas
+      value: 
+      objectReference: {fileID: 11400000, guid: cca3b7bf86fee1a478f2ba14cebaaa3b, type: 2}
+    - target: {fileID: 3321587952426033540, guid: f1a68bca09ac81c4d99267f98a64b06e, type: 3}
+      propertyPath: moveDistanse
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7122783288783751198, guid: f1a68bca09ac81c4d99267f98a64b06e, type: 3}
       propertyPath: m_RootOrder
