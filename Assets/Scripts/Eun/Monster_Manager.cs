@@ -9,7 +9,7 @@ public class Monster_Manager : MonoBehaviour
     [SerializeField] private float _delay; //생성되는 시간
     private float _curDelay;
     public GameObject[] monsterPrefap;
-    private List<Monster_Controller> _monsters = new List<Monster_Controller>();
+    public List<Monster_Controller> _monsters = new List<Monster_Controller>();
 
 
 
