@@ -18,8 +18,8 @@ public class Monster_Status : ScriptableObject
 {
     [Header("Status")]
     public Monster_Type monster_Type;
-    public int hp;
-    public int attack;
+    public float hp;
+    public float attack;
     public float speed;
 }
 
