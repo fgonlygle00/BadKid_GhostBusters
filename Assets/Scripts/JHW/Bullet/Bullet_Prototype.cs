@@ -8,8 +8,7 @@ public class Bullet_Prototype : MonoBehaviour
     public float bulletSpeed;
     public float bulletDamage; // 타워 공격력에 비례하는 값
     public float bulletWeight;
-    public GameObject monsterPrefab;
-    public GameObject targetMonster = null;
+    public Monster_Controller targetMonster = null;
 
     public void SetAttackDamage(float damage)
     {
@@ -17,24 +16,35 @@ public class Bullet_Prototype : MonoBehaviour
     }
 
     // Set the target monster for the bullet
-    public void SetTargetMonster(GameObject target)
+    public void SetTargetMonster(Monster_Controller target)
     {
         targetMonster = target;
     }
 
-    public void OnCollisionWithMonster(Collider monsterCollider)
+    private void OnCollisionEnter(Collision collision)
     {
-        // 몬스터와 충돌 시 실행되는 로직
-        Monster monster = monsterCollider.GetComponent<Monster>();
-        if (monster != null)
+        // Check if colliding with an object tagged as "Monster"
+        if (collision.gameObject.CompareTag("Monster"))
         {
-            ApplyDamageToMonster(monster);
-            // 여기에 필요한 추가 로직을 추가할 수 있습니다.
-        }
-    }
+            // Access Monster_Status component of the collided monster
+            Monster_Status monsterStatus = collision.gameObject.GetComponent<Monster_Status>();
 
-    void ApplyDamageToMonster(Monster monster)
-    {
-        monster.TakeDamage(bulletDamage);
+            // Check if Monster_Status component is not null
+            if (monsterStatus != null)
+            {
+                // Subtract bulletDamage from the monster's hp
+                monsterStatus.hp -= bulletDamage;
+             
+
+                // Ensure HP doesn't go below 0
+                if (monsterStatus.hp < 0)
+                {
+                    monsterStatus.hp = 0;
+                }
+            }
+
+            // Destroy the bullet on collision with a monster
+            Destroy(gameObject);
+        }
     }
 }
