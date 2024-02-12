@@ -25,8 +25,6 @@ public class Monster_Manager : MonoBehaviour
 
     void Update()
     {
-
-
         if(_curDelay <= 0)
         {
             _monsters.Add(Instantiate(monsterPrefap[0], _spwanPos).GetComponent<Monster_Controller>()); //임시로 인덱스 0을 사용

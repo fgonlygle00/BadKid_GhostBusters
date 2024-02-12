@@ -7307,6 +7307,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8041496101142182103, guid: 5712fd2b9b42a5448bd60aa3bc9fae30, type: 3}
   m_PrefabInstance: {fileID: 1109505738}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1120423825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120423827}
+  - component: {fileID: 1120423826}
+  m_Layer: 0
+  m_Name: monstercrt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1120423826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120423825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acefc5594a1efb40af7940dc2a0449b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spwanPos: {fileID: 1120423827}
+  _delay: 1
+  monsterPrefap:
+  - {fileID: 1156862032115976945, guid: f1a68bca09ac81c4d99267f98a64b06e, type: 3}
+  _monsters: []
+--- !u!4 &1120423827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120423825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1122495236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11105,8 +11154,6 @@ MonoBehaviour:
   Cube15: {fileID: 617877608}
   Cube16: {fileID: 1532427243}
   Cube17: {fileID: 640338998}
-  Cube18: {fileID: 377873536}
-  Cube19: {fileID: 1779613172}
   Cookie: 0
 --- !u!4 &1740750010
 Transform:

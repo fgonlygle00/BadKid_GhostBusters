@@ -23,24 +23,15 @@ public class Bullet_Prototype : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if colliding with an object tagged as "Monster"
-        if (collision.gameObject.CompareTag("Monster"))
+        if (collision.gameObject.CompareTag("Monster"))   //충돌체가 몬스터 태그인 경우
         {
-            // Access Monster_Status component of the collided monster
-            Monster_Status monsterStatus = collision.gameObject.GetComponent<Monster_Status>();
+            Monster_Controller monsterStatus = collision.gameObject.GetComponent<Monster_Controller>(); //해당 몬스터의 스테이터스에 접근
 
             // Check if Monster_Status component is not null
             if (monsterStatus != null)
             {
                 // Subtract bulletDamage from the monster's hp
-                monsterStatus.hp -= bulletDamage;
-             
-
-                // Ensure HP doesn't go below 0
-                if (monsterStatus.hp < 0)
-                {
-                    monsterStatus.hp = 0;
-                }
+                monsterStatus.Hit(bulletDamage);
             }
 
             // Destroy the bullet on collision with a monster

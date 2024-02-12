@@ -27,21 +27,19 @@ public class Tower_Manager : MonoBehaviour
     public GameObject Cube15;
     public GameObject Cube16;
     public GameObject Cube17;
-    public GameObject Cube18;
-    public GameObject Cube19;
 
     public int Cookie = 0;
 
 
     // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
     // 타워 좌표 배열은 큐브들이 들어가있는 배열.
-    GameObject[] Tower_Disposition_Arr = new GameObject[19];
-    GameObject[] Tower_Coordinate_Arr = new GameObject[19];
+    GameObject[] Tower_Disposition_Arr = new GameObject[17];
+    GameObject[] Tower_Coordinate_Arr = new GameObject[17];
 
 
     void Start()
     {
-        for (int i = 0; i < 19; i++)
+        for (int i = 0; i < 17; i++)
         {
             Tower_Coordinate_Arr[i] = (GameObject)GetType().GetField("Cube" + (i + 1)).GetValue(this);
         }

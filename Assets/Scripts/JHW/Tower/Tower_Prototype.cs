@@ -5,16 +5,16 @@ using UnityEngine;
 public class Tower_Prototype : MonoBehaviour
 {
     // 기본 속성
-    public float attackDamage;
-    public float skillDamage;
-    public float baseAttackRate = 1f;
-    public float skillCastRate = 5f;
-    public float buffValue;
-    public float installationCost;
-    public string towerName;
-    public string towerType;
-    public string bulletType;
-    public GameObject bulletPrefab;
+    public float attackDamage; //기본공
+    public float skillDamage; //스공
+    public float baseAttackRate = 1f; //공속
+    public float skillCastRate = 5f; //스킬쿨
+    public float buffValue; //버프값
+    public float installationCost; //설치비용
+    public string towerName; //타워 이름
+    public string towerType; //타워 타입
+    public string bulletType; //총알 타입
+    public GameObject bulletPrefab; //총알 프리펩
 
     // 추가 속성
     // public int level;
@@ -25,32 +25,34 @@ public class Tower_Prototype : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("BasicAttack", 0f, baseAttackRate);
-        InvokeRepeating("UseSkill", 0f, skillCastRate);
+        InvokeRepeating("BasicAttack", 0f, baseAttackRate); //기본 공격 주기적으로 
+        InvokeRepeating("UseSkill", 0f, skillCastRate); //스킬 주기적으로
     }
 
-    void BasicAttack()
+    private void Update()
     {
-        Monster_Controller targetMonster = MonsterTargeting();
+        LookTargetMonster();
+    }
+
+
+    void BasicAttack() //기본공격
+    {
+        Monster_Controller targetMonster = MonsterTargeting(); //타겟 몬스터를 리턴받는다
 
         if (targetMonster != null)
         {
-            // Instantiate the bullet prefab
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity); //총알 프리펩 인스턴스 생성
 
-            // Access the Bullet script on the instantiated bullet object
-            Bullet_Prototype bulletScript = bullet.GetComponent<Bullet_Prototype>();
+            Bullet_Prototype bulletScript = bullet.GetComponent<Bullet_Prototype>(); //총알 인스턴스의 불릿 프로토타입 스크립트를 가져온다
 
-            // Check if the Bullet script is not null
-            if (bulletScript != null)
+            if (bulletScript != null) 
             {
-                // Set the bullet's attack damage and target monster
-                bulletScript.SetAttackDamage(attackDamage);
-                bulletScript.SetTargetMonster(targetMonster);
+
+                bulletScript.SetAttackDamage(attackDamage); //불릿의 공격력을 타워 공격력으로 설정
+                bulletScript.SetTargetMonster(targetMonster); //불릿의 타겟을 타겟 몬스터로 설정
             }
             else
             {
-                Debug.LogError("Bullet script not found on the bullet prefab.");
             }
         }
     }
@@ -61,17 +63,16 @@ public class Tower_Prototype : MonoBehaviour
         // UniqueSkillEffect();
     }
 
-    Monster_Controller MonsterTargeting()
+    Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
     {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
+        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //몬스터 리스트를 불러온다.
 
         Monster_Controller targetMonster = null;
         float maxMoveDistance = float.MinValue;
 
-        foreach (Monster_Controller monster in monsterList)
+        foreach (Monster_Controller monster in monsterList) //몬스터 리스트 중에서 가장 앞서나가는 몬스터를 찾는다.
         {
-            // Assuming 'Monster' class has a 'move_distance' variable
-            float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse;
+            float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse; //moveDistanse값이 가장 높은 몬스터를 찾는다.
 
             if (monsterMoveDistance > maxMoveDistance)
             {
@@ -80,21 +81,18 @@ public class Tower_Prototype : MonoBehaviour
             }
         }
 
-        return targetMonster;
+        return targetMonster;  //가장 앞선 몬스터를 리턴
     }
 
     void LookTargetMonster()
     {
-        // Get the target monster from MonsterTargeting method
         Monster_Controller targetMonster = MonsterTargeting();
 
         if (targetMonster != null)
         {
-            // Calculate the direction to the target monster
             Vector3 direction = targetMonster.transform.position - transform.position;
             direction.y = 0f; // Optional: Keep the rotation only in the horizontal plane
 
-            // Rotate towards the target monster
             transform.rotation = Quaternion.LookRotation(direction);
         }
     }
