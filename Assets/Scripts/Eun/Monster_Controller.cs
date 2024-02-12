@@ -33,6 +33,12 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
                 _pointIndex++;
             }
         }
+
+        //죽을 때
+        if(Datas.hp<=0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
