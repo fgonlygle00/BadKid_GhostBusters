@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 191abc2e4e0a56c45832a25c2f0dc979, type: 3}
-  m_Name: testData
+  m_Name: Monster_Nomal3
   m_EditorClassIdentifier: 
   monster_Type: 0
-  hp: 50
+  hp: 25
   attack: 10
-  speed: 30
+  speed: 40
