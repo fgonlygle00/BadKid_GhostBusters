@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Monster_Manager : MonoBehaviour
 {
+    [Header("Wave")]
+    [SerializeField] int Wave;
+
+
+
+
+
     [Header("Spwan")]
     [SerializeField] private Transform _spwanPos;
     [SerializeField] private float _delay; //생성되는 시간
@@ -40,4 +47,8 @@ public class Monster_Manager : MonoBehaviour
             _curDelay -= Time.deltaTime;
         }
     }
+
+
+
+
 }
