@@ -16,6 +16,7 @@ public class Tower_Prototype : MonoBehaviour
     public string bulletType; //총알 타입
     public GameObject bulletPrefab; //총알 프리펩
 
+
     // 추가 속성
     // public int level;
     // public float upgradeCost;
@@ -41,11 +42,14 @@ public class Tower_Prototype : MonoBehaviour
 
         if (targetMonster != null)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity); //총알 프리펩 인스턴스 생성
+            Vector3 currentPosition = transform.position;
+            currentPosition.y += 5f;
+
+            GameObject bullet = Instantiate(bulletPrefab, currentPosition, Quaternion.identity); //총알 프리펩 인스턴스 생성
 
             Bullet_Prototype bulletScript = bullet.GetComponent<Bullet_Prototype>(); //총알 인스턴스의 불릿 프로토타입 스크립트를 가져온다
 
-            if (bulletScript != null) 
+            if (bulletScript != null)
             {
 
                 bulletScript.SetAttackDamage(attackDamage); //불릿의 공격력을 타워 공격력으로 설정
@@ -63,7 +67,38 @@ public class Tower_Prototype : MonoBehaviour
         // UniqueSkillEffect();
     }
 
-    Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
+
+    Monster_Controller MonsterTargeting()
+    {
+        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
+
+
+        Monster_Controller max_moveDistanse_Monster = null;
+        float max_moveDistanse = float.MinValue;
+
+        foreach (Monster_Controller monster in monsterList)
+        {
+            // 이 오브젝트의 위치를 가져오기
+            Vector3 monsterPosition = monster.transform.position;
+            Vector3 center = transform.position;
+
+            // 좌표 범위 내에 있는지 확인
+            if (Vector3.Distance(center, monsterPosition) <= 150f)
+            {
+                // 'moveDistanse'값이 현재 최대값보다 큰지 확인
+                if (monster.moveDistanse > max_moveDistanse)
+                {
+                    max_moveDistanse = monster.moveDistanse;
+                    max_moveDistanse_Monster = monster;
+                }
+            }
+        }
+
+        return max_moveDistanse_Monster;
+    }
+
+
+    /* Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
     {
         List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //몬스터 리스트를 불러온다.
 
@@ -83,6 +118,7 @@ public class Tower_Prototype : MonoBehaviour
 
         return targetMonster;  //가장 앞선 몬스터를 리턴
     }
+    */
 
     void LookTargetMonster() //몬스터를 바라보는 메서드
     {
@@ -95,6 +131,7 @@ public class Tower_Prototype : MonoBehaviour
 
             transform.rotation = Quaternion.LookRotation(direction);
         }
+
     }
 
     // void UniqueSkillEffect()

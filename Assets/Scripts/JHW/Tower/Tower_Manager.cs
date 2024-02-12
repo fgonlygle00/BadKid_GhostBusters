@@ -27,19 +27,25 @@ public class Tower_Manager : MonoBehaviour
     public GameObject Cube15;
     public GameObject Cube16;
     public GameObject Cube17;
+    public GameObject Cube18;
 
     public int Cookie = 0;
+
+    public void Add_Cookie(int drop)    //유령 죽을 때 이 메서드를 쓰세요
+    {
+        Cookie += drop;
+    }
 
 
     // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
     // 타워 좌표 배열은 큐브들이 들어가있는 배열.
-    GameObject[] Tower_Disposition_Arr = new GameObject[17];
-    GameObject[] Tower_Coordinate_Arr = new GameObject[17];
+    GameObject[] Tower_Disposition_Arr = new GameObject[18];
+    GameObject[] Tower_Coordinate_Arr = new GameObject[18];
 
 
     void Start()
     {
-        for (int i = 0; i < 17; i++)
+        for (int i = 0; i < 18; i++)
         {
             Tower_Coordinate_Arr[i] = (GameObject)GetType().GetField("Cube" + (i + 1)).GetValue(this);
         }
@@ -84,7 +90,7 @@ public class Tower_Manager : MonoBehaviour
             Vector3 currentPosition = Tower_Coordinate_Arr[randomEmptySlotIndex].transform.position;
 
             // Y 좌표에 10을 더함
-            currentPosition.y += 10;
+            currentPosition.y += 33f;
 
             // 새로운 위치로 설정
             towerInstance.transform.position = currentPosition;

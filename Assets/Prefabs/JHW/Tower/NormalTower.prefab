@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414f49a46c926ca4a9d258eb769e88a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 0
-  skillDamage: 0
+  attackDamage: 2
+  skillDamage: 2
   baseAttackRate: 1
   skillCastRate: 5
   buffValue: 0
@@ -91,3 +91,4 @@ MonoBehaviour:
   towerType: 
   bulletType: 
   bulletPrefab: {fileID: 8260875066926676870, guid: db0aefc713bf8b841bcd2cd480517f79, type: 3}
+  towerAnimator: {fileID: 0}
