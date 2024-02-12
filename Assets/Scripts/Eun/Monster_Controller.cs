@@ -12,4 +12,10 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         return Datas.attack;
     }
 
+    public void Hit(float Attack)
+    {
+        Datas.hp -= Attack;
+    }
+
+
 }
