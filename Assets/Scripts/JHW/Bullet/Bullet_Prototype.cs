@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet_Prototype : MonoBehaviour
 {
-    public float bulletSpeed;
+    public float bulletSpeed = 1f;
     public float bulletDamage; // 타워 공격력에 비례하는 값
     public float bulletWeight;
     public Monster_Controller targetMonster = null;
@@ -21,21 +21,31 @@ public class Bullet_Prototype : MonoBehaviour
         targetMonster = target;
     }
 
+    private void Update()
+    {
+        if (targetMonster != null)
+        {
+            Vector3 direction = (targetMonster.transform.position - transform.position).normalized;
+
+            transform.Translate(direction * bulletSpeed * Time.deltaTime, Space.World);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("물체와 충돌했습니다.");
         if (collision.gameObject.CompareTag("Monster"))   //충돌체가 몬스터 태그인 경우
         {
+            Debug.Log("몬스터와 충돌한 걸 확인했습니다.");
             Monster_Controller monsterStatus = collision.gameObject.GetComponent<Monster_Controller>(); //해당 몬스터의 스테이터스에 접근
-
-            // Check if Monster_Status component is not null
             if (monsterStatus != null)
             {
-                // Subtract bulletDamage from the monster's hp
                 monsterStatus.Hit(bulletDamage);
             }
 
-            // Destroy the bullet on collision with a monster
+            Debug.Log("나 삭제됨!");
             Destroy(gameObject);
+            
         }
     }
 }

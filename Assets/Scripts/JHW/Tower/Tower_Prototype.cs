@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower_Prototype : MonoBehaviour
 {
     // 기본 속성
-    public float attackDamage; //기본공
+    public float attackDamage = 2; //기본공
     public float skillDamage; //스공
     public float baseAttackRate = 1f; //공속
     public float skillCastRate = 5f; //스킬쿨
@@ -84,7 +84,7 @@ public class Tower_Prototype : MonoBehaviour
         return targetMonster;  //가장 앞선 몬스터를 리턴
     }
 
-    void LookTargetMonster()
+    void LookTargetMonster() //몬스터를 바라보는 메서드
     {
         Monster_Controller targetMonster = MonsterTargeting();
 
