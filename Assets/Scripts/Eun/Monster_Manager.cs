@@ -38,6 +38,7 @@ public class Monster_Manager : MonoBehaviour
         if(_curDelay <= 0)
         {
             _monsters.Add(Instantiate(monsterPrefap[0], _spwanPos).GetComponent<Monster_Controller>()); //임시로 인덱스 0을 사용
+            _monsters[_monsters.Count - 1].SetPos(_spwanPos);
             _curDelay = _delay;
         }
         else
@@ -45,8 +46,4 @@ public class Monster_Manager : MonoBehaviour
             _curDelay -= Time.deltaTime;
         }
     }
-
-
-
-
 }
