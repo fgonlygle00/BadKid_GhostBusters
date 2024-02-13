@@ -17,6 +17,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4138920487604306, guid: c8c389183b4f6674092c056742f95067, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138920487604306, guid: c8c389183b4f6674092c056742f95067, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138920487604306, guid: c8c389183b4f6674092c056742f95067, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138920487604306, guid: c8c389183b4f6674092c056742f95067, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -91,4 +103,3 @@ MonoBehaviour:
   towerType: 
   bulletType: 
   bulletPrefab: {fileID: 8260875066926676870, guid: db0aefc713bf8b841bcd2cd480517f79, type: 3}
-  towerAnimator: {fileID: 0}
