@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8592613069931887331}
   - component: {fileID: 7186495028966837297}
+  - component: {fileID: -8952284139110541819}
   - component: {fileID: 7374758388296277401}
   - component: {fileID: 2088154812466870266}
   m_Layer: 0
@@ -53,6 +54,20 @@ MonoBehaviour:
     attack: 0
     speed: 0
   moveDistanse: 0
+--- !u!114 &-8952284139110541819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554624949808344996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692fca2d1c51aae46991fc354942ae4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Healindex: 0200000006000000
+  _healPersent: 20
 --- !u!54 &7374758388296277401
 Rigidbody:
   m_ObjectHideFlags: 0

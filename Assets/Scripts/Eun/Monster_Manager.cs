@@ -69,14 +69,20 @@ public class Monster_Manager : MonoBehaviour
     static public Monster_Manager Instanse; //½Ì±ÛÅæ
 
 
+    private void Awake()
+    {
+        Instanse = this;
+    }
+
     void Start()
     {
+        _monsters.Clear();
         waveManager.setWave(1, 40f, 1.2f, 90, 93, 96, 100);//¿şÀÌºê1
-        Instanse = this;
 
         SetWave();
 
         _curDelay = _delay;
+
     }
 
 
@@ -119,6 +125,7 @@ public class Monster_Manager : MonoBehaviour
 
     void SetWaveManager()
     {
+       
         switch (Wave)
         {
             case 1:
@@ -134,7 +141,7 @@ public class Monster_Manager : MonoBehaviour
                 waveManager.setWave(4, 40f, 0.8f, 80, 90, 95, 100);
                 break;
             case 5:
-                waveManager.setWave(5, 30f, 5.5f, 90, 100, 101, 102);
+                waveManager.setWave(5, 30f, 30f, 90, 100, 101, 102);
                 SpwanMonster(monsterPrefap[4]);
                 break;
             case 6:
@@ -205,6 +212,7 @@ public class Monster_Manager : MonoBehaviour
         time = waveManager.Time;
         _runTime = true;
         _monsterPersent = waveManager.ReturnPersent();
+        _monsters.Clear();
     }
 
     void RandomMonster(int M1, int M2, int M3, int M4)

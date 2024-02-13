@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 {
-    [SerializeField] private Monster_Status Datas;
-    [SerializeField] private Status _stat;
+    [SerializeField] protected Monster_Status Datas;
+    [SerializeField] protected Status _stat;
     public float moveDistanse;
 
     private int _pointIndex;   //현재 위치한 경로
 
+    private Monster_Heal _monsterHeal;
+
     private void Start()
     {
         _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
+        _monsterHeal = gameObject.GetComponent<Monster_Heal>();
     }
 
 
@@ -41,6 +44,19 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
             if (transform.position == new Vector3(Monster_Manager.Instanse.Points[_pointIndex].transform.position.x,
                 transform.position.y,Monster_Manager.Instanse.Points[_pointIndex].transform.position.z)){
 
+                if (_monsterHeal != null)
+                {
+                    Debug.Log("왜 안돼냐");
+                    foreach (var P in _monsterHeal.Healindex)
+                    {
+                        if (_pointIndex == P)
+                        {
+                            _stat.hp += Datas.status.hp * _monsterHeal.Heal();
+                            if (_stat.hp > Datas.status.hp) _stat.hp = Datas.status.hp;
+                        }
+                    }
+                }
+                
                 _pointIndex++;
             }
         }
@@ -69,6 +85,11 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     public void SetPos(Transform transform)
     {
         gameObject.transform.position = transform.position;
+    }
+
+    public void HealMonster(float HP)
+    {
+
     }
 
 }
