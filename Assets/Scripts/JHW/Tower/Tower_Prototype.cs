@@ -15,6 +15,17 @@ public class Tower_Prototype : MonoBehaviour
     public string towerType; //타워 타입
     public string bulletType; //총알 타입
     public GameObject bulletPrefab; //총알 프리펩
+    private int arr_Index;
+
+
+    //타워 타겟팅 포인트 정의
+    public GameObject Point1;
+    public GameObject Point2;
+    public GameObject Point3;
+
+    //사거리 중심점과 반경
+    private Vector3 center;
+    private float radius;
 
 
     // 추가 속성
@@ -116,18 +127,21 @@ public class Tower_Prototype : MonoBehaviour
 
         foreach (Monster_Controller monster in monsterList)
         {
-            // 이 오브젝트의 위치를 가져오기
-            Vector3 monsterPosition = monster.transform.position;
-            Vector3 center = transform.position;
-
-            // 좌표 범위 내에 있는지 확인
-            if (Vector3.Distance(center, monsterPosition) <= 150f)
+            if (monster != null)
             {
-                // 'moveDistanse'값이 현재 최대값보다 큰지 확인
-                if (monster.moveDistanse > max_moveDistanse)
+                // 이 오브젝트의 위치를 가져오기
+                Vector3 monsterPosition = monster.transform.position;
+                Vector3 center = transform.position;
+
+                // 좌표 범위 내에 있는지 확인
+                if (Vector3.Distance(center, monsterPosition) <= radius)
                 {
-                    max_moveDistanse = monster.moveDistanse;
-                    max_moveDistanse_Monster = monster;
+                    // 'moveDistanse'값이 현재 최대값보다 큰지 확인
+                    if (monster.moveDistanse > max_moveDistanse)
+                    {
+                        max_moveDistanse = monster.moveDistanse;
+                        max_moveDistanse_Monster = monster;
+                    }
                 }
             }
         }
@@ -170,6 +184,30 @@ public class Tower_Prototype : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(direction);
         }
 
+    }
+
+    public void Index_Get(int index)
+    {
+        arr_Index = index;
+        if (arr_Index >= 0 && arr_Index <= 7)
+        {
+            center = new Vector3(70f, 19.1f, 190f);
+            radius = 113f;
+        }
+        else if (arr_Index >= 8 && arr_Index <= 13)
+        {
+            center = new Vector3(289f, 19.1f, 86f);
+            radius = 125f;
+        }
+        else if (arr_Index >= 14 && arr_Index <= 17)
+        {
+            center = new Vector3(356f, 19.1f, 279f);
+            radius = 102f;
+        }
+        else
+        {
+            // Handle invalid arr_Index here if needed
+        }
     }
 
     // void UniqueSkillEffect()
