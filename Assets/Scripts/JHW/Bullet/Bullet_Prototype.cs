@@ -29,21 +29,22 @@ public class Bullet_Prototype : MonoBehaviour
 
             transform.Translate(direction * bulletSpeed * Time.deltaTime, Space.World);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("물체와 충돌했습니다.");
         if (other.CompareTag("Monster")) // 충돌체가 몬스터 태그인 경우
         {
-            Debug.Log("몬스터와 충돌한 걸 확인했습니다.");
             Monster_Controller monsterStatus = other.GetComponent<Monster_Controller>(); // 해당 몬스터의 스테이터스에 접근
             if (monsterStatus != null)
             {
                 monsterStatus.Hit(bulletDamage);
             }
 
-            Debug.Log("나 삭제됨!");
             Destroy(gameObject);
         }
     }

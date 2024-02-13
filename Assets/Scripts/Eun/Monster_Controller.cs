@@ -28,9 +28,14 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
                 Monster_Manager.Instanse.Points[_pointIndex].transform.position, _stat.speed * Time.deltaTime);
 
             // 목표 지점을 향해 회전
+
             Vector3 direction = Monster_Manager.Instanse.Points[_pointIndex].transform.position - transform.position; //목표지점을 바라보는 각도 구함
-            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up); // 이건 뭐지 더 공부
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 1000 * Time.deltaTime);
+            if (direction != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up); // 이건 뭐지 더 공부
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 1000 * Time.deltaTime);
+            }
+
 
             //다음 목표 설정
             if (transform.position == new Vector3(Monster_Manager.Instanse.Points[_pointIndex].transform.position.x,
