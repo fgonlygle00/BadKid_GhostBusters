@@ -9319,6 +9319,10 @@ MonoBehaviour:
   - {fileID: 1156862032115976945, guid: fca7124b3f449524f840cf7adca40f44, type: 3}
   - {fileID: 1156862032115976945, guid: 993f2b9fff66a5744855abaf221016d4, type: 3}
   - {fileID: 1156862032115976945, guid: 711794c1169a0954c81be9f5e1ce8c41, type: 3}
+  - {fileID: 1584271820326370865, guid: 48eeb2d46a9454b47afd9a13d43af000, type: 3}
+  - {fileID: 3186754210800610061, guid: 9000b2e1c8549aa4d93fdb08c3ce9e75, type: 3}
+  - {fileID: 8879283365833522373, guid: eb20da50a4b19194b98fe94ad984c224, type: 3}
+  - {fileID: 677883675265578334, guid: e422d8c931e7546498137f82c1b26ef8, type: 3}
   _monsters: []
   Points:
   - {fileID: 189787396}

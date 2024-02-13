@@ -9,6 +9,11 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     private int _pointIndex;   //현재 위치한 경로
 
+    private void Start()
+    {
+        SetPos();
+    }
+
 
     private void Update()
     {
@@ -16,10 +21,10 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         {
 
             //이동
-            moveDistanse += Datas.speed *Time.deltaTime;
+            moveDistanse += Datas.status.speed *Time.deltaTime;
             transform.position = Vector3.MoveTowards
                 (transform.position,
-                Monster_Manager.Instanse.Points[_pointIndex].transform.position, Datas.speed * Time.deltaTime);
+                Monster_Manager.Instanse.Points[_pointIndex].transform.position, Datas.status.speed * Time.deltaTime);
 
             // 목표 지점을 향해 회전
             Vector3 direction = Monster_Manager.Instanse.Points[_pointIndex].transform.position - transform.position; //목표지점을 바라보는 각도 구함
@@ -35,10 +40,12 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         }
 
         //죽을 때
-        if(Datas.hp<=0)
+        if(Datas.status.hp <= 0)
         {
             Destroy(gameObject);
         }
+
+
     }
 
 
@@ -46,17 +53,17 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     public float Attack()
     {
-        return Datas.attack;
+        return Datas.status.attack;
     }
 
     public void Hit(float Attack)
     {
-        Datas.hp -= Attack;
+        Datas.status.hp -= Attack;
     }
 
-    public void SetPos(Transform Trs)
+    public void SetPos()
     {
-        gameObject.transform.position = Trs.position;
+        gameObject.transform.position = Monster_Manager.Instanse._spwanPos.position;
     }
 
 }

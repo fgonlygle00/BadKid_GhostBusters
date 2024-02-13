@@ -13,13 +13,20 @@ public enum Monster_Type
     monster5
 }
 
+[System.Serializable]
+public class Status
+{
+    public float hp;
+    public float attack;
+    public float speed;
+}
+
 [CreateAssetMenu(fileName = "NewMonsterStatus", menuName = "Monster_Status")]
 public class Monster_Status : ScriptableObject
 {
     [Header("Status")]
     public Monster_Type monster_Type;
-    public float hp;
-    public float attack;
-    public float speed;
+    public Status status;
+
 }
 

@@ -51,7 +51,7 @@ public class Monster_Manager : MonoBehaviour
     //---------------------------------
 
     [Header("Spwan")]
-    [SerializeField] private Transform _spwanPos;
+    public Transform _spwanPos;
     [SerializeField] private float _delay; //생성되는 시간
     private float _curDelay;  //변화할때 사용
     public GameObject[] monsterPrefap;
@@ -90,7 +90,6 @@ public class Monster_Manager : MonoBehaviour
             if (_curDelay <= 0)
             {
                 RandomMonster(_monsterPersent[0], _monsterPersent[1], _monsterPersent[2], _monsterPersent[3]);
-                _monsters[_monsters.Count - 1].SetPos(_spwanPos);
                 _curDelay = _delay;
             }
             else
@@ -131,7 +130,7 @@ public class Monster_Manager : MonoBehaviour
                 break;
             case 5:
                 waveManager.setWave(5, 30f, 5.5f, 90, 100, 101, 102);
-                //보스소환로직
+                SpwanMonster(monsterPrefap[4]);
                 break;
             case 6:
                 Monster_HealthUP(1.5f);
@@ -148,7 +147,7 @@ public class Monster_Manager : MonoBehaviour
                 break;
             case 10:
                 waveManager.setWave(10, 20f, 4f, 85, 100, 101, 102);
-                //보스소환로직
+                SpwanMonster(monsterPrefap[5]);
                 break;
             case 11:
                 Monster_HealthUP(1.6f);
@@ -165,7 +164,7 @@ public class Monster_Manager : MonoBehaviour
                 break;
             case 15:
                 waveManager.setWave(15, 10f, 4f, 0, 0, 100, 101);
-                //보스소환로직
+                SpwanMonster(monsterPrefap[6]);
                 break;
             case 16:
                 Monster_HealthUP(1.7f);
@@ -182,7 +181,7 @@ public class Monster_Manager : MonoBehaviour
                 break;
             case 20:
                 waveManager.setWave(20, 20f, 4f, 40, 70, 90, 100);
-                //보스소환로직
+                SpwanMonster(monsterPrefap[7]);
                 break;
             case 21:
                 //클리어 판정
@@ -236,9 +235,9 @@ public class Monster_Manager : MonoBehaviour
     {
         foreach (var monster in Datas)
         {
-            float HP = monster.hp;
+            float HP = monster.status.hp;
             HP *= UP;
-            monster.hp = HP;
+            monster.status.hp = HP;
 
         }
     }

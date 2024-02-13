@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Monster_Nomal2
   m_EditorClassIdentifier: 
   monster_Type: 0
-  hp: 40
-  attack: 5
-  speed: 20
+  status:
+    hp: 50
+    attack: 7
+    speed: 20
