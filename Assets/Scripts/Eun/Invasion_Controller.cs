@@ -14,7 +14,6 @@ public class Invasion_Controller : MonoBehaviour  //충돌체 갖고 있음
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("삭제");
         if (other.gameObject.tag == "Monster")
         {
             Health -= other.gameObject.GetComponent<Monster_Controller>().Attack();
