@@ -44,7 +44,7 @@ public class Monster_Manager : MonoBehaviour
     //밖에서 적용되는지 보기위해서 잠깐 이렇게 설정
     [SerializeField] Wave_Manager waveManager;
     [Header("Wave")]
-    [SerializeField] int Wave;
+    [SerializeField] public int Wave;
     [SerializeField] float time;
     private bool _runTime;
 
