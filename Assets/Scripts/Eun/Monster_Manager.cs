@@ -233,6 +233,7 @@ public class Monster_Manager : MonoBehaviour
     void SpwanMonster(GameObject gameObject)
     {
         _monsters.Add(Instantiate(gameObject, _spwanPos).GetComponent<Monster_Controller>());
+        _monsters[_monsters.Count - 1].SetPos(_spwanPos);
     }
 
 

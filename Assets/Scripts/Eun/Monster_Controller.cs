@@ -12,7 +12,6 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     private void Start()
     {
-        SetPos();
         _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
     }
 
@@ -62,9 +61,9 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         _stat.hp -= Attack;
     }
 
-    public void SetPos()
+    public void SetPos(Transform transform)
     {
-        gameObject.transform.position = Monster_Manager.Instanse._spwanPos.position;
+        gameObject.transform.position = transform.position;
     }
 
 }
