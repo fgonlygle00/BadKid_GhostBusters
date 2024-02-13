@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Data : MonoBehaviour
 {
     public GameObject gameOverPanel;
@@ -8,50 +9,40 @@ public class Data : MonoBehaviour
     public Text gameOverText;
     public Text gameClearText;
 
-    public Transform finalCheckpoint; // 최종 거점의 위치
-    public MonsterType currentMonsterAtFinalCheckpoint; // 최종 거점에 있는 몬스터의 타입
+    public Invasion_Controller invasionController; // Invasion_Controller 스크립트를 불러오기 위한 변수
+    private int waveCount = 0; // 현재까지 버틴 웨이브 수
+
+    void Start()
+    {
+        // Invasion_Controller 스크립트의 인스턴스를 찾아서 할당
+        invasionController = FindObjectOfType<Invasion_Controller>();
+    }
 
     void Update()
     {
-        bool monsterAtFinalCheckpoint = CheckMonstersAtFinalCheckpoint();
-        bool monstersExistAtFinalCheckpoint = CheckMonstersExistAtFinalCheckpoint();
-        bool allMonstersDefeated = currentMonsterAtFinalCheckpoint == MonsterType.None;
-
-        // 게임 오버 체크
-        if (monsterAtFinalCheckpoint || monstersExistAtFinalCheckpoint)
+        // 게임 오버 체크: 최종 거점의 체력이 0 이하일 경우
+        if (invasionController.ReturnHealth() <= 0)
         {
             ShowGameOverPanel();
         }
 
-        // 게임 클리어 체크
-        if (allMonstersDefeated)
+        // 게임 클리어 체크: 20 웨이브를 버티면 게임 클리어
+        if (waveCount >= 20)
         {
             ShowGameClearPanel();
         }
     }
 
-    bool CheckMonstersAtFinalCheckpoint()
-    {
-        return currentMonsterAtFinalCheckpoint != MonsterType.None;
-    }
-
-    bool CheckMonstersExistAtFinalCheckpoint()
-    {
-        // 최종 거점에 몬스터가 도달했을 때를 고려해 추가적인 확인이 필요
-        // 현재 코드는 예시로 만든것 ( 추후 회의를 통해 이야기 해야함)
-        return currentMonsterAtFinalCheckpoint != MonsterType.None;
-    }
-
     void ShowGameOverPanel()
     {
         gameOverPanel.SetActive(true);
-        gameOverText.text = "게임 오버 : 당신은 악령으로부터 마을을 지키지 못했습니다.";
+        gameOverText.text = "게임 오버: 당신은 악령으로부터 마을을 지키지 못했습니다.";
     }
 
     void ShowGameClearPanel()
     {
         gameClearPanel.SetActive(true);
-        gameClearText.text = "게임 클리어 : 당신은 악령으로부터 마을을 지켜냈습니다.";
+        gameClearText.text = "게임 클리어: 당신은 악령으로부터 마을을 지켜냈습니다.";
     }
 
     public void CloseGameOverPanel()
@@ -60,19 +51,12 @@ public class Data : MonoBehaviour
     }
 
     public void CloseGameClearPanel()
-    { 
-        gameClearPanel.SetActive(false); 
-    
+    {
+        gameClearPanel.SetActive(false);
     }
-}
 
-public enum MonsterType
-{
-    None,
-    Monster1,
-    Monster2,
-    monster3,
-    monster4,
-    monster5
-    // 필요한 몬스터 타입들을 추가 가능
+    public void IncreaseWaveCount()
+    {
+        waveCount++;
+    }
 }
