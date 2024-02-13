@@ -12,7 +12,6 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     private void Start()
     {
-        SetPos();
         _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
     }
 
@@ -26,7 +25,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
             moveDistanse += Datas.status.speed *Time.deltaTime;
             transform.position = Vector3.MoveTowards
                 (transform.position,
-                Monster_Manager.Instanse.Points[_pointIndex].transform.position, Datas.status.speed * Time.deltaTime);
+                Monster_Manager.Instanse.Points[_pointIndex].transform.position, _stat.speed * Time.deltaTime);
 
             // 목표 지점을 향해 회전
             Vector3 direction = Monster_Manager.Instanse.Points[_pointIndex].transform.position - transform.position; //목표지점을 바라보는 각도 구함
@@ -62,9 +61,9 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         _stat.hp -= Attack;
     }
 
-    public void SetPos()
+    public void SetPos(Transform transform)
     {
-        gameObject.transform.position = Monster_Manager.Instanse._spwanPos.position;
+        gameObject.transform.position = transform.position;
     }
 
 }
