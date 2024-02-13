@@ -16517,12 +16517,12 @@ MonoBehaviour:
   _spwanPos: {fileID: 2140153611}
   _delay: 1
   monsterPrefap:
+  - {fileID: 8554624949808344996, guid: 9000b2e1c8549aa4d93fdb08c3ce9e75, type: 3}
   - {fileID: 888473768341714338, guid: 760883535cc72224990a4e8aaa0c195c, type: 3}
   - {fileID: 6518055565544713689, guid: fca7124b3f449524f840cf7adca40f44, type: 3}
   - {fileID: 4521927063088557044, guid: 993f2b9fff66a5744855abaf221016d4, type: 3}
   - {fileID: 3485747573435326417, guid: 711794c1169a0954c81be9f5e1ce8c41, type: 3}
   - {fileID: 6257708180002520262, guid: 48eeb2d46a9454b47afd9a13d43af000, type: 3}
-  - {fileID: 8554624949808344996, guid: 9000b2e1c8549aa4d93fdb08c3ce9e75, type: 3}
   - {fileID: 1120481004533076328, guid: eb20da50a4b19194b98fe94ad984c224, type: 3}
   - {fileID: 9163432630341825017, guid: e422d8c931e7546498137f82c1b26ef8, type: 3}
   _monsters: []
