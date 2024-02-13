@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2992638686441379843}
   - component: {fileID: 4832478843300416222}
+  - component: {fileID: 6426949509235356620}
+  - component: {fileID: 2532061362273350263}
   m_Layer: 0
   m_Name: Monster_Boss4
   m_TagString: Monster
@@ -51,6 +53,56 @@ MonoBehaviour:
     attack: 0
     speed: 0
   moveDistanse: 0
+--- !u!136 &6426949509235356620
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163432630341825017}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 9.48
+  m_Height: 37.06
+  m_Direction: 1
+  m_Center: {x: -0.62, y: 17.2, z: 0.56}
+--- !u!54 &2532061362273350263
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163432630341825017}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1001 &2652190633602214480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,7 +267,9 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 958745142335686052, guid: 95aa05ec0ea0a884ab92946b57d2c7b4, type: 3}
+    - {fileID: 958745142335686075, guid: 95aa05ec0ea0a884ab92946b57d2c7b4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
