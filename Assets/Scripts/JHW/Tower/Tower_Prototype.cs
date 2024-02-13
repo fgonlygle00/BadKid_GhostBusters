@@ -68,7 +68,45 @@ public class Tower_Prototype : MonoBehaviour
     }
 
 
+    /*
+
     Monster_Controller MonsterTargeting()
+    {
+        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
+
+        Monster_Controller max_moveDistanse_Monster = null;
+        float max_moveDistanse = float.MinValue;
+
+        foreach (Monster_Controller monster in monsterList)
+        {
+            // 이 오브젝트의 위치를 가져오기
+            Vector3 monsterPosition = monster.transform.position;
+            Vector3 center = transform.position;
+
+            // 레이캐스트를 이용하여 몬스터의 위치와의 충돌을 감지
+            RaycastHit hit;
+            if (Physics.Raycast(center, monsterPosition - center, out hit, 150f))
+            {
+                // 충돌한 오브젝트가 몬스터인지 확인
+                Monster_Controller hitMonster = hit.collider.GetComponent<Monster_Controller>();
+                if (hitMonster != null)
+                {
+                    // 'moveDistanse'값이 현재 최대값보다 큰지 확인
+                    if (hitMonster.moveDistanse > max_moveDistanse)
+                    {
+                        max_moveDistanse = hitMonster.moveDistanse;
+                        max_moveDistanse_Monster = hitMonster;
+                    }
+                }
+            }
+        }
+
+        return max_moveDistanse_Monster;
+    }
+    */
+
+
+     Monster_Controller MonsterTargeting()
     {
         List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
 
@@ -96,7 +134,7 @@ public class Tower_Prototype : MonoBehaviour
 
         return max_moveDistanse_Monster;
     }
-
+    
 
     /* Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
     {
