@@ -15,6 +15,13 @@ public class Tower_Prototype : MonoBehaviour
     public string towerType; //타워 타입
     public string bulletType; //총알 타입
     public GameObject bulletPrefab; //총알 프리펩
+    private int arr_Index;
+
+
+    //타워 타겟팅 포인트 정의
+    public GameObject Point1;
+    public GameObject Point2;
+    public GameObject Point3;
 
 
     // 추가 속성
@@ -170,6 +177,11 @@ public class Tower_Prototype : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(direction);
         }
 
+    }
+
+    public void Index_Get(int index)
+    {
+        arr_Index = index;
     }
 
     // void UniqueSkillEffect()
