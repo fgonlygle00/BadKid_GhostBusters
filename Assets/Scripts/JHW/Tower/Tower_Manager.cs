@@ -10,24 +10,8 @@ public class Tower_Manager : MonoBehaviour
     public GameObject SummonTower;
     public GameObject BuffTower;
 
-    public GameObject Cube1;
-    public GameObject Cube2;
-    public GameObject Cube3;
-    public GameObject Cube4;
-    public GameObject Cube5;
-    public GameObject Cube6;
-    public GameObject Cube7;
-    public GameObject Cube8;
-    public GameObject Cube9;
-    public GameObject Cube10;
-    public GameObject Cube11;
-    public GameObject Cube12;
-    public GameObject Cube13;
-    public GameObject Cube14;
-    public GameObject Cube15;
-    public GameObject Cube16;
-    public GameObject Cube17;
-    public GameObject Cube18;
+
+    
 
     public int Cookie = 0;
 
@@ -40,15 +24,11 @@ public class Tower_Manager : MonoBehaviour
     // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
     // 타워 좌표 배열은 큐브들이 들어가있는 배열.
     GameObject[] Tower_Disposition_Arr = new GameObject[18];
-    GameObject[] Tower_Coordinate_Arr = new GameObject[18];
+    public GameObject[] Tower_Coordinate_Arr = new GameObject[18];
 
 
     void Start()
     {
-        for (int i = 0; i < 18; i++)
-        {
-            Tower_Coordinate_Arr[i] = (GameObject)GetType().GetField("Cube" + (i + 1)).GetValue(this);
-        }
     }
 
     private void Update()
@@ -60,7 +40,7 @@ public class Tower_Manager : MonoBehaviour
         }
     }
 
-    void tower_Arrange() //타워를 랜덤으로 골라 랜덤 칸에 배치하는 메서드
+    public void tower_Arrange() //타워를 랜덤으로 골라 랜덤 칸에 배치하는 메서드
     {
         // 타워 배치 배열에 빈자리가 있는지 체크하고, 그 빈자리의 리스트를 만든다
         List<int> emptySlots = new List<int>();
@@ -89,11 +69,15 @@ public class Tower_Manager : MonoBehaviour
             // 타워 인스턴스의 좌표를 타워 좌표 배열의 좌표로 변경한다.
             Vector3 currentPosition = Tower_Coordinate_Arr[randomEmptySlotIndex].transform.position;
 
-            // Y 좌표에 10을 더함
+            // Y 좌표에 33을 더함
             currentPosition.y += 33f;
 
             // 새로운 위치로 설정
             towerInstance.transform.position = currentPosition;
+
+            //타워 인스턴스에 지금 자리 배치 정보를 저장
+            Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
+            tower_script.Index_Get(randomEmptySlotIndex);
         }
     }
 
