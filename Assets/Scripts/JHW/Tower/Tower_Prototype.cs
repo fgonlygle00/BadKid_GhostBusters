@@ -15,17 +15,18 @@ public class Tower_Prototype : MonoBehaviour
     public string towerType; //타워 타입
     public string bulletType; //총알 타입
     public GameObject bulletPrefab; //총알 프리펩
-    private int arr_Index;
+    public int arr_Index;
 
 
-    //타워 타겟팅 포인트 정의
+    /* 타워 타겟팅 포인트 정의
     public GameObject Point1;
     public GameObject Point2;
     public GameObject Point3;
+    */
 
     //사거리 중심점과 반경
-    private Vector3 center;
-    private float radius;
+    public Vector3 center;
+    public float radius;
 
 
     // 추가 속성
@@ -38,21 +39,24 @@ public class Tower_Prototype : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("BasicAttack", 0f, baseAttackRate); //기본 공격 주기적으로 
-        InvokeRepeating("UseSkill", 0f, skillCastRate); //스킬 주기적으로
+        /*InvokeRepeating("UseSkill", 0f, skillCastRate); //스킬 주기적으로*/
     }
 
     private void Update()
     {
-        LookTargetMonster();
     }
 
 
-    void BasicAttack() //기본공격
+    public virtual void BasicAttack() //기본공격
     {
         Monster_Controller targetMonster = MonsterTargeting(); //타겟 몬스터를 리턴받는다
 
         if (targetMonster != null)
         {
+            Vector3 direction = targetMonster.transform.position - transform.position;
+            direction.y = 0f;
+            transform.rotation = Quaternion.LookRotation(direction);
+
             Vector3 currentPosition = transform.position;
             currentPosition.y += 5f;
 
@@ -71,13 +75,91 @@ public class Tower_Prototype : MonoBehaviour
             }
         }
     }
-    void UseSkill()
+    public virtual void UseSkill()
     {
         MonsterTargeting();
         // 스킬 사용 로직 추가
         // UniqueSkillEffect();
     }
 
+    public virtual Monster_Controller MonsterTargeting()
+    {
+
+        if (Monster_Manager.Instanse._monsters.Count == 0)
+        {
+            return null;
+        }
+
+        Monster_Controller max_moveDistanse_Monster = null;
+        float max_moveDistanse = float.MinValue;
+
+        foreach (Monster_Controller monster in Monster_Manager.Instanse._monsters)
+        {
+            if (monster != null)
+            {
+                // 이 오브젝트의 위치를 가져오기
+                Vector3 monsterPosition = monster.transform.position;
+
+                // 좌표 범위 내에 있는지 확인
+                if (Vector3.Distance(center, monsterPosition) <= radius)
+                {
+                    // 'moveDistanse'값이 현재 최대값보다 큰지 확인
+                    if (monster.moveDistanse > max_moveDistanse)
+                    {
+                        max_moveDistanse = monster.moveDistanse;
+                        max_moveDistanse_Monster = monster;
+                    }
+                }
+            }
+        }
+
+        return max_moveDistanse_Monster;
+    }
+    
+
+
+    void LookTargetMonster() //몬스터를 바라보는 메서드
+    {
+        Monster_Controller targetMonster = MonsterTargeting();
+
+        if (targetMonster != null)
+        {
+            Vector3 direction = targetMonster.transform.position - transform.position;
+            direction.y = 0f;
+
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
+
+    }
+
+    public void Index_Get(int index)
+    {
+        arr_Index = index;
+        if (arr_Index >= 0 && arr_Index <= 7)
+        {
+            center = new Vector3(70f, 0f, 190f);
+            radius = 120f;
+        }
+        else if (arr_Index >= 8 && arr_Index <= 13)
+        {
+            center = new Vector3(289f, 0f, 86f);
+            radius = 125f;
+        }
+        else if (arr_Index >= 14 && arr_Index <= 17)
+        {
+            center = new Vector3(356f, 0f, 279f);
+            radius = 110f;
+        }
+        else
+        {
+            // Handle invalid arr_Index here if needed
+        }
+    }
+
+    // void UniqueSkillEffect()
+    // {
+    //     고유한 스킬 효과 로직 추가
+    // }
 
     /*
 
@@ -117,39 +199,6 @@ public class Tower_Prototype : MonoBehaviour
     */
 
 
-     Monster_Controller MonsterTargeting()
-    {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
-
-
-        Monster_Controller max_moveDistanse_Monster = null;
-        float max_moveDistanse = float.MinValue;
-
-        foreach (Monster_Controller monster in monsterList)
-        {
-            if (monster != null)
-            {
-                // 이 오브젝트의 위치를 가져오기
-                Vector3 monsterPosition = monster.transform.position;
-                Vector3 center = transform.position;
-
-                // 좌표 범위 내에 있는지 확인
-                if (Vector3.Distance(center, monsterPosition) <= radius)
-                {
-                    // 'moveDistanse'값이 현재 최대값보다 큰지 확인
-                    if (monster.moveDistanse > max_moveDistanse)
-                    {
-                        max_moveDistanse = monster.moveDistanse;
-                        max_moveDistanse_Monster = monster;
-                    }
-                }
-            }
-        }
-
-        return max_moveDistanse_Monster;
-    }
-    
-
     /* Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
     {
         List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //몬스터 리스트를 불러온다.
@@ -171,47 +220,4 @@ public class Tower_Prototype : MonoBehaviour
         return targetMonster;  //가장 앞선 몬스터를 리턴
     }
     */
-
-    void LookTargetMonster() //몬스터를 바라보는 메서드
-    {
-        Monster_Controller targetMonster = MonsterTargeting();
-
-        if (targetMonster != null)
-        {
-            Vector3 direction = targetMonster.transform.position - transform.position;
-            direction.y = 0f; // Optional: Keep the rotation only in the horizontal plane
-
-            transform.rotation = Quaternion.LookRotation(direction);
-        }
-
-    }
-
-    public void Index_Get(int index)
-    {
-        arr_Index = index;
-        if (arr_Index >= 0 && arr_Index <= 7)
-        {
-            center = new Vector3(70f, 19.1f, 190f);
-            radius = 113f;
-        }
-        else if (arr_Index >= 8 && arr_Index <= 13)
-        {
-            center = new Vector3(289f, 19.1f, 86f);
-            radius = 125f;
-        }
-        else if (arr_Index >= 14 && arr_Index <= 17)
-        {
-            center = new Vector3(356f, 19.1f, 279f);
-            radius = 102f;
-        }
-        else
-        {
-            // Handle invalid arr_Index here if needed
-        }
-    }
-
-    // void UniqueSkillEffect()
-    // {
-    //     고유한 스킬 효과 로직 추가
-    // }
 }

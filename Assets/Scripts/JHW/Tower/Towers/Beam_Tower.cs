@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Sniper_Tower : MonoBehaviour
+public class Beam_Tower : MonoBehaviour
 {
     // 기본 속성
     public float attackDamage = 2; //기본공

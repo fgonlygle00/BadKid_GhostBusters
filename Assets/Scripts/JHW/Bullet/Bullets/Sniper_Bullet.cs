@@ -3,26 +3,22 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Bullet_Prototype : MonoBehaviour
+public class Sniper_Bullet : MonoBehaviour
 {
     public float bulletSpeed = 1f;
     public float bulletDamage; // 타워 공격력에 비례하는 값
     public float bulletWeight;
     public Monster_Controller targetMonster = null;
 
-    public virtual void SetAttackDamage(float damage)
+    public void SetAttackDamage(float damage)
     {
         bulletDamage = damage;
     }
 
-    public virtual void SetTargetMonster(Monster_Controller target)
+    // Set the target monster for the bullet
+    public void SetTargetMonster(Monster_Controller target)
     {
         targetMonster = target;
-    }
-
-    public virtual void Upgraded()
-    {
-
     }
 
     private void Update()

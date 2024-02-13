@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Sniper_Tower : MonoBehaviour
+public class Range_Enhance_Tower : MonoBehaviour
 {
     // 기본 속성
     public float attackDamage = 2; //기본공
@@ -16,7 +16,6 @@ public class Sniper_Tower : MonoBehaviour
     public string bulletType; //총알 타입
     public GameObject bulletPrefab; //총알 프리펩
     private int arr_Index;
-
 
     //사거리 중심점과 반경
     private Vector3 center;

@@ -5,13 +5,25 @@ using UnityEngine;
 public class Tower_Manager : MonoBehaviour
 {
     // 타워 프리펩 정의
-    public GameObject NormalTower;
-    public GameObject SplashTower;
-    public GameObject SummonTower;
-    public GameObject BuffTower;
+
+    // 딜러 4종
+    public GameObject Gun_Tower;
+    public GameObject Cannon_Tower;
+    public GameObject Sniper_Tower;
+    public GameObject Beam_Tower;
+
+    //버프 타워 2종
+    public GameObject Range_Enhance_Tower;
+    public GameObject Density_Enhance_Tower;
+
+    //디버프 타워 2종
+    public GameObject Snow_Tower;
+    public GameObject Flame_Tower;
+
+    //타워 종류 정하는 랜덤인수
 
 
-    
+
 
     public int Cookie = 0;
 
@@ -75,6 +87,7 @@ public class Tower_Manager : MonoBehaviour
             // 새로운 위치로 설정
             towerInstance.transform.position = currentPosition;
 
+            
             //타워 인스턴스에 지금 자리 배치 정보를 저장
             Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
             tower_script.Index_Get(randomEmptySlotIndex);
@@ -84,19 +97,27 @@ public class Tower_Manager : MonoBehaviour
     GameObject GetRandomTowerPrefab() //타워를 무작위로 고르는 메서드
     {
         // 타워 프리펩을 무작위로 선택합니다
-        int randomIndex = Random.Range(0, 3);
+        int randomIndex = Random.Range(1, 1);
         switch (randomIndex)
         {
             case 0:
-                return NormalTower;
+                return Gun_Tower;
             case 1:
-                return SplashTower;
+                return Cannon_Tower;
             case 2:
-                return SummonTower;
+                return Sniper_Tower;
             case 3:
-                return BuffTower;
+                return Beam_Tower;
+            case 4:
+                return Range_Enhance_Tower; 
+            case 5:
+                return Density_Enhance_Tower;
+            case 6:
+                return Snow_Tower;
+            case 7:
+                return Flame_Tower;
             default:
-                return NormalTower; // Default to towerA if something goes wrong
+                return Gun_Tower; // 기본값은 건 타워
         }
     }
 }

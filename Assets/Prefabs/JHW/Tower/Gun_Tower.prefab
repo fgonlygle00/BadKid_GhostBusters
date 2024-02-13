@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1806311862713996, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
       propertyPath: m_Name
-      value: BuffTower Variant
+      value: Gun_Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1806311862713996, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 4445352718438402, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
       propertyPath: m_RootOrder
@@ -74,14 +78,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1806311862713996, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3817689313949754521}
+      addedObject: {fileID: 88147975009619967}
   m_SourcePrefab: {fileID: 100100000, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
 --- !u!1 &4057170996880074197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1806311862713996, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
   m_PrefabInstance: {fileID: 4056508866482133849}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3817689313949754521
+--- !u!114 &88147975009619967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,12 +94,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4057170996880074197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414f49a46c926ca4a9d258eb769e88a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 981cde4559be21b4387c99503f1ad694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 2
   skillDamage: 0
-  baseAttackRate: 1
+  baseAttackRate: 0.7
   skillCastRate: 5
   buffValue: 0
   installationCost: 0

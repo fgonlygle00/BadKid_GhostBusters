@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Slow_Tower : MonoBehaviour
+public class Snow_Tower : MonoBehaviour
 {
     // 기본 속성
     public float attackDamage = 2; //기본공
@@ -17,11 +17,6 @@ public class Slow_Tower : MonoBehaviour
     public GameObject bulletPrefab; //총알 프리펩
     private int arr_Index;
 
-
-    //타워 타겟팅 포인트 정의
-    public GameObject Point1;
-    public GameObject Point2;
-    public GameObject Point3;
 
     //사거리 중심점과 반경
     private Vector3 center;
