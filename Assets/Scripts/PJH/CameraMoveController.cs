@@ -25,13 +25,17 @@ public class CameraMoveController : MonoBehaviour
         float scrollData = Mouse.current.scroll.ReadValue().y;
         if (scrollData < 0)  // ÁÜ¾Æ¿ô
         {
-            if (_camera.orthographicSize < 130.0f)
-                _camera.orthographicSize -= scrollData * zoomSpeed * Time.deltaTime;
+            float maxOrthographicSize = _camera.orthographicSize - scrollData * zoomSpeed * Time.deltaTime;
+            if (maxOrthographicSize <= 130.0f)
+                _camera.orthographicSize = maxOrthographicSize;
+            else _camera.orthographicSize = 130.0f;
         }
         else if (scrollData > 0)  // ÁÜÀÎ
         {
-            if (_camera.orthographicSize > 20.0f)
-                _camera.orthographicSize -= scrollData * zoomSpeed * Time.deltaTime;
+            float minOrthographicSize = _camera.orthographicSize - scrollData * zoomSpeed * Time.deltaTime;
+            if (minOrthographicSize >= 20.0f)
+                _camera.orthographicSize = minOrthographicSize;
+            else _camera.orthographicSize = 20.0f;
         }
     }
 
