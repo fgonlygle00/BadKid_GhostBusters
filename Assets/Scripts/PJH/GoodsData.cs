@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoodsDataController : MonoBehaviour
+public class GoodsData : MonoBehaviour
 {
     [SerializeField] private Text _cookiesQuantity;
     public int _cookies;
     float timer;
 
-    public static GoodsDataController instance;
+    public static GoodsData instance;
     public void Awake()
     {
         instance = this;
