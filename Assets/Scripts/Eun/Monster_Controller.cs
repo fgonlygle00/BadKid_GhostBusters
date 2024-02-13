@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 {
-    [SerializeField]private Monster_Status Datas;
+    [SerializeField] private Monster_Status Datas;
+    [SerializeField] private Status _stat;
     public float moveDistanse;
 
     private int _pointIndex;   //현재 위치한 경로
@@ -12,6 +13,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     private void Start()
     {
         SetPos();
+        _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
     }
 
 
@@ -40,11 +42,10 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         }
 
         //죽을 때
-        if(Datas.status.hp <= 0)
+        if(_stat.hp <= 0)
         {
             Destroy(gameObject);
         }
-
 
     }
 
@@ -58,7 +59,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     public void Hit(float Attack)
     {
-        Datas.status.hp -= Attack;
+        _stat.hp -= Attack;
     }
 
     public void SetPos()

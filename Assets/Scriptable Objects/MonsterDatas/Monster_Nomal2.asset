@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monster_Type: 0
   status:
-    hp: 50
+    hp: 40
     attack: 7
     speed: 20

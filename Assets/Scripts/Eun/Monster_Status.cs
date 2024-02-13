@@ -19,6 +19,14 @@ public class Status
     public float hp;
     public float attack;
     public float speed;
+
+    public void Set(float H,float A, float S)
+    {
+        hp = H;
+        attack = A;
+        speed = S;
+    }
+
 }
 
 [CreateAssetMenu(fileName = "NewMonsterStatus", menuName = "Monster_Status")]
