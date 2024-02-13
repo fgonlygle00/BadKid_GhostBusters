@@ -85,7 +85,7 @@ public class Monster_Manager : MonoBehaviour
 
 
 
-        if(_runTime)
+        if(_runTime&&time > 0)
         {
             if (_curDelay <= 0)
             {
@@ -100,12 +100,17 @@ public class Monster_Manager : MonoBehaviour
         }
         if(time <=0&& _runTime)
         {
-            _runTime = false;
             time = 0;
-            Wave++;
+            //모든 적 처치
+            if (_spwanPos.childCount == 0)
+            {
+                _runTime = false;
+                Wave++;
 
-            //여기서 다음웨이브까지 몇초간 쉬는 타이밍 있으면 좋겠음, 때문에 인보크로 다음 웨이브 조절
-            Invoke("SetWaveManager", 3f); //임시 딜레이
+                //여기서 다음웨이브까지 몇초간 쉬는 타이밍 있으면 좋겠음, 때문에 인보크로 다음 웨이브 조절
+                Invoke("SetWaveManager", 5f); //임시 딜레이
+            }
+       
         }
 
 
