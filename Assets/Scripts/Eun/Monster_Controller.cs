@@ -147,6 +147,10 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     }
 
 
+    public float maxHP()
+    {
+        return Datas.status.hp;
+    }
 
     public float Attack()
     {
