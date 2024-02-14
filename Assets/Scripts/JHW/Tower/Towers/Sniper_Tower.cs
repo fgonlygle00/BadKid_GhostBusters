@@ -28,12 +28,15 @@ public class Sniper_Tower : Tower_Prototype
 
         foreach (Monster_Controller monster in monsterList) //몬스터 리스트 중에서 가장 앞서나가는 몬스터를 찾는다.
         {
-            float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse; //moveDistanse값이 가장 높은 몬스터를 찾는다.
-
-            if (monsterMoveDistance > maxMoveDistance)
+            if(monster != null)
             {
-                maxMoveDistance = monsterMoveDistance;
-                targetMonster = monster;
+                float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse; //moveDistanse값이 가장 높은 몬스터를 찾는다.
+
+                if (monsterMoveDistance > maxMoveDistance)
+                {
+                    maxMoveDistance = monsterMoveDistance;
+                    targetMonster = monster;
+                }
             }
         }
 

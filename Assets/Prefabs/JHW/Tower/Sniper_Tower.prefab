@@ -3310,8 +3310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b81d12ee2a318c42b94c5ebc2daa031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 5
-  skillDamage: 0
+  attackDamage: 10
+  Defalt_attackDamage: 10
   baseAttackRate: 3.5
   skillCastRate: 0
   buffValue: 0
@@ -3320,6 +3320,9 @@ MonoBehaviour:
   towerType: 
   bulletType: 
   bulletPrefab: {fileID: 3509831228995317347, guid: 2da14fd791963cc438afee11f0e65307, type: 3}
+  arr_Index: 0
+  center: {x: 0, y: 0, z: 0}
+  radius: 0
 --- !u!1 &1888517545445342
 GameObject:
   m_ObjectHideFlags: 0

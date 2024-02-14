@@ -15,7 +15,6 @@ public class Range_Enhance_Tower : Tower_Prototype
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
 
-    private bool[] Buff_Target_Arr = new bool[18];
     public bool buffOn;
 
     private void Start()
@@ -25,6 +24,20 @@ public class Range_Enhance_Tower : Tower_Prototype
     }
 
     void Buff_Target_Selection()
+    {
+        if (buffOn == false)
+        {
+            buffOn = true;
+            Ex_UseBuff();
+        }
+        else
+        {
+            Ex_BuffCancel();
+        }
+        // 나머지 노드들에 대한 처리 추가 가능
+    }
+
+    void Ex_UseBuff()
     {
         if (arr_Index == 0)
         {
@@ -142,57 +155,143 @@ public class Range_Enhance_Tower : Tower_Prototype
             UseBuff(15);
             UseBuff(16);
         }
-        // 나머지 노드들에 대한 처리 추가 가능
+    }
+
+    public void Ex_BuffCancel()
+    {
+        if (buffOn == true)
+        {
+            buffOn = false;
+            if (arr_Index == 0)
+            {
+                BuffCancel(1);
+                BuffCancel(4);
+                BuffCancel(5);
+            }
+            else if (arr_Index == 1)
+            {
+                BuffCancel(0);
+                BuffCancel(2);
+                BuffCancel(4);
+                BuffCancel(5);
+                BuffCancel(6);
+            }
+            else if (arr_Index == 2)
+            {
+                BuffCancel(1);
+                BuffCancel(3);
+                BuffCancel(5);
+                BuffCancel(6);
+                BuffCancel(7);
+            }
+            else if (arr_Index == 3)
+            {
+                BuffCancel(2);
+                BuffCancel(6);
+                BuffCancel(7);
+            }
+            else if (arr_Index == 4)
+            {
+                BuffCancel(0);
+                BuffCancel(1);
+                BuffCancel(5);
+            }
+            else if (arr_Index == 5)
+            {
+                BuffCancel(0);
+                BuffCancel(1);
+                BuffCancel(2);
+                BuffCancel(4);
+                BuffCancel(6);
+            }
+            else if (arr_Index == 6)
+            {
+                BuffCancel(1);
+                BuffCancel(2);
+                BuffCancel(3);
+                BuffCancel(5);
+                BuffCancel(7);
+            }
+            else if (arr_Index == 7)
+            {
+                BuffCancel(2);
+                BuffCancel(3);
+                BuffCancel(6);
+            }
+            else if (arr_Index == 8)
+            {
+                BuffCancel(9);
+                BuffCancel(10);
+                BuffCancel(11);
+            }
+            else if (arr_Index == 9)
+            {
+                BuffCancel(8);
+                BuffCancel(10);
+                BuffCancel(11);
+            }
+            else if (arr_Index == 10)
+            {
+                BuffCancel(8);
+                BuffCancel(9);
+                BuffCancel(11);
+                BuffCancel(12);
+                BuffCancel(13);
+            }
+            else if (arr_Index == 11)
+            {
+                BuffCancel(8);
+                BuffCancel(9);
+                BuffCancel(10);
+                BuffCancel(12);
+                BuffCancel(13);
+            }
+            else if (arr_Index == 12)
+            {
+                BuffCancel(10);
+                BuffCancel(11);
+                BuffCancel(13);
+            }
+            else if (arr_Index == 13)
+            {
+                BuffCancel(10);
+                BuffCancel(11);
+                BuffCancel(12);
+            }
+            else if (arr_Index == 14)
+            {
+                BuffCancel(15);
+            }
+            else if (arr_Index == 15)
+            {
+                BuffCancel(14);
+                BuffCancel(16);
+                BuffCancel(17);
+            }
+            else if (arr_Index == 16)
+            {
+                BuffCancel(15);
+                BuffCancel(17);
+            }
+            else if (arr_Index == 17)
+            {
+                BuffCancel(15);
+                BuffCancel(16);
+            }
+        }
     }
 
 
     void UseBuff(int i)
     {
-       if (Tower_Manager.Instance.Tower_Coordinate_Arr[i] != null)
-        {
-            GameObject towerInstance = Tower_Manager.Instance.Tower_Coordinate_Arr[i];
-            Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
-            if (Buff_Target_Arr[i] == false)
-            {
-                tower_script.Buffed(buffValue);
-                Buff_Target_Arr[i] = true;
-                return;
-            }
-            else
-            {
-                tower_script.BuffCanceled(buffValue);
-                Buff_Target_Arr[i] = false;
-            }
-
-        }
-        else
-        {
-            Buff_Target_Arr[i] = false;
-        }
+        Tower_Manager.Instance.SetBuffValue(i, Tower_Manager.Instance.Buff_Value_Arr[i] + buffValue);
     }
 
     public void BuffCancel(int i)
     {
-        if (Buff_Target_Arr[i] == true)
-        { 
-            if (Tower_Manager.Instance.Tower_Coordinate_Arr[i] != null)
-            {
-                GameObject towerInstance = Tower_Manager.Instance.Tower_Coordinate_Arr[i];
-                Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
-                tower_script.BuffCanceled(buffValue);
-                Buff_Target_Arr[i] = false;
-            }
-            else
-            {
-                Buff_Target_Arr[i] = false;
-            }
-        }
+        Tower_Manager.Instance.SetBuffValue(i, Tower_Manager.Instance.Buff_Value_Arr[i] - buffValue);
     }
 
-    public void External_Delete_Reroll(int i)
-    {
-        Buff_Target_Arr[i] = false;
-    }
 
 
 
