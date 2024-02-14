@@ -301,6 +301,20 @@ public class Range_Enhance_Tower : Tower_Prototype
         }
     }
 
+    public override void Upgrade()  //업그레이드 메서드 //버퍼 타워는 업그레이드 시 버프수치 2배
+    {
+        if (isUpgraded == false)
+        {
+            isUpgraded = true;
+            Defalt_attackDamage *= upgrade_Factor;
+            Ex_BuffCancel();
+            buffValue *= 2;
+        }
+        else
+        {
+            //여기에 업그레이드가 불가능할 시 작동을 입력하세요
+        }
+    }
 
     void UseBuff(int i)
     {

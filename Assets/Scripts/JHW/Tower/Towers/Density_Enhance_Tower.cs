@@ -254,7 +254,7 @@ public class Density_Enhance_Tower : Tower_Prototype
         }
     }
 
-    public override void Upgrade()  //업그레이드 메서드 //
+    public override void Upgrade()  //업그레이드 메서드 //버퍼 타워는 업그레이드 시 버프수치 2배
     {
         if (isUpgraded == false)
         {
