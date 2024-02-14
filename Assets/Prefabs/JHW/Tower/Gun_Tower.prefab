@@ -100,7 +100,7 @@ MonoBehaviour:
   attackDamage: 2
   skillDamage: 0
   baseAttackRate: 0.7
-  skillCastRate: 5
+  skillCastRate: 0
   buffValue: 0
   installationCost: 0
   towerName: 

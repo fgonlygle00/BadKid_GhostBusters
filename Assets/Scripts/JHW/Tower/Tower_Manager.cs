@@ -35,7 +35,7 @@ public class Tower_Manager : MonoBehaviour
 
     // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
     // 타워 좌표 배열은 큐브들이 들어가있는 배열.
-    GameObject[] Tower_Disposition_Arr = new GameObject[18];
+    public GameObject[] Tower_Disposition_Arr = new GameObject[18];
     public GameObject[] Tower_Coordinate_Arr = new GameObject[18];
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet_Prototype : MonoBehaviour
 {
-    public float bulletSpeed = 1f;
+    public float bulletSpeed;
     public float bulletDamage; // 타워 공격력에 비례하는 값
     public float bulletWeight;
     public Monster_Controller targetMonster = null;
