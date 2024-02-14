@@ -341,7 +341,7 @@ MonoBehaviour:
   Healindex: 0200000006000000
   healPersent: 0
   _curHealPersent: 0
-  particleSystem: {fileID: 2367756501753518530}
+  particleSystem: {fileID: 3272518452311105067}
 --- !u!54 &7374758388296277401
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -602,8 +602,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4291017765605326647, guid: a608370798d77ac44862c741281ac915, type: 3}
   m_PrefabInstance: {fileID: 3010824199276361224}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &2367756501753518530 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 653986588889952202, guid: a608370798d77ac44862c741281ac915, type: 3}
+--- !u!1 &3272518452311105067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 334052083574401059, guid: a608370798d77ac44862c741281ac915, type: 3}
   m_PrefabInstance: {fileID: 3010824199276361224}
   m_PrefabAsset: {fileID: 0}

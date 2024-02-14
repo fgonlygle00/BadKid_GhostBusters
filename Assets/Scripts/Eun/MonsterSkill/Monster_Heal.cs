@@ -8,20 +8,23 @@ public class Monster_Heal : MonoBehaviour
     [SerializeField]private float healPersent;
     [SerializeField]private float _curHealPersent;
 
-    public ParticleSystem particleSystem;
+    public GameObject particleSystem;
     private void Start()
     {
         _curHealPersent = healPersent;
-        particleSystem.Stop();
+        particleSystem.SetActive(false);
     }
 
 
     public float Heal()
     {
-        EffectHeal();
+        Debug.Log("Èú");
+        particleSystem.SetActive(true);
 
         Debug.Log((_curHealPersent / 100));
         return (_curHealPersent / 100);
+
+        Invoke("PaticlrStop", 2f);
     }
 
     public void ReturnHealPersent(float down)
@@ -34,14 +37,8 @@ public class Monster_Heal : MonoBehaviour
         _curHealPersent = healPersent;
     }
 
-    IEnumerator EffectHeal()
+    void PaticlrStop()
     {
-        particleSystem.Play();
-
-        yield return new WaitForSeconds(2f);
-
-        particleSystem.Stop();
-
-        yield break;
+        particleSystem.SetActive(false); 
     }
 }

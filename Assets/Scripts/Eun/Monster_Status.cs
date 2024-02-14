@@ -6,8 +6,14 @@ using UnityEngine;
 //임시 이름
 public enum Monster_Type
 {
-    monster,
-    boss
+    monster1,
+    monster2,
+    monster3,
+    monster4,
+    boss1,
+    boss2,
+    boss3,
+    boss4
 }
 
 [System.Serializable]
