@@ -17534,10 +17534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f9489f4a3773e4dba5d1909f97287b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 0}
-  gameClearPanel: {fileID: 0}
-  gameOverText: {fileID: 0}
-  gameClearText: {fileID: 0}
+  gameOverPanel: {fileID: 1011609785}
+  gameClearPanel: {fileID: 1203814189}
   invasionController: {fileID: 0}
   waveCount: 0
 --- !u!1001 &641694052
@@ -22494,7 +22492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1011609786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52217,9 +52215,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114603793}
-        m_TargetAssemblyTypeName: EndingVideoPlay, Assembly-CSharp
-        m_MethodName: PlayVideo
+      - m_Target: {fileID: 1347246057}
+        m_TargetAssemblyTypeName: PlayUIController, Assembly-CSharp
+        m_MethodName: RetryGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
