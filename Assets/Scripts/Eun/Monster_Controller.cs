@@ -74,7 +74,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     public float Attack()
     {
-        return Datas.status.attack;
+        return _stat.attack;
     }
 
     public void Hit(float Attack)
@@ -87,9 +87,19 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         gameObject.transform.position = transform.position;
     }
 
-    public void HealMonster(float HP)
+    //HP 값 리턴
+    public float ReturnHP()
+    {
+        return _stat.hp;
+    }
+
+    public void MovementDown(float down)
+    {
+        
+    }
+
+    public void HPDown(float Down)
     {
 
     }
-
 }
