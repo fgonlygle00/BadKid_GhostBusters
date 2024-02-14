@@ -227,7 +227,38 @@ public class Tower_Manager : MonoBehaviour
                 return Gun_Tower; // 기본값은 건 타워
         }
 
+    }
+
+    public void ReRoll(int i)
+    {
+        
+        {
+            Tower_Disposition_Arr[i] = null;
+            // 생성할 타워를 무작위로 고른다.
+            GameObject selectedTowerPrefab = GetRandomTowerPrefab();
+
+            // 인스턴스 생성
+            GameObject towerInstance = Instantiate(selectedTowerPrefab);
+
+            // 타워 배치 배열에 타워 인스턴스를 추가한다.
+            Tower_Disposition_Arr[i] = towerInstance;
+
+            // 타워 인스턴스의 좌표를 타워 좌표 배열의 좌표로 변경한다.
+            Vector3 currentPosition = Tower_Coordinate_Arr[i].transform.position;
+
+            // Y 좌표에 33을 더함
+            currentPosition.y += 33f;
+
+            // 새로운 위치로 설정
+            towerInstance.transform.position = currentPosition;
 
 
+            //타워 인스턴스에 지금 자리 배치 정보를 저장
+            Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
+            tower_script.Index_Get(i);
+
+            //타워 생성시 쿠키 소모
+            GoodsData.instance._cookies -= 1;
+        }
     }
 }

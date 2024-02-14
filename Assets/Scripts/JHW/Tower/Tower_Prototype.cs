@@ -46,15 +46,21 @@ public class Tower_Prototype : MonoBehaviour
         // 마우스 왼쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(0))
         {
-            // 이곳에 좌클릭이 눌렸을 때 수행할 동작을 작성합니다.
             Debug.Log("Left Clicked on Object: " + gameObject.name);
+
+            Upgrade();
 
         }
 
         // 마우스 오른쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(1))
         {
-            // 이곳에 우클릭이 눌렸을 때 수행할 동작을 작성합니다.
+            if (GoodsData.instance._cookies >= 1)
+            {
+                Tower_Manager.Instance.ReRoll(arr_Index);
+                Destroy(gameObject);
+            }
+
             Debug.Log("Right Clicked on Object: " + gameObject.name);
         }
     }
