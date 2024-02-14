@@ -3316,7 +3316,9 @@ MonoBehaviour:
   baseAttackRate: 3
   skillCastRate: 0
   buffValue: 0
+  isUpgraded: 0
   bulletPrefab: {fileID: 1390362051999713115, guid: 78ecd5e1b6c4f2f4d8044999de10e00e, type: 3}
+  towerType: Sniper_Tower
   arr_Index: 0
   center: {x: 0, y: 0, z: 0}
   radius: 0

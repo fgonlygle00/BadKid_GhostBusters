@@ -105,11 +105,9 @@ MonoBehaviour:
   baseAttackRate: 0.1
   skillCastRate: 0
   buffValue: 0
-  installationCost: 0
-  towerName: 
-  towerType: 
-  bulletType: 
+  isUpgraded: 0
   bulletPrefab: {fileID: 6639273671067313596, guid: c22a61b6c0f8ff044bd8c948275182c4, type: 3}
+  towerType: Beam_Tower
   arr_Index: 0
   center: {x: 0, y: 0, z: 0}
   radius: 0

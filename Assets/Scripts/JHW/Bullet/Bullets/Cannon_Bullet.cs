@@ -69,7 +69,7 @@ public class Cannon_Bullet : Bullet_Prototype
                 // 좌표 범위 내에 있는 몬스터들에게 스플래시 피해를 준다
                 if (Vector3.Distance(transform.position, monsterPosition) <= explosionRadius)
                 {
-                    monster.Hit(bulletDamage *0.75f);
+                    monster.Hit(bulletDamage *1.5f);
                 }
             }
         }
