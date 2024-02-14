@@ -13,7 +13,6 @@ public class SideBlurEffectController : MonoBehaviour
 
     void Start()
     {
-        
         _sideBlur.Play();
     }
 }

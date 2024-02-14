@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayData : MonoBehaviour
+public class GameProgressData : MonoBehaviour
 {
     [SerializeField] private Text _waveData;
     [SerializeField] private Text _defendWaveData;
@@ -14,5 +14,7 @@ public class PlayData : MonoBehaviour
 
         // 몬스터가 최종 목적지 도착시 현재 내 웨이브 방어 데이터 감소
         _defendWaveData.text = _monsterAtteck.ReturnHealth().ToString("00");
+        if (_monsterAtteck.ReturnHealth() <= 0)
+            _defendWaveData.text = "00";
     }
 }
