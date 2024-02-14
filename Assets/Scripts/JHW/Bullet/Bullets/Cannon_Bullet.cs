@@ -6,7 +6,7 @@ public class Cannon_Bullet : Bullet_Prototype
     private Vector3 target_Point;
     private bool hasReachedTarget = false;
     private float arrivalTime;
-    private float explosionRadius = 40f;
+    private float explosionRadius = 60f;
 
     public override void SetTargetMonster(Monster_Controller target)
     {

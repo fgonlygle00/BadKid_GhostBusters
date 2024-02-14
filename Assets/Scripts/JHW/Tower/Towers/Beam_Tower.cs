@@ -14,10 +14,10 @@ public class Beam_Tower : Tower_Prototype
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
 
-  /*   public override Monster_Controller MonsterTargeting()
+     public override Monster_Controller MonsterTargeting()
     {
         Monster_Controller max_hp_Monster = null;
-        float max_hp = 1;
+        float max_hp = 0;
 
         foreach (Monster_Controller monster in Monster_Manager.Instanse._monsters)
         {
@@ -26,23 +26,28 @@ public class Beam_Tower : Tower_Prototype
                 // 이 오브젝트의 위치를 가져오기
                 Vector3 monsterPosition = monster.transform.position;
                 Vector3 center = transform.position;
+                float hp = monster.ReturnHP();
 
                 // 좌표 범위 내에 있는지 확인
                 if (Vector3.Distance(center, monsterPosition) <= radius)
                 {
                     // 'hp'값이 현재 최대값보다 큰지 확인
-                    if (monster.hp > max_hp)
+                    if (hp > max_hp)
                     {
-                        max_hp = monster.hp;
+                        max_hp = hp;
                         max_hp_Monster = monster;
                     }
                 }
             }
         }
+        if (max_hp == 0)
+        {
+            max_hp_Monster = null;
+        }
 
         return max_hp_Monster;
     }
-  */
+ 
     
 
     /* Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
