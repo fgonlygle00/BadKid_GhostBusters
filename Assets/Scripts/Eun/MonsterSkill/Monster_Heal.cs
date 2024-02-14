@@ -18,10 +18,13 @@ public class Monster_Heal : MonoBehaviour
 
     public float Heal()
     {
-        EffectHeal();
+        Debug.Log("Èú");
+        particleSystem.Play();
 
         Debug.Log((_curHealPersent / 100));
         return (_curHealPersent / 100);
+
+        Invoke("PaticlrStop", 2f);
     }
 
     public void ReturnHealPersent(float down)
@@ -34,14 +37,8 @@ public class Monster_Heal : MonoBehaviour
         _curHealPersent = healPersent;
     }
 
-    IEnumerator EffectHeal()
+    void PaticlrStop()
     {
-        particleSystem.Play();
-
-        yield return new WaitForSeconds(2f);
-
         particleSystem.Stop();
-
-        yield break;
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191abc2e4e0a56c45832a25c2f0dc979, type: 3}
   m_Name: Monster_Nomal3
   m_EditorClassIdentifier: 
-  monster_Type: 0
+  monster_Type: 2
   status:
     hp: 25
     attack: 7
