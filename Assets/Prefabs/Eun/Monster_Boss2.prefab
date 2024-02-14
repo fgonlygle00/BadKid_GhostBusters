@@ -266,7 +266,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8554624949808344996
@@ -341,7 +341,7 @@ MonoBehaviour:
   Healindex: 0200000006000000
   healPersent: 0
   _curHealPersent: 0
-  particleSystem: {fileID: 3272518452311105067}
+  particleObject: {fileID: 0}
 --- !u!54 &7374758388296277401
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -600,10 +600,5 @@ PrefabInstance:
 --- !u!4 &1316275141651450175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4291017765605326647, guid: a608370798d77ac44862c741281ac915, type: 3}
-  m_PrefabInstance: {fileID: 3010824199276361224}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3272518452311105067 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 334052083574401059, guid: a608370798d77ac44862c741281ac915, type: 3}
   m_PrefabInstance: {fileID: 3010824199276361224}
   m_PrefabAsset: {fileID: 0}
