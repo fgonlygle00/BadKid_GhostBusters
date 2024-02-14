@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MakeMapScene.unity
     guid: 3df60e2e3912df145bf7c1d9120dfcaf
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 23da1f8e7e821f74c86992cbfa248507
   m_configObjects: {}
