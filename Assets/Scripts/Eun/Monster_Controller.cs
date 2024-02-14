@@ -71,7 +71,13 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
                 //폭탄 몬스터
                 if (_monsterBomb != null)
                 {
-
+                    foreach (var B in _monsterBomb.bombIndex)
+                    {
+                        if (_pointIndex == B)
+                        {
+                            _monsterBomb.BombPrefeb(_pointIndex);
+                        }
+                    }
                 }
 
 
