@@ -89,7 +89,7 @@ public class Monster_Manager : MonoBehaviour
     void Update()
     {
 
-
+        Debug.Log(_monsters);
 
         if(_runTime&&time > 0)
         {
@@ -125,7 +125,7 @@ public class Monster_Manager : MonoBehaviour
 
     void SetWaveManager()
     {
-       
+        _monsters.Clear();
         switch (Wave)
         {
             case 1:
@@ -212,7 +212,6 @@ public class Monster_Manager : MonoBehaviour
         time = waveManager.Time;
         _runTime = true;
         _monsterPersent = waveManager.ReturnPersent();
-        _monsters.Clear();
     }
 
     void RandomMonster(int M1, int M2, int M3, int M4)
