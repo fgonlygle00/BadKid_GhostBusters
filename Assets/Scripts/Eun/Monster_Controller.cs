@@ -10,8 +10,14 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     public float moveDistanse;
 
     private int _pointIndex;   //현재 위치한 경로
+    float _movementDebuff;
+    float _healDebuff;
+    bool _movementBool;
+    bool _healBool;
+
 
     private Monster_Heal _monsterHeal;
+
 
     public Image healthBar;
 
@@ -50,7 +56,6 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
                 if (_monsterHeal != null)
                 {
-                    Debug.Log("왜 안돼냐");
                     foreach (var P in _monsterHeal.Healindex)
                     {
                         if (_pointIndex == P)
@@ -63,10 +68,31 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
                 
                 _pointIndex++;
             }
+
+        }
+
+        if (_movementDebuff <= 0 && _movementBool)
+        {
+            MovementReset();
+        }
+        else
+        {
+            _movementDebuff -= Time.deltaTime;
+        }
+
+        if (_healDebuff <0 && _healBool)
+        {
+            _healBool = false;
+            _healDebuff = 0;
+            _monsterHeal.ResetHeal();
+        }
+        else
+        {
+            _healDebuff -= Time.deltaTime;
         }
 
         //죽을 때
-        if(_stat.hp <= 0)
+        if (_stat.hp <= 0)
         {
             Destroy(gameObject);
         }
@@ -107,13 +133,32 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         return _stat.hp;
     }
 
+    //현우님 사용
     public void MovementDown(float down)
     {
-        
+        _movementDebuff += 2;
+        if(!_movementBool)
+        {
+            _stat.speed *= down; 
+            _movementBool = true;
+        }
     }
-
+    //현우님 사용
     public void HPDown(float Down)
     {
+        _healDebuff += 2;
+        if(_healBool)
+        {
+            _monsterHeal.ReturnHealPersent(Down);
+            _healBool = true;
+        }
 
+    }
+
+    void MovementReset()
+    {
+        _stat.speed = Datas.status.speed;
+        _movementBool = false;
+        _movementDebuff = 0;
     }
 }

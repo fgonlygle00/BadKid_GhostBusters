@@ -15,6 +15,6 @@ public class HP_Controller : MonoBehaviour
     {
         // HP 이미지를 항상 메인 카메라의 방향을 향하도록 설정
         transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
-                         mainCamera.transform.rotation * Vector3.up);
+                         mainCamera.transform.rotation * Vector3.up); //약간 헷갈리니까 백터 곱셈 다시 공부하기
     }
 }
