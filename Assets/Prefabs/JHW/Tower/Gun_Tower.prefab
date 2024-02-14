@@ -79,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1806311862713996, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
       insertIndex: -1
       addedObject: {fileID: 88147975009619967}
+    - targetCorrespondingSourceObject: {fileID: 1806311862713996, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1171922625943829269}
   m_SourcePrefab: {fileID: 100100000, guid: 5199b6027ecee354d869db2a78ef3509, type: 3}
 --- !u!1 &4057170996880074197 stripped
 GameObject:
@@ -97,13 +100,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981cde4559be21b4387c99503f1ad694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 2
-  skillDamage: 0
-  baseAttackRate: 0.9
+  attackDamage: 60
+  Defalt_attackDamage: 60
+  baseAttackRate: 0.3
   skillCastRate: 0
   buffValue: 0
-  installationCost: 0
-  towerName: 
-  towerType: 
-  bulletType: 
   bulletPrefab: {fileID: 8260875066926676870, guid: db0aefc713bf8b841bcd2cd480517f79, type: 3}
+  arr_Index: 0
+  center: {x: 0, y: 0, z: 0}
+  radius: 0
+--- !u!65 &1171922625943829269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057170996880074197}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 9}
+  m_Center: {x: 0, y: 8, z: 0}

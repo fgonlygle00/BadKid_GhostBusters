@@ -6,7 +6,7 @@ public class Cannon_Bullet : Bullet_Prototype
     private Vector3 target_Point;
     private bool hasReachedTarget = false;
     private float arrivalTime;
-    private float explosionRadius = 60f;
+    private float explosionRadius = 70f;
 
     public override void SetTargetMonster(Monster_Controller target)
     {
@@ -66,10 +66,10 @@ public class Cannon_Bullet : Bullet_Prototype
                 // 몬스터 위치를 가져온다
                 Vector3 monsterPosition = monster.transform.position;
 
-                // 좌표 범위 내에 있는 몬스터들에게 피해를 준다
+                // 좌표 범위 내에 있는 몬스터들에게 스플래시 피해를 준다
                 if (Vector3.Distance(transform.position, monsterPosition) <= explosionRadius)
                 {
-                    monster.Hit(bulletDamage);
+                    monster.Hit(bulletDamage *0.75f);
                 }
             }
         }
