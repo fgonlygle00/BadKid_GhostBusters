@@ -1,23 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 {
-    [SerializeField] private Monster_Status Datas;
-    [SerializeField] private Status _stat;
+    [SerializeField] protected Monster_Status Datas;
+    [SerializeField] protected Status _stat;
     public float moveDistanse;
 
     private int _pointIndex;   //현재 위치한 경로
+    float _movementDebuff;
+    float _healDebuff;
+    bool _movementBool;
+    bool _healBool;
+
+
+    private Monster_Heal _monsterHeal;
+
+
+    public Image healthBar;
 
     private void Start()
     {
         _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
+        _monsterHeal = gameObject.GetComponent<Monster_Heal>();
     }
 
 
     private void Update()
     {
+        SetHealthBar();
         if (_pointIndex<= Monster_Manager.Instanse.Points.Length-1)
         {
 
@@ -41,12 +54,45 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
             if (transform.position == new Vector3(Monster_Manager.Instanse.Points[_pointIndex].transform.position.x,
                 transform.position.y,Monster_Manager.Instanse.Points[_pointIndex].transform.position.z)){
 
+                if (_monsterHeal != null)
+                {
+                    foreach (var P in _monsterHeal.Healindex)
+                    {
+                        if (_pointIndex == P)
+                        {
+                            _stat.hp += Datas.status.hp * _monsterHeal.Heal();
+                            if (_stat.hp > Datas.status.hp) _stat.hp = Datas.status.hp;
+                        }
+                    }
+                }
+                
                 _pointIndex++;
             }
+
+        }
+
+        if (_movementDebuff <= 0 && _movementBool)
+        {
+            MovementReset();
+        }
+        else
+        {
+            _movementDebuff -= Time.deltaTime;
+        }
+
+        if (_healDebuff <0 && _healBool)
+        {
+            _healBool = false;
+            _healDebuff = 0;
+            _monsterHeal.ResetHeal();
+        }
+        else
+        {
+            _healDebuff -= Time.deltaTime;
         }
 
         //죽을 때
-        if(_stat.hp <= 0)
+        if (_stat.hp <= 0)
         {
             Destroy(gameObject);
         }
@@ -55,10 +101,20 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
 
 
+    void SetHealthBar()
+    {
+        float fill = _stat.hp / Datas.status.hp;
+        healthBar.fillAmount = fill;
+    }
+
+
+
+
+
 
     public float Attack()
     {
-        return Datas.status.attack;
+        return _stat.attack;
     }
 
     public void Hit(float Attack)
@@ -71,4 +127,38 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         gameObject.transform.position = transform.position;
     }
 
+    //HP 값 리턴
+    public float ReturnHP()
+    {
+        return _stat.hp;
+    }
+
+    //현우님 사용
+    public void MovementDown(float down)
+    {
+        _movementDebuff += 2;
+        if(!_movementBool)
+        {
+            _stat.speed *= down; 
+            _movementBool = true;
+        }
+    }
+    //현우님 사용
+    public void HPDown(float Down)
+    {
+        _healDebuff += 2;
+        if(_healBool)
+        {
+            _monsterHeal.ReturnHealPersent(Down);
+            _healBool = true;
+        }
+
+    }
+
+    void MovementReset()
+    {
+        _stat.speed = Datas.status.speed;
+        _movementBool = false;
+        _movementDebuff = 0;
+    }
 }

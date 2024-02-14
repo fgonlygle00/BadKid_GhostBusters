@@ -8108,25 +8108,26 @@ MonoBehaviour:
   SplashTower: {fileID: 5597039869014728259, guid: 8ba714facd6bc044db50e996a26bb7e7, type: 3}
   SummonTower: {fileID: 3221193300925415725, guid: 6d49599b3538f9a41ae62a8a6c44de11, type: 3}
   BuffTower: {fileID: 4057170996880074197, guid: 4bc39921e8609e64d9f37576b0603d68, type: 3}
-  Cube1: {fileID: 115657593}
-  Cube2: {fileID: 915322830}
-  Cube3: {fileID: 766765777}
-  Cube4: {fileID: 890149403}
-  Cube5: {fileID: 1951957078}
-  Cube6: {fileID: 428889799}
-  Cube7: {fileID: 1555596200}
-  Cube8: {fileID: 214547413}
-  Cube9: {fileID: 1986230467}
-  Cube10: {fileID: 2125953883}
-  Cube11: {fileID: 1130526844}
-  Cube12: {fileID: 201205191}
-  Cube13: {fileID: 1776037902}
-  Cube14: {fileID: 343225272}
-  Cube15: {fileID: 2065070172}
-  Cube16: {fileID: 1853982762}
-  Cube17: {fileID: 977971422}
-  Cube18: {fileID: 4173181}
   Cookie: 0
+  Tower_Coordinate_Arr:
+  - {fileID: 115657593}
+  - {fileID: 915322830}
+  - {fileID: 766765777}
+  - {fileID: 890149403}
+  - {fileID: 1951957078}
+  - {fileID: 428889799}
+  - {fileID: 1555596200}
+  - {fileID: 214547413}
+  - {fileID: 1986230467}
+  - {fileID: 2125953883}
+  - {fileID: 1130526844}
+  - {fileID: 201205191}
+  - {fileID: 1776037902}
+  - {fileID: 343225272}
+  - {fileID: 2065070172}
+  - {fileID: 1853982762}
+  - {fileID: 977971422}
+  - {fileID: 4173181}
 --- !u!4 &607223482
 Transform:
   m_ObjectHideFlags: 0
