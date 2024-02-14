@@ -17,7 +17,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
 
     private Monster_Heal _monsterHeal;
-
+    private Monster_Bomb _monsterBomb;
 
     public Image healthBar;
 
@@ -25,6 +25,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     {
         _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
         _monsterHeal = gameObject.GetComponent<Monster_Heal>();
+        _monsterBomb = gameObject.GetComponent<Monster_Bomb>();
     }
 
 
@@ -54,6 +55,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
             if (transform.position == new Vector3(Monster_Manager.Instanse.Points[_pointIndex].transform.position.x,
                 transform.position.y,Monster_Manager.Instanse.Points[_pointIndex].transform.position.z)){
 
+                //힐 몬스터
                 if (_monsterHeal != null)
                 {
                     foreach (var P in _monsterHeal.Healindex)
@@ -65,7 +67,15 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
                         }
                     }
                 }
-                
+
+                //폭탄 몬스터
+                if (_monsterBomb != null)
+                {
+
+                }
+
+
+
                 _pointIndex++;
             }
 
@@ -106,9 +116,6 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         float fill = _stat.hp / Datas.status.hp;
         healthBar.fillAmount = fill;
     }
-
-
-
 
 
 
@@ -161,4 +168,5 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         _movementBool = false;
         _movementDebuff = 0;
     }
+
 }
