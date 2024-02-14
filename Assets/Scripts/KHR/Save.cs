@@ -2,14 +2,13 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.Playables;
 
-[System.Serializable]
 public class GameData
 {
 
     public float baseHealth;
     public int baseLevel;
     public int cookie;
-    public Vector3[] towerPosition;//타워 인스턴스 리스트
+    public Vector3[] towerPosition;//타워 매니저
     public bool towerUpgrades;
     public int currentWave;
     public float soundVolume;
