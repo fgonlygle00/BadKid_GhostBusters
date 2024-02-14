@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34e17e44db395c468fd9047c9d1321d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 2
+  attackDamage: 1
   skillDamage: 0
   baseAttackRate: 1
   skillCastRate: 5

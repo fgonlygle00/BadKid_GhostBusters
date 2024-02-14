@@ -52,7 +52,5 @@ public class Sniper_Tower : Tower_Prototype
 
             transform.rotation = Quaternion.LookRotation(direction);
         }
-
     }
-
 }

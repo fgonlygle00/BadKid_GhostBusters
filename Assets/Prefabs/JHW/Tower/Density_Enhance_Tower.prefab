@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa15c75b60acef947ad21f999517ce97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 2
+  attackDamage: 1
   skillDamage: 0
   baseAttackRate: 1
   skillCastRate: 5

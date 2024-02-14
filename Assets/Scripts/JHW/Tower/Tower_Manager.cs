@@ -4,6 +4,43 @@ using UnityEngine;
 
 public class Tower_Manager : MonoBehaviour
 {
+    private static Tower_Manager _instance;
+
+    // 싱글톤 인스턴스에 접근하는 프로퍼티
+    public static Tower_Manager Instance
+    {
+        get
+        {
+            // 인스턴스가 없으면 새로 생성
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<Tower_Manager>();
+
+                // 만약 Scene에 해당 클래스의 인스턴스가 없다면
+                if (_instance == null)
+                {
+                    // 빈 GameObject에 추가하여 인스턴스 생성
+                    GameObject singletonObject = new GameObject("Tower_Manager");
+                    _instance = singletonObject.AddComponent<Tower_Manager>();
+                }
+            }
+            return _instance;
+        }
+    }
+
+    // 기존 MonoBehaviour 메서드와 같이 사용 가능
+    private void Awake()
+    {
+        // 싱글톤 인스턴스 확인
+        if (_instance == null)
+        {
+            // 현재 인스턴스를 설정
+            _instance = this;
+        }
+        else
+        {
+        }
+    }
     // 타워 프리펩 정의
 
     // 딜러 4종
@@ -19,8 +56,6 @@ public class Tower_Manager : MonoBehaviour
     //디버프 타워 2종
     public GameObject Snow_Tower;
     public GameObject Flame_Tower;
-
-    //타워 종류 정하는 랜덤인수
 
 
 

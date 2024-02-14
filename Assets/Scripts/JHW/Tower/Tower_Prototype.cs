@@ -46,6 +46,16 @@ public class Tower_Prototype : MonoBehaviour
     {
     }
 
+    public void Buffed(float buffValue)
+    {
+        attackDamage *= buffValue;
+    }
+
+    public void BuffCanceled(float buffValue)
+    {
+        attackDamage /= buffValue;
+    }
+
 
     public virtual void BasicAttack() //기본공격
     {
@@ -74,12 +84,6 @@ public class Tower_Prototype : MonoBehaviour
             {
             }
         }
-    }
-    public virtual void UseSkill()
-    {
-        MonsterTargeting();
-        // 스킬 사용 로직 추가
-        // UniqueSkillEffect();
     }
 
     public virtual Monster_Controller MonsterTargeting()

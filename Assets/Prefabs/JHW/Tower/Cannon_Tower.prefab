@@ -3144,7 +3144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfee8623eb47cd448052b1f3b9afeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 3
+  attackDamage: 2
   skillDamage: 0
   baseAttackRate: 2.5
   skillCastRate: 0
@@ -3154,6 +3154,9 @@ MonoBehaviour:
   towerType: 
   bulletType: 
   bulletPrefab: {fileID: 8260875066926676870, guid: e6ac2d47e83c28b4cbd72d4e85a7bf9d, type: 3}
+  arr_Index: 0
+  center: {x: 0, y: 0, z: 0}
+  radius: 0
 --- !u!1 &1783268067368562
 GameObject:
   m_ObjectHideFlags: 0

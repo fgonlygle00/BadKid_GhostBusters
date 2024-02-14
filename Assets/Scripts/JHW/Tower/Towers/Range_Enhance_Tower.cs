@@ -1,26 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class Range_Enhance_Tower : MonoBehaviour
+public class Range_Enhance_Tower : Tower_Prototype
 {
-    // 기본 속성
-    public float attackDamage = 2; //기본공
-    public float skillDamage; //스공
-    public float baseAttackRate = 1f; //공속
-    public float skillCastRate = 5f; //스킬쿨
-    public float buffValue; //버프값
-    public float installationCost; //설치비용
-    public string towerName; //타워 이름
-    public string towerType; //타워 타입
-    public string bulletType; //총알 타입
-    public GameObject bulletPrefab; //총알 프리펩
-    private int arr_Index;
-
-    //사거리 중심점과 반경
-    private Vector3 center;
-    private float radius;
-
 
     // 추가 속성
     // public int level;
@@ -29,180 +15,186 @@ public class Range_Enhance_Tower : MonoBehaviour
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
 
+    private bool[] Buff_Target_Arr = new bool[18];
+    public bool buffOn;
+
     private void Start()
     {
         InvokeRepeating("BasicAttack", 0f, baseAttackRate); //기본 공격 주기적으로 
-        InvokeRepeating("UseSkill", 0f, skillCastRate); //스킬 주기적으로
+        InvokeRepeating("Buff_Target_Selection", 0f, skillCastRate); //스킬 주기적으로
     }
 
-    private void Update()
+    void Buff_Target_Selection()
     {
-        LookTargetMonster();
-    }
-
-
-    void BasicAttack() //기본공격
-    {
-        Monster_Controller targetMonster = MonsterTargeting(); //타겟 몬스터를 리턴받는다
-
-        if (targetMonster != null)
+        if (arr_Index == 0)
         {
-            Vector3 currentPosition = transform.position;
-            currentPosition.y += 5f;
+            UseBuff(1);
+            UseBuff(4);
+            UseBuff(5);
+        }
+        else if (arr_Index == 1)
+        {
+            UseBuff(0);
+            UseBuff(2);
+            UseBuff(4);
+            UseBuff(5);
+            UseBuff(6);
+        }
+        else if (arr_Index == 2)
+        {
+            UseBuff(1);
+            UseBuff(3);
+            UseBuff(5);
+            UseBuff(6);
+            UseBuff(7);
+        }
+        else if (arr_Index == 3)
+        {
+            UseBuff(2);
+            UseBuff(6);
+            UseBuff(7);
+        }
+        else if (arr_Index == 4)
+        {
+            UseBuff(0);
+            UseBuff(1);
+            UseBuff(5);
+        }
+        else if (arr_Index == 5)
+        {
+            UseBuff(0);
+            UseBuff(1);
+            UseBuff(2);
+            UseBuff(4);
+            UseBuff(6);
+        }
+        else if (arr_Index == 6)
+        {
+            UseBuff(1);
+            UseBuff(2);
+            UseBuff(3);
+            UseBuff(5);
+            UseBuff(7);
+        }
+        else if (arr_Index == 7)
+        {
+            UseBuff(2);
+            UseBuff(3);
+            UseBuff(6);
+        }
+        else if (arr_Index == 8)
+        {
+            UseBuff(9);
+            UseBuff(10);
+            UseBuff(11);
+        }
+        else if (arr_Index == 9)
+        {
+            UseBuff(8);
+            UseBuff(10);
+            UseBuff(11);
+        }
+        else if (arr_Index == 10)
+        {
+            UseBuff(8);
+            UseBuff(9);
+            UseBuff(11);
+            UseBuff(12);
+            UseBuff(13);
+        }
+        else if (arr_Index == 11)
+        {
+            UseBuff(8);
+            UseBuff(9);
+            UseBuff(10);
+            UseBuff(12);
+            UseBuff(13);
+        }
+        else if (arr_Index == 12)
+        {
+            UseBuff(10);
+            UseBuff(11);
+            UseBuff(13);
+        }
+        else if (arr_Index == 13)
+        {
+            UseBuff(10);
+            UseBuff(11);
+            UseBuff(12);
+        }
+        else if (arr_Index == 14)
+        {
+            UseBuff(15);
+        }
+        else if (arr_Index == 15)
+        {
+            UseBuff(14);
+            UseBuff(16);
+            UseBuff(17);
+        }
+        else if (arr_Index == 16)
+        {
+            UseBuff(15);
+            UseBuff(17);
+        }
+        else if (arr_Index == 17)
+        {
+            UseBuff(15);
+            UseBuff(16);
+        }
+        // 나머지 노드들에 대한 처리 추가 가능
+    }
 
-            GameObject bullet = Instantiate(bulletPrefab, currentPosition, Quaternion.identity); //총알 프리펩 인스턴스 생성
 
-            Bullet_Prototype bulletScript = bullet.GetComponent<Bullet_Prototype>(); //총알 인스턴스의 불릿 프로토타입 스크립트를 가져온다
-
-            if (bulletScript != null)
+    void UseBuff(int i)
+    {
+       if (Tower_Manager.Instance.Tower_Coordinate_Arr[i] != null)
+        {
+            GameObject towerInstance = Tower_Manager.Instance.Tower_Coordinate_Arr[i];
+            Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
+            if (Buff_Target_Arr[i] == false)
             {
-
-                bulletScript.SetAttackDamage(attackDamage); //불릿의 공격력을 타워 공격력으로 설정
-                bulletScript.SetTargetMonster(targetMonster); //불릿의 타겟을 타겟 몬스터로 설정
+                tower_script.Buffed(buffValue);
+                Buff_Target_Arr[i] = true;
+                return;
             }
             else
             {
+                tower_script.BuffCanceled(buffValue);
+                Buff_Target_Arr[i] = false;
             }
-        }
-    }
-    void UseSkill()
-    {
-        MonsterTargeting();
-        // 스킬 사용 로직 추가
-        // UniqueSkillEffect();
-    }
 
-
-    /*
-
-    Monster_Controller MonsterTargeting()
-    {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
-
-        Monster_Controller max_moveDistanse_Monster = null;
-        float max_moveDistanse = float.MinValue;
-
-        foreach (Monster_Controller monster in monsterList)
-        {
-            // 이 오브젝트의 위치를 가져오기
-            Vector3 monsterPosition = monster.transform.position;
-            Vector3 center = transform.position;
-
-            // 레이캐스트를 이용하여 몬스터의 위치와의 충돌을 감지
-            RaycastHit hit;
-            if (Physics.Raycast(center, monsterPosition - center, out hit, 150f))
-            {
-                // 충돌한 오브젝트가 몬스터인지 확인
-                Monster_Controller hitMonster = hit.collider.GetComponent<Monster_Controller>();
-                if (hitMonster != null)
-                {
-                    // 'moveDistanse'값이 현재 최대값보다 큰지 확인
-                    if (hitMonster.moveDistanse > max_moveDistanse)
-                    {
-                        max_moveDistanse = hitMonster.moveDistanse;
-                        max_moveDistanse_Monster = hitMonster;
-                    }
-                }
-            }
-        }
-
-        return max_moveDistanse_Monster;
-    }
-    */
-
-
-     Monster_Controller MonsterTargeting()
-    {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
-
-
-        Monster_Controller max_moveDistanse_Monster = null;
-        float max_moveDistanse = float.MinValue;
-
-        foreach (Monster_Controller monster in monsterList)
-        {
-            if (monster != null)
-            {
-                // 이 오브젝트의 위치를 가져오기
-                Vector3 monsterPosition = monster.transform.position;
-                Vector3 center = transform.position;
-
-                // 좌표 범위 내에 있는지 확인
-                if (Vector3.Distance(center, monsterPosition) <= radius)
-                {
-                    // 'moveDistanse'값이 현재 최대값보다 큰지 확인
-                    if (monster.moveDistanse > max_moveDistanse)
-                    {
-                        max_moveDistanse = monster.moveDistanse;
-                        max_moveDistanse_Monster = monster;
-                    }
-                }
-            }
-        }
-
-        return max_moveDistanse_Monster;
-    }
-    
-
-    /* Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
-    {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //몬스터 리스트를 불러온다.
-
-        Monster_Controller targetMonster = null;
-        float maxMoveDistance = float.MinValue;
-
-        foreach (Monster_Controller monster in monsterList) //몬스터 리스트 중에서 가장 앞서나가는 몬스터를 찾는다.
-        {
-            float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse; //moveDistanse값이 가장 높은 몬스터를 찾는다.
-
-            if (monsterMoveDistance > maxMoveDistance)
-            {
-                maxMoveDistance = monsterMoveDistance;
-                targetMonster = monster;
-            }
-        }
-
-        return targetMonster;  //가장 앞선 몬스터를 리턴
-    }
-    */
-
-    void LookTargetMonster() //몬스터를 바라보는 메서드
-    {
-        Monster_Controller targetMonster = MonsterTargeting();
-
-        if (targetMonster != null)
-        {
-            Vector3 direction = targetMonster.transform.position - transform.position;
-            direction.y = 0f; // Optional: Keep the rotation only in the horizontal plane
-
-            transform.rotation = Quaternion.LookRotation(direction);
-        }
-
-    }
-
-    public void Index_Get(int index)
-    {
-        arr_Index = index;
-        if (arr_Index >= 0 && arr_Index <= 7)
-        {
-            center = new Vector3(70f, 19.1f, 190f);
-            radius = 113f;
-        }
-        else if (arr_Index >= 8 && arr_Index <= 13)
-        {
-            center = new Vector3(289f, 19.1f, 86f);
-            radius = 125f;
-        }
-        else if (arr_Index >= 14 && arr_Index <= 17)
-        {
-            center = new Vector3(356f, 19.1f, 279f);
-            radius = 102f;
         }
         else
         {
-            // Handle invalid arr_Index here if needed
+            Buff_Target_Arr[i] = false;
         }
     }
+
+    public void BuffCancel(int i)
+    {
+        if (Buff_Target_Arr[i] == true)
+        { 
+            if (Tower_Manager.Instance.Tower_Coordinate_Arr[i] != null)
+            {
+                GameObject towerInstance = Tower_Manager.Instance.Tower_Coordinate_Arr[i];
+                Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
+                tower_script.BuffCanceled(buffValue);
+                Buff_Target_Arr[i] = false;
+            }
+            else
+            {
+                Buff_Target_Arr[i] = false;
+            }
+        }
+    }
+
+    public void External_Delete_Reroll(int i)
+    {
+        Buff_Target_Arr[i] = false;
+    }
+
+
 
     // void UniqueSkillEffect()
     // {

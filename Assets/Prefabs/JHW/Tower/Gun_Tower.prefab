@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 2
   skillDamage: 0
-  baseAttackRate: 0.7
+  baseAttackRate: 0.9
   skillCastRate: 0
   buffValue: 0
   installationCost: 0

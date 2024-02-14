@@ -97,13 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967045befa6f59c4ca94a1ceb18ebf2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 2
+  attackDamage: 1
   skillDamage: 0
-  baseAttackRate: 1
-  skillCastRate: 5
+  baseAttackRate: 0.5
+  skillCastRate: 0
   buffValue: 0
   installationCost: 0
   towerName: 
   towerType: 
   bulletType: 
   bulletPrefab: {fileID: 3509831228995317347, guid: 1c0886652e022074c968e4525f24e1b5, type: 3}
+  arr_Index: 0
+  center: {x: 0, y: 0, z: 0}
+  radius: 0
