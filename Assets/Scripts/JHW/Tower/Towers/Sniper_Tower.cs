@@ -21,12 +21,15 @@ public class Sniper_Tower : Tower_Prototype
 
     public override Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
     {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //몬스터 리스트를 불러온다.
+        if (Monster_Manager.Instanse._monsters.Count == 0)
+        {
+            return null;
+        }
 
         Monster_Controller targetMonster = null;
         float maxMoveDistance = float.MinValue;
 
-        foreach (Monster_Controller monster in monsterList) //몬스터 리스트 중에서 가장 앞서나가는 몬스터를 찾는다.
+        foreach (Monster_Controller monster in Monster_Manager.Instanse._monsters) //몬스터 리스트 중에서 가장 앞서나가는 몬스터를 찾는다.
         {
             if(monster != null)
             {

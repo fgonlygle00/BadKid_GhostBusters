@@ -10,31 +10,26 @@ public class Tower_Prototype : MonoBehaviour
     public float baseAttackRate = 1f; //공속
     public float skillCastRate = 5f; //스킬쿨
     public float buffValue; //버프값
-    public float installationCost; //설치비용
-    public string towerName; //타워 이름
-    public string towerType; //타워 타입
-    public string bulletType; //총알 타입
+    public bool isUpgraded;
     public GameObject bulletPrefab; //총알 프리펩
     public int arr_Index;
 
-
-    /* 타워 타겟팅 포인트 정의
-    public GameObject Point1;
-    public GameObject Point2;
-    public GameObject Point3;
-    */
 
     //사거리 중심점과 반경
     public Vector3 center;
     public float radius;
 
 
-    // 추가 속성
+    // 보류
     // public int level;
     // public float upgradeCost;
     // public float upgradedAttackDamage;
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
+    // public string towerName; //타워 이름
+    // public string towerType; //타워 타입
+    // public string bulletType; //총알 타입
+    // public float installationCost; //설치비용
 
     private void Start()
     {
@@ -46,12 +41,43 @@ public class Tower_Prototype : MonoBehaviour
     {
     }
 
+    private void OnMouseOver()
+    {
+        // 마우스 왼쪽 버튼이 눌렸을 때 체크
+        if (Input.GetMouseButtonDown(0))
+        {
+            // 이곳에 좌클릭이 눌렸을 때 수행할 동작을 작성합니다.
+            Debug.Log("Left Clicked on Object: " + gameObject.name);
+
+        }
+
+        // 마우스 오른쪽 버튼이 눌렸을 때 체크
+        if (Input.GetMouseButtonDown(1))
+        {
+            // 이곳에 우클릭이 눌렸을 때 수행할 동작을 작성합니다.
+            Debug.Log("Right Clicked on Object: " + gameObject.name);
+        }
+    }
+
+    public void Upgrade()
+    {
+        if (isUpgraded == false)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
     public void Buffed(float newValue)
     {
         if (newValue >= 1)
         {
             attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index];
         }
+
     }
 
 
