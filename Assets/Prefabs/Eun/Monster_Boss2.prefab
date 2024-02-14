@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4342764116814442548}
   - component: {fileID: 2099434437385800438}
   - component: {fileID: 5008559727044098589}
+  - component: {fileID: 7527527640258942038}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -114,7 +115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32.5}
+  m_AnchoredPosition: {x: 0, y: 39.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4342764116814442548
@@ -180,6 +181,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7527527640258942038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652900117166882824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec21f53c87672414180171cb2e48c3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6351068398025139103
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +324,7 @@ MonoBehaviour:
     attack: 0
     speed: 0
   moveDistanse: 0
+  healthBar: {fileID: 453020288248587934}
 --- !u!114 &-8952284139110541819
 MonoBehaviour:
   m_ObjectHideFlags: 0

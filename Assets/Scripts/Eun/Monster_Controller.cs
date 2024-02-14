@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 {
@@ -12,6 +13,8 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     private Monster_Heal _monsterHeal;
 
+    public Image healthBar;
+
     private void Start()
     {
         _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
@@ -21,6 +24,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     private void Update()
     {
+        SetHealthBar();
         if (_pointIndex<= Monster_Manager.Instanse.Points.Length-1)
         {
 
@@ -68,6 +72,16 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         }
 
     }
+
+
+
+    void SetHealthBar()
+    {
+        float fill = _stat.hp / Datas.status.hp;
+        healthBar.fillAmount = fill;
+    }
+
+
 
 
 
