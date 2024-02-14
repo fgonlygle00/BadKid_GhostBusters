@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1920312717345398, guid: c8c389183b4f6674092c056742f95067, type: 3}
       propertyPath: m_Name
-      value: NormalTower
+      value: Snow_Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920312717345398, guid: c8c389183b4f6674092c056742f95067, type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 4138920487604306, guid: c8c389183b4f6674092c056742f95067, type: 3}
       propertyPath: m_RootOrder
@@ -74,14 +78,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1920312717345398, guid: c8c389183b4f6674092c056742f95067, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3973589401296671229}
+      addedObject: {fileID: 1087909021591365598}
   m_SourcePrefab: {fileID: 100100000, guid: c8c389183b4f6674092c056742f95067, type: 3}
 --- !u!1 &3061867114529216920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1920312717345398, guid: c8c389183b4f6674092c056742f95067, type: 3}
   m_PrefabInstance: {fileID: 3061107891493067758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3973589401296671229
+--- !u!114 &1087909021591365598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,11 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3061867114529216920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414f49a46c926ca4a9d258eb769e88a1, type: 3}
+  m_Script: {fileID: 11500000, guid: d8d346a25aeb2ac4d8260c574510cffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 2
-  skillDamage: 2
+  attackDamage: 1
+  skillDamage: 0
   baseAttackRate: 1
   skillCastRate: 5
   buffValue: 0
@@ -102,4 +106,4 @@ MonoBehaviour:
   towerName: 
   towerType: 
   bulletType: 
-  bulletPrefab: {fileID: 8260875066926676870, guid: db0aefc713bf8b841bcd2cd480517f79, type: 3}
+  bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}

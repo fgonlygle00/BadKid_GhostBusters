@@ -8,7 +8,7 @@ public class Gun_Tower : MonoBehaviour
     public float attackDamage = 2; //기본공
     public float skillDamage; //스공
     public float baseAttackRate = 1f; //공속
-    public float skillCastRate = 5f; //스킬쿨
+    public float skillCastRate; //스킬쿨
     public float buffValue; //버프값
     public float installationCost; //설치비용
     public string towerName; //타워 이름
@@ -17,11 +17,6 @@ public class Gun_Tower : MonoBehaviour
     public GameObject bulletPrefab; //총알 프리펩
     private int arr_Index;
 
-
-    //타워 타겟팅 포인트 정의
-    public GameObject Point1;
-    public GameObject Point2;
-    public GameObject Point3;
 
     //사거리 중심점과 반경
     private Vector3 center;
@@ -38,7 +33,7 @@ public class Gun_Tower : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("BasicAttack", 0f, baseAttackRate); //기본 공격 주기적으로 
-        InvokeRepeating("UseSkill", 0f, skillCastRate); //스킬 주기적으로
+        //InvokeRepeating("UseSkill", 0f, skillCastRate); //스킬 주기적으로
     }
 
     private void Update()
@@ -71,6 +66,8 @@ public class Gun_Tower : MonoBehaviour
             }
         }
     }
+
+    /*
     void UseSkill()
     {
         MonsterTargeting();
@@ -78,42 +75,6 @@ public class Gun_Tower : MonoBehaviour
         // UniqueSkillEffect();
     }
 
-
-    /*
-
-    Monster_Controller MonsterTargeting()
-    {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters;
-
-        Monster_Controller max_moveDistanse_Monster = null;
-        float max_moveDistanse = float.MinValue;
-
-        foreach (Monster_Controller monster in monsterList)
-        {
-            // 이 오브젝트의 위치를 가져오기
-            Vector3 monsterPosition = monster.transform.position;
-            Vector3 center = transform.position;
-
-            // 레이캐스트를 이용하여 몬스터의 위치와의 충돌을 감지
-            RaycastHit hit;
-            if (Physics.Raycast(center, monsterPosition - center, out hit, 150f))
-            {
-                // 충돌한 오브젝트가 몬스터인지 확인
-                Monster_Controller hitMonster = hit.collider.GetComponent<Monster_Controller>();
-                if (hitMonster != null)
-                {
-                    // 'moveDistanse'값이 현재 최대값보다 큰지 확인
-                    if (hitMonster.moveDistanse > max_moveDistanse)
-                    {
-                        max_moveDistanse = hitMonster.moveDistanse;
-                        max_moveDistanse_Monster = hitMonster;
-                    }
-                }
-            }
-        }
-
-        return max_moveDistanse_Monster;
-    }
     */
 
 
@@ -150,28 +111,6 @@ public class Gun_Tower : MonoBehaviour
     }
     
 
-    /* Monster_Controller MonsterTargeting() //몬스터를 타겟팅하는 메서드
-    {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //몬스터 리스트를 불러온다.
-
-        Monster_Controller targetMonster = null;
-        float maxMoveDistance = float.MinValue;
-
-        foreach (Monster_Controller monster in monsterList) //몬스터 리스트 중에서 가장 앞서나가는 몬스터를 찾는다.
-        {
-            float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse; //moveDistanse값이 가장 높은 몬스터를 찾는다.
-
-            if (monsterMoveDistance > maxMoveDistance)
-            {
-                maxMoveDistance = monsterMoveDistance;
-                targetMonster = monster;
-            }
-        }
-
-        return targetMonster;  //가장 앞선 몬스터를 리턴
-    }
-    */
-
     void LookTargetMonster() //몬스터를 바라보는 메서드
     {
         Monster_Controller targetMonster = MonsterTargeting();
@@ -206,12 +145,7 @@ public class Gun_Tower : MonoBehaviour
         }
         else
         {
-            // Handle invalid arr_Index here if needed
         }
     }
 
-    // void UniqueSkillEffect()
-    // {
-    //     고유한 스킬 효과 로직 추가
-    // }
 }
