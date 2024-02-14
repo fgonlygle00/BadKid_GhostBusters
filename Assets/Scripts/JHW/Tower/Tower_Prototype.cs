@@ -12,7 +12,8 @@ public class Tower_Prototype : MonoBehaviour
     public float buffValue; //버프값
     public bool isUpgraded;
     public GameObject bulletPrefab; //총알 프리펩
-    public int arr_Index;
+    public string towerType; //타워 타입
+    public int arr_Index; //이 타워의 배열칸 위치
 
 
     //사거리 중심점과 반경
@@ -27,7 +28,7 @@ public class Tower_Prototype : MonoBehaviour
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
     // public string towerName; //타워 이름
-    // public string towerType; //타워 타입
+    //
     // public string bulletType; //총알 타입
     // public float installationCost; //설치비용
 
@@ -46,28 +47,33 @@ public class Tower_Prototype : MonoBehaviour
         // 마우스 왼쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(0))
         {
-            // 이곳에 좌클릭이 눌렸을 때 수행할 동작을 작성합니다.
             Debug.Log("Left Clicked on Object: " + gameObject.name);
-
+            Upgrade();
         }
 
         // 마우스 오른쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(1))
         {
-            // 이곳에 우클릭이 눌렸을 때 수행할 동작을 작성합니다.
+            if (GoodsData.instance._cookies >= 10)
+            { 
+                Tower_Manager.Instance.ReRoll(arr_Index);
+                Destroy(gameObject);
+            }
+
             Debug.Log("Right Clicked on Object: " + gameObject.name);
         }
     }
 
-    public void Upgrade()
+    public virtual void Upgrade()
     {
         if (isUpgraded == false)
         {
-
+            isUpgraded = true;
+            Defalt_attackDamage *= 2;
         }
         else
         {
-
+            //여기에 업그레이드가 불가능할 시 작동을 입력하세요
         }
     }
 

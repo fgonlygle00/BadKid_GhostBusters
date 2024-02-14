@@ -105,7 +105,9 @@ MonoBehaviour:
   baseAttackRate: 0.5
   skillCastRate: 5
   buffValue: 0
+  isUpgraded: 0
   bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}
+  towerType: Snow_Tower
   arr_Index: 0
   center: {x: 0, y: 0, z: 0}
   radius: 0
