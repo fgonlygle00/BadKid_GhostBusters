@@ -6,17 +6,23 @@ public class Cannon_Bullet : Bullet_Prototype
     private Vector3 target_Point;
     private bool hasReachedTarget = false;
     private float arrivalTime;
-    private float explosionRadius = 70f;
+    private float explosionRadius = 50f;
 
     public override void SetTargetMonster(Monster_Controller target)
     {
         target_Point = target.transform.position;
     }
 
-    public override void Upgraded()
+    public override void Upgraded(bool _isUpgraded)
     {
-        explosionRadius = 52f;
+        isUpgraded = _isUpgraded;
+        if (isUpgraded == true)
+        {
+            explosionRadius = 70f;
+        }
     }
+
+
 
 
     private void Update()

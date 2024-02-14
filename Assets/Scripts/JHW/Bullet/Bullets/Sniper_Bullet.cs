@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Sniper_Bullet : Bullet_Prototype
 {
+
+
+
     private void Update()
     {
         if (targetMonster != null)
