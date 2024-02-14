@@ -6,7 +6,7 @@ public class StartUIController : MonoBehaviour
     // 게임 시작
     public void GamePlay()
     {
-        SceneManager.LoadScene("MakeMapScene");
+        SceneManager.LoadScene("MainScene");
     }
 
     // 게임 설명

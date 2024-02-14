@@ -14,6 +14,7 @@ public class Tower_Prototype : MonoBehaviour
     public GameObject bulletPrefab; //총알 프리펩
     public string towerType; //타워 타입
     public int arr_Index; //이 타워의 배열칸 위치
+    public float upgrade_Factor; // <<< 업그레이드 시 공격력 증가 배율 
 
 
     //사거리 중심점과 반경
@@ -22,9 +23,6 @@ public class Tower_Prototype : MonoBehaviour
 
 
     // 보류
-    // public int level;
-    // public float upgradeCost;
-    // public float upgradedAttackDamage;
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
     // public string towerName; //타워 이름
@@ -64,12 +62,12 @@ public class Tower_Prototype : MonoBehaviour
         }
     }
 
-    public virtual void Upgrade()
+    public virtual void Upgrade()  //업그레이드 메서드
     {
         if (isUpgraded == false)
         {
             isUpgraded = true;
-            Defalt_attackDamage *= 2;
+            Defalt_attackDamage *= upgrade_Factor;
         }
         else
         {
@@ -77,11 +75,11 @@ public class Tower_Prototype : MonoBehaviour
         }
     }
 
-    public void Buffed(float newValue)
+    public void Buffed(float newValue)  //버프 받기 메서드
     {
         if (newValue >= 1)
         {
-            attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index];
+            attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //기본공격력 * 버프값
         }
 
     }
@@ -146,7 +144,6 @@ public class Tower_Prototype : MonoBehaviour
                 }
             }
         }
-
         return max_moveDistanse_Monster;
     }
     
