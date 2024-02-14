@@ -20,6 +20,26 @@ public class Density_Enhance_Tower : Tower_Prototype
         InvokeRepeating("Buff_Target_Selection", 0f, skillCastRate); //스킬 주기적으로
     }
 
+    private void OnMouseOver()
+    {
+        // 마우스 왼쪽 버튼이 눌렸을 때 체크
+        if (Input.GetMouseButtonDown(0))
+        {
+            Upgrade();
+        }
+
+        // 마우스 오른쪽 버튼이 눌렸을 때 체크
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (GoodsData.instance._cookies >= 10)
+            {
+                Ex_BuffCancel();
+                Tower_Manager.Instance.ReRoll(arr_Index);
+                Destroy(gameObject);
+            }
+        }
+    }
+
     void Buff_Target_Selection()
     {
         if (buffOn == false)

@@ -231,7 +231,6 @@ public class Tower_Manager : MonoBehaviour
 
     public void ReRoll(int i)
     {
-        
         {
             Tower_Disposition_Arr[i] = null;
             // 생성할 타워를 무작위로 고른다.
@@ -258,7 +257,7 @@ public class Tower_Manager : MonoBehaviour
             tower_script.Index_Get(i);
 
             //타워 생성시 쿠키 소모
-            GoodsData.instance._cookies -= 1;
+            GoodsData.instance._cookies -= 10;
         }
     }
 }

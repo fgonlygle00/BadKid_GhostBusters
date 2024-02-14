@@ -48,16 +48,14 @@ public class Tower_Prototype : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Left Clicked on Object: " + gameObject.name);
-
             Upgrade();
-
         }
 
         // 마우스 오른쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(1))
         {
-            if (GoodsData.instance._cookies >= 1)
-            {
+            if (GoodsData.instance._cookies >= 10)
+            { 
                 Tower_Manager.Instance.ReRoll(arr_Index);
                 Destroy(gameObject);
             }
@@ -66,15 +64,16 @@ public class Tower_Prototype : MonoBehaviour
         }
     }
 
-    public void Upgrade()
+    public virtual void Upgrade()
     {
         if (isUpgraded == false)
         {
-
+            isUpgraded = true;
+            Defalt_attackDamage *= 2;
         }
         else
         {
-
+            //여기에 업그레이드가 불가능할 시 작동을 입력하세요
         }
     }
 
