@@ -6,7 +6,7 @@ public class Tower_Prototype : MonoBehaviour
 {
     // 기본 속성
     public float attackDamage = 2; //기본공
-    public float skillDamage; //스공
+    public float Defalt_attackDamage = 2;
     public float baseAttackRate = 1f; //공속
     public float skillCastRate = 5f; //스킬쿨
     public float buffValue; //버프값
@@ -46,14 +46,12 @@ public class Tower_Prototype : MonoBehaviour
     {
     }
 
-    public void Buffed(float buffValue)
+    public void Buffed(float newValue)
     {
-        attackDamage *= buffValue;
-    }
-
-    public void BuffCanceled(float buffValue)
-    {
-        attackDamage /= buffValue;
+        if (newValue >= 1)
+        {
+            attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index];
+        }
     }
 
 
