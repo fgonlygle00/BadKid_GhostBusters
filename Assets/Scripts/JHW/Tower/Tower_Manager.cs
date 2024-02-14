@@ -114,44 +114,10 @@ public class Tower_Manager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            // Enter 키 입력 시 tower_Arrange() 메서드 호출
-            tower_Arrange();
-        }
-        // 마우스 클릭 감지
-        if (Input.GetMouseButtonDown(0))
-        {
-            // 마우스 위치를 Ray로 변환
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            // Raycast 정보를 저장할 변수
-            RaycastHit hit;
-
-            // Raycast 수행
-            if (Physics.Raycast(ray, out hit))
-            {
-                // Ray가 부딪힌 오브젝트의 정보 출력
-                Debug.Log("Clicked on: " + hit.collider.gameObject.name);
-
-                // 부딪힌 오브젝트에 대한 추가적인 작업 수행 가능
-                // 예를 들어, 클릭한 오브젝트의 메서드 호출
-                ClickedObject(clickedObject: hit.collider.gameObject);
-            }
-
-        }
     }
 
 
-    // 클릭한 오브젝트에 대한 추가 작업을 수행할 메서드
-    private void ClickedObject(GameObject clickedObject)
-    {
-        // 예시: 클릭한 오브젝트의 컴포넌트에 접근하여 작업 수행
-        Tower_Prototype tower_script = clickedObject.GetComponent<Tower_Prototype>();
-        if (tower_script != null)
-        {
-        }
-    }
+
 
     public void tower_Arrange() //타워를 랜덤으로 골라 랜덤 칸에 배치하는 메서드
     {
