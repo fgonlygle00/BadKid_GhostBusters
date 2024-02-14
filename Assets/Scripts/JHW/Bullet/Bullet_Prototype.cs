@@ -8,6 +8,7 @@ public class Bullet_Prototype : MonoBehaviour
     public float bulletSpeed;
     public float bulletDamage; // 타워 공격력에 비례하는 값
     public float bulletWeight;
+    public bool isUpgraded = false;
     public Monster_Controller targetMonster = null;
 
     public virtual void SetAttackDamage(float damage)
@@ -20,9 +21,9 @@ public class Bullet_Prototype : MonoBehaviour
         targetMonster = target;
     }
 
-    public virtual void Upgraded()
+    public virtual void Upgraded(bool _isUpgraded)
     {
-
+        isUpgraded = _isUpgraded;
     }
 
     private void Update()

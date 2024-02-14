@@ -2914,8 +2914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34e17e44db395c468fd9047c9d1321d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 30
-  Defalt_attackDamage: 30
+  attackDamage: 20
+  Defalt_attackDamage: 20
   baseAttackRate: 0.5
   skillCastRate: 3
   buffValue: 1

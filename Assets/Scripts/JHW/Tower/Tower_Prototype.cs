@@ -8,7 +8,7 @@ public class Tower_Prototype : MonoBehaviour
     public float attackDamage = 2; //±âº»°ø
     public float Defalt_attackDamage = 2;
     public float baseAttackRate = 1f; //°ø¼Ó
-    public float skillCastRate = 5f; //½ºÅ³Äð
+    public float skillCastRate = 3f; //½ºÅ³Äð
     public float buffValue; //¹öÇÁ°ª
     public bool isUpgraded;
     public GameObject bulletPrefab; //ÃÑ¾Ë ÇÁ¸®Æé
