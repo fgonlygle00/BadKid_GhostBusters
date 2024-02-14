@@ -12,7 +12,8 @@ public class Tower_Prototype : MonoBehaviour
     public float buffValue; //버프값
     public bool isUpgraded;
     public GameObject bulletPrefab; //총알 프리펩
-    public int arr_Index;
+    public string towerType; //타워 타입
+    public int arr_Index; //이 타워의 배열칸 위치
 
 
     //사거리 중심점과 반경
@@ -27,7 +28,7 @@ public class Tower_Prototype : MonoBehaviour
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
     // public string towerName; //타워 이름
-    // public string towerType; //타워 타입
+    //
     // public string bulletType; //총알 타입
     // public float installationCost; //설치비용
 
