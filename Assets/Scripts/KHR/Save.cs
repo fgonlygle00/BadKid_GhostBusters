@@ -18,18 +18,14 @@ public class GameData
 
 public class Save : MonoBehaviour
 {
-    public GameData gameData;'
+    public GameData gameData;
 
     private string gameDataFileName = "save.json";
 
     // 게임 상태 저장
     public void SaveGame()
     {
-        baseHealth = Tower_Manager.Instance.
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, gameDataFileName), json);
     }
 }
-
-public static Tower_Manager
-
