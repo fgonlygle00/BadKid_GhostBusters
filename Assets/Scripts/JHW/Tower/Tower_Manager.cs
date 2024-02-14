@@ -75,7 +75,7 @@ public class Tower_Manager : MonoBehaviour
     public GameObject[] Tower_Coordinate_Arr = new GameObject[18];
 
     //버프 효과 배열. 모두 1로 초기화.
-    public float[] Buff_Value_Arr = Enumerable.Repeat(1.0f, 18).ToArray();
+    public float[] Buff_Value_Arr = new float[18];
 
     //버프 이벤트
     public delegate void BuffValueChangedEventHandler(int index, float newValue);
@@ -105,6 +105,11 @@ public class Tower_Manager : MonoBehaviour
     {
         // 이벤트에 메소드 등록
         OnBuffValueChanged += BuffChangedHandler;
+
+        for (int i = 0; i < Buff_Value_Arr.Length; i++)
+        {
+            Buff_Value_Arr[i] = 1.0f;
+        }
     }
 
     private void Update()
@@ -114,47 +119,85 @@ public class Tower_Manager : MonoBehaviour
             // Enter 키 입력 시 tower_Arrange() 메서드 호출
             tower_Arrange();
         }
+        // 마우스 클릭 감지
+        if (Input.GetMouseButtonDown(0))
+        {
+            // 마우스 위치를 Ray로 변환
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            // Raycast 정보를 저장할 변수
+            RaycastHit hit;
+
+            // Raycast 수행
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Ray가 부딪힌 오브젝트의 정보 출력
+                Debug.Log("Clicked on: " + hit.collider.gameObject.name);
+
+                // 부딪힌 오브젝트에 대한 추가적인 작업 수행 가능
+                // 예를 들어, 클릭한 오브젝트의 메서드 호출
+                ClickedObject(clickedObject: hit.collider.gameObject);
+            }
+
+        }
+    }
+
+
+    // 클릭한 오브젝트에 대한 추가 작업을 수행할 메서드
+    private void ClickedObject(GameObject clickedObject)
+    {
+        // 예시: 클릭한 오브젝트의 컴포넌트에 접근하여 작업 수행
+        Tower_Prototype tower_script = clickedObject.GetComponent<Tower_Prototype>();
+        if (tower_script != null)
+        {
+        }
     }
 
     public void tower_Arrange() //타워를 랜덤으로 골라 랜덤 칸에 배치하는 메서드
     {
-        // 타워 배치 배열에 빈자리가 있는지 체크하고, 그 빈자리의 리스트를 만든다
-        List<int> emptySlots = new List<int>();
-        for (int i = 0; i < Tower_Disposition_Arr.Length; i++)
+        if (GoodsData.instance._cookies >= 5)
         {
-            if (Tower_Disposition_Arr[i] == null)
+            // 타워 배치 배열에 빈자리가 있는지 체크하고, 그 빈자리의 리스트를 만든다
+            List<int> emptySlots = new List<int>();
+            for (int i = 0; i < Tower_Disposition_Arr.Length; i++)
             {
-                emptySlots.Add(i);
+                if (Tower_Disposition_Arr[i] == null)
+                {
+                    emptySlots.Add(i);
+                }
             }
-        }
 
-        // 타워 배치 배열의 빈자리가 있을 경우, 그 중 하나를 무작위로 고른다.
-        if (emptySlots.Count > 0)
-        {
-            int randomEmptySlotIndex = emptySlots[Random.Range(0, emptySlots.Count)];
+            // 타워 배치 배열의 빈자리가 있을 경우, 그 중 하나를 무작위로 고른다.
+            if (emptySlots.Count > 0)
+            {
+                int randomEmptySlotIndex = emptySlots[Random.Range(0, emptySlots.Count)];
 
-            // 생성할 타워를 무작위로 고른다.
-            GameObject selectedTowerPrefab = GetRandomTowerPrefab();
+                // 생성할 타워를 무작위로 고른다.
+                GameObject selectedTowerPrefab = GetRandomTowerPrefab();
 
-            // 인스턴스 생성
-            GameObject towerInstance = Instantiate(selectedTowerPrefab);
+                // 인스턴스 생성
+                GameObject towerInstance = Instantiate(selectedTowerPrefab);
 
-            // 타워 배치 배열에 타워 인스턴스를 추가한다.
-            Tower_Disposition_Arr[randomEmptySlotIndex] = towerInstance;
+                // 타워 배치 배열에 타워 인스턴스를 추가한다.
+                Tower_Disposition_Arr[randomEmptySlotIndex] = towerInstance;
 
-            // 타워 인스턴스의 좌표를 타워 좌표 배열의 좌표로 변경한다.
-            Vector3 currentPosition = Tower_Coordinate_Arr[randomEmptySlotIndex].transform.position;
+                // 타워 인스턴스의 좌표를 타워 좌표 배열의 좌표로 변경한다.
+                Vector3 currentPosition = Tower_Coordinate_Arr[randomEmptySlotIndex].transform.position;
 
-            // Y 좌표에 33을 더함
-            currentPosition.y += 33f;
+                // Y 좌표에 33을 더함
+                currentPosition.y += 33f;
 
-            // 새로운 위치로 설정
-            towerInstance.transform.position = currentPosition;
+                // 새로운 위치로 설정
+                towerInstance.transform.position = currentPosition;
 
-            
-            //타워 인스턴스에 지금 자리 배치 정보를 저장
-            Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
-            tower_script.Index_Get(randomEmptySlotIndex);
+
+                //타워 인스턴스에 지금 자리 배치 정보를 저장
+                Tower_Prototype tower_script = towerInstance.GetComponent<Tower_Prototype>();
+                tower_script.Index_Get(randomEmptySlotIndex);
+
+                //타워 생성시 쿠키 소모
+                GoodsData.instance._cookies -= 5;
+            }
         }
     }
 
@@ -183,5 +226,8 @@ public class Tower_Manager : MonoBehaviour
             default:
                 return Gun_Tower; // 기본값은 건 타워
         }
+
+
+
     }
 }

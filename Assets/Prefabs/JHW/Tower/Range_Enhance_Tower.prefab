@@ -2852,6 +2852,7 @@ GameObject:
   - component: {fileID: 4273904382157724}
   - component: {fileID: 95902889527924624}
   - component: {fileID: 2714500511299463961}
+  - component: {fileID: -8784743306833714795}
   m_Layer: 0
   m_Name: Range_Enhance_Tower
   m_TagString: Tower
@@ -2913,20 +2914,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34e17e44db395c468fd9047c9d1321d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 1
-  Defalt_attackDamage: 1
-  baseAttackRate: 1
+  attackDamage: 30
+  Defalt_attackDamage: 30
+  baseAttackRate: 0.5
   skillCastRate: 3
   buffValue: 1
-  installationCost: 0
-  towerName: 
-  towerType: 
-  bulletType: 
   bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}
   arr_Index: 0
   center: {x: 0, y: 0, z: 0}
   radius: 0
   buffOn: 0
+--- !u!65 &-8784743306833714795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773662673501720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 9}
+  m_Center: {x: 0, y: 8, z: 0}
 --- !u!1 &1797759293331552
 GameObject:
   m_ObjectHideFlags: 0

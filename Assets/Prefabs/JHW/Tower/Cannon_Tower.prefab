@@ -3083,6 +3083,7 @@ GameObject:
   - component: {fileID: 4165859406957050}
   - component: {fileID: 95873191589847898}
   - component: {fileID: 1944566727329378428}
+  - component: {fileID: -7495727805843666300}
   m_Layer: 0
   m_Name: Cannon_Tower
   m_TagString: Tower
@@ -3144,19 +3145,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfee8623eb47cd448052b1f3b9afeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 7
-  Defalt_attackDamage: 7
+  attackDamage: 200
+  Defalt_attackDamage: 200
   baseAttackRate: 2.5
   skillCastRate: 0
   buffValue: 0
-  installationCost: 0
-  towerName: 
-  towerType: 
-  bulletType: 
   bulletPrefab: {fileID: 8260875066926676870, guid: e6ac2d47e83c28b4cbd72d4e85a7bf9d, type: 3}
   arr_Index: 0
   center: {x: 0, y: 0, z: 0}
   radius: 0
+--- !u!65 &-7495727805843666300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773836419239308}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 9}
+  m_Center: {x: 0, y: 8, z: 0}
 --- !u!1 &1783268067368562
 GameObject:
   m_ObjectHideFlags: 0
