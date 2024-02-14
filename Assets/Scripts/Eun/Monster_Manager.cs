@@ -204,6 +204,7 @@ public class Monster_Manager : MonoBehaviour
 
     void SetWave()
     {
+
         Wave = waveManager.ReturnWave();
         _delay = waveManager.ReturnDelay();
         time = waveManager.Time;

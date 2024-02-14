@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 4832478843300416222}
   - component: {fileID: 6426949509235356620}
   - component: {fileID: 2532061362273350263}
+  - component: {fileID: -8256718422544626902}
   m_Layer: 0
   m_Name: Monster_Boss4
   m_TagString: Monster
@@ -374,6 +375,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &-8256718422544626902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163432630341825017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a556d360a91af429142d8c2027fe89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _changeIndex: 0200000005000000
 --- !u!1001 &2652190633602214480
 PrefabInstance:
   m_ObjectHideFlags: 0
