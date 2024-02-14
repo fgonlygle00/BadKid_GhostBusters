@@ -88,9 +88,6 @@ public class Monster_Manager : MonoBehaviour
 
     void Update()
     {
-
-        Debug.Log(_monsters);
-
         if(_runTime&&time > 0)
         {
             if (_curDelay <= 0)

@@ -10,6 +10,6 @@ public class PlayUIController : MonoBehaviour
 
     public void RetryGame()
     {
-        SceneManager.LoadScene("MakeMapScene");
+        SceneManager.LoadScene("MainScene");
     }
 }
