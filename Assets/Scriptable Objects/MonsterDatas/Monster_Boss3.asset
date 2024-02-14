@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191abc2e4e0a56c45832a25c2f0dc979, type: 3}
   m_Name: Monster_Boss3
   m_EditorClassIdentifier: 
-  monster_Type: 0
+  monster_Type: 6
   status:
     hp: 2900
     attack: 15

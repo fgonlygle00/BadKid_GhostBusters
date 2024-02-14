@@ -10,7 +10,10 @@ public enum Monster_Type
     monster2,
     monster3,
     monster4,
-    monster5
+    boss1,
+    boss2,
+    boss3,
+    boss4
 }
 
 [System.Serializable]

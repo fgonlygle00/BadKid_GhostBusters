@@ -17,7 +17,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
 
     private Monster_Heal _monsterHeal;
-
+    private Monster_Bomb _monsterBomb;
 
     public Image healthBar;
 
@@ -25,6 +25,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     {
         _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
         _monsterHeal = gameObject.GetComponent<Monster_Heal>();
+        _monsterBomb = gameObject.GetComponent<Monster_Bomb>();
     }
 
 
@@ -54,6 +55,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
             if (transform.position == new Vector3(Monster_Manager.Instanse.Points[_pointIndex].transform.position.x,
                 transform.position.y,Monster_Manager.Instanse.Points[_pointIndex].transform.position.z)){
 
+                //힐 몬스터
                 if (_monsterHeal != null)
                 {
                     foreach (var P in _monsterHeal.Healindex)
@@ -65,7 +67,21 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
                         }
                     }
                 }
-                
+
+                //폭탄 몬스터
+                if (_monsterBomb != null)
+                {
+                    foreach (var B in _monsterBomb.bombIndex)
+                    {
+                        if (_pointIndex == B)
+                        {
+                            _monsterBomb.BombPrefeb(_pointIndex);
+                        }
+                    }
+                }
+
+
+
                 _pointIndex++;
             }
 
@@ -94,6 +110,17 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         //죽을 때
         if (_stat.hp <= 0)
         {
+            switch(Datas.monster_Type)
+            {
+                case Monster_Type.monster1: GoodsData.instance._cookies += 1; break;
+                case Monster_Type.monster2: GoodsData.instance._cookies += 2; break;
+                case Monster_Type.monster3: GoodsData.instance._cookies += 3; break;
+                case Monster_Type.monster4: GoodsData.instance._cookies += 4; break;
+                case Monster_Type.boss1: GoodsData.instance._cookies += 5; break;
+                case Monster_Type.boss2: GoodsData.instance._cookies += 10; break;
+                case Monster_Type.boss3: GoodsData.instance._cookies += 15; break;
+                case Monster_Type.boss4: GoodsData.instance._cookies += 20; break;
+            }
             Destroy(gameObject);
         }
 
@@ -106,9 +133,6 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         float fill = _stat.hp / Datas.status.hp;
         healthBar.fillAmount = fill;
     }
-
-
-
 
 
 
@@ -161,4 +185,5 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         _movementBool = false;
         _movementDebuff = 0;
     }
+
 }
