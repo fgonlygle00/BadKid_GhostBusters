@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1450571981502402, guid: c0a8dc0063f9a9747af999c06e380f56, type: 3}
       propertyPath: m_Name
-      value: SummonTower Variant
+      value: Density_Enhance_Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450571981502402, guid: c0a8dc0063f9a9747af999c06e380f56, type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 4148349251017300, guid: c0a8dc0063f9a9747af999c06e380f56, type: 3}
       propertyPath: m_RootOrder
@@ -74,14 +78,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1450571981502402, guid: c0a8dc0063f9a9747af999c06e380f56, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5964944555267743488}
+      addedObject: {fileID: 424029002937423796}
   m_SourcePrefab: {fileID: 100100000, guid: c0a8dc0063f9a9747af999c06e380f56, type: 3}
 --- !u!1 &3221193300925415725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1450571981502402, guid: c0a8dc0063f9a9747af999c06e380f56, type: 3}
   m_PrefabInstance: {fileID: 3222006073937016559}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5964944555267743488
+--- !u!114 &424029002937423796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,10 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3221193300925415725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414f49a46c926ca4a9d258eb769e88a1, type: 3}
+  m_Script: {fileID: 11500000, guid: fa15c75b60acef947ad21f999517ce97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 2
+  attackDamage: 1
   skillDamage: 0
   baseAttackRate: 1
   skillCastRate: 5
@@ -102,4 +106,4 @@ MonoBehaviour:
   towerName: 
   towerType: 
   bulletType: 
-  bulletPrefab: {fileID: 8260875066926676870, guid: db0aefc713bf8b841bcd2cd480517f79, type: 3}
+  bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}
