@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Tower_Manager : MonoBehaviour
@@ -69,13 +70,41 @@ public class Tower_Manager : MonoBehaviour
 
 
     // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
-    // 타워 좌표 배열은 큐브들이 들어가있는 배열.
+    // 타워 좌표 배열은 큐브(발판)들의 위치가 들어가있는 배열.
     public GameObject[] Tower_Disposition_Arr = new GameObject[18];
     public GameObject[] Tower_Coordinate_Arr = new GameObject[18];
+
+    //버프 효과 배열. 모두 1로 초기화.
+    public float[] Buff_Value_Arr = Enumerable.Repeat(1.0f, 18).ToArray();
+
+    //버프 이벤트
+    public delegate void BuffValueChangedEventHandler(int index, float newValue);
+    public event BuffValueChangedEventHandler OnBuffValueChanged;
+
+    public void SetBuffValue(int index, float newValue)
+    {
+        Buff_Value_Arr[index] = newValue;
+
+        // 이벤트 호출
+        OnBuffValueChanged?.Invoke(index, newValue);
+    }
+
+    private void BuffChangedHandler(int index, float newValue)
+    {
+        // 특정 메소드에서 할 일 작성
+        if (Tower_Disposition_Arr[index] != null)
+        {
+            Tower_Prototype tower_script = Tower_Disposition_Arr[index].GetComponent<Tower_Prototype>();
+            tower_script.Buffed(newValue);
+        }
+    }
+
 
 
     void Start()
     {
+        // 이벤트에 메소드 등록
+        OnBuffValueChanged += BuffChangedHandler;
     }
 
     private void Update()
@@ -129,10 +158,10 @@ public class Tower_Manager : MonoBehaviour
         }
     }
 
-    GameObject GetRandomTowerPrefab() //타워를 무작위로 고르는 메서드
+    public GameObject GetRandomTowerPrefab() //타워를 무작위로 고르는 메서드
     {
         // 타워 프리펩을 무작위로 선택합니다
-        int randomIndex = Random.Range(1, 1);
+        int randomIndex = Random.Range(0, 8);
         switch (randomIndex)
         {
             case 0:
