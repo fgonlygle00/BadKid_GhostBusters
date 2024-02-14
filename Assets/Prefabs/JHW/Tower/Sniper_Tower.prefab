@@ -3320,6 +3320,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1390362051999713115, guid: 78ecd5e1b6c4f2f4d8044999de10e00e, type: 3}
   towerType: Sniper_Tower
   arr_Index: 0
+  upgrade_Factor: 2
   center: {x: 0, y: 0, z: 0}
   radius: 0
 --- !u!65 &6977644495686481687
@@ -3341,8 +3342,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 10, z: 9}
-  m_Center: {x: 0, y: 8, z: 0}
+  m_Size: {x: 6, y: 8, z: 5}
+  m_Center: {x: 0, y: 5.5, z: 1}
 --- !u!1 &1888517545445342
 GameObject:
   m_ObjectHideFlags: 0
