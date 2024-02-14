@@ -388,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changeIndex: 0200000005000000
+  changePaticle: {fileID: 8648285262179760618, guid: 8506fa9e8e9e15c40a0cd292ca44316e, type: 3}
 --- !u!1001 &2652190633602214480
 PrefabInstance:
   m_ObjectHideFlags: 0
