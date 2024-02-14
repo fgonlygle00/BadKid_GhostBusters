@@ -12,6 +12,7 @@ public class Monster_Heal : MonoBehaviour
     private void Start()
     {
         _curHealPersent = healPersent;
+        particleSystem.Stop();
     }
 
 
@@ -35,11 +36,11 @@ public class Monster_Heal : MonoBehaviour
 
     IEnumerator EffectHeal()
     {
-        particlePrefab.SetActive(true);
+        particleSystem.Play();
 
         yield return new WaitForSeconds(2f);
 
-        particlePrefab.SetActive(false);
+        particleSystem.Stop();
 
         yield break;
     }
