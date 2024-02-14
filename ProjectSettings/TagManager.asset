@@ -7,6 +7,9 @@ TagManager:
   - Tower
   - Bullet
   - Monster
+  - TowalPoint1
+  - TowalPoint2
+  - TowalPoint3
   layers:
   - Default
   - TransparentFX
