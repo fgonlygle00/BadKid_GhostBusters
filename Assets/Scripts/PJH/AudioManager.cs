@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public AudioClip[] _backGroundMusics;
-    [SerializeField] private AudioSource _audioSource;
+    public AudioSource _audioSource;
 
     public static AudioManager instance;
     public void Awake()
@@ -13,8 +14,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        _audioSource.clip = _backGroundMusics[0];
-        _audioSource.pitch = 0.6f;
         _audioSource.Play();
     }
 

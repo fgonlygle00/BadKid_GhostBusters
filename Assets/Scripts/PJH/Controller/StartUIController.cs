@@ -4,12 +4,15 @@ using UnityEngine.SceneManagement;
 public class StartUIController : MonoBehaviour
 {
     [SerializeField] private GameObject _description;
+    [SerializeField] private GameObject _volumeSetting;
     [SerializeField] private GameObject[] _descriptionPage;
     int currentPageNum;
 
     // 게임 시작
     public void GamePlay()
     {
+        AudioManager.instance._audioSource.clip = AudioManager.instance._backGroundMusics[0];
+        AudioManager.instance._audioSource.Play();
         SceneManager.LoadScene("MainScene");
     }
 
@@ -53,6 +56,19 @@ public class StartUIController : MonoBehaviour
         }
     }
 
+    // 게임 볼륨 조절
+    public void VolumeSetting()
+    {
+        _volumeSetting.SetActive(true);
+    }
+
+    // 창 닫기
+    public void WindowClose()
+    {
+        _description.SetActive(false);
+        _volumeSetting.SetActive(false);
+    }
+
     // 게임 종료
     public void GameExit()
     {
@@ -61,6 +77,4 @@ public class StartUIController : MonoBehaviour
         // 진짜 게임을 종료하는거
         Application.Quit();
     }
-
-
 }
