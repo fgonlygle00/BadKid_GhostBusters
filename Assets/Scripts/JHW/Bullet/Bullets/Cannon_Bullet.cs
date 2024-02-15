@@ -33,7 +33,7 @@ public class Cannon_Bullet : Bullet_Prototype
             transform.Translate(direction * bulletSpeed * Time.deltaTime, Space.World);
 
             // 도착 확인
-            if (Vector3.Distance(transform.position, target_Point) < 0.1f)
+            if (Vector3.Distance(transform.position, target_Point) < 5f)
             {
                 hasReachedTarget = true;
                 arrivalTime = Time.time;
@@ -42,7 +42,7 @@ public class Cannon_Bullet : Bullet_Prototype
         else
         {
             // 도착 후 2.5초가 지나면 splash_Damage 호출
-            if (Time.time - arrivalTime >= 2.5f)
+            if (Time.time - arrivalTime >= 2f)
             {
                 splash_Damage();
             }
@@ -75,7 +75,7 @@ public class Cannon_Bullet : Bullet_Prototype
                 // 좌표 범위 내에 있는 몬스터들에게 스플래시 피해를 준다
                 if (Vector3.Distance(transform.position, monsterPosition) <= explosionRadius)
                 {
-                    monster.Hit(bulletDamage *1.5f);
+                    monster.Hit(bulletDamage *1.2f);
                 }
             }
         }

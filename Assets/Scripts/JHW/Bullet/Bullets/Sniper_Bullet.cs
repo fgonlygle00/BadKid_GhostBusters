@@ -6,8 +6,6 @@ using UnityEngine;
 public class Sniper_Bullet : Bullet_Prototype
 {
 
-
-
     private void Update()
     {
         if (targetMonster != null)
@@ -36,8 +34,30 @@ public class Sniper_Bullet : Bullet_Prototype
             {
                 if (targetMonster == monsterStatus)
                 {
-                    monsterStatus.Hit(bulletDamage); //충돌체가 '타겟 몬스터'인 경우에만
+                    if (isUpgraded == true)   //업그레이드 시 더 강한 공격력 계수 + 잃은 체력 비례 추가 피해
+                    {
+                        float currentHP = monsterStatus.ReturnHP();
+                        float maxHP = monsterStatus.maxHP();
+
+                        float damageMultiplier = 1.0f + (1.0f - currentHP / maxHP); 
+                        float calculatedDamage = bulletDamage * damageMultiplier; //잃은 체력 비례 피해 증가 (최대 원래 총알 데미지의 2배)
+
+                        // 현재 체력과 최대 체력의 차이에서 일정 비율을 계산하여 피해를 입힘
+
+                        // 계산된 피해를 몬스터에게 입히기. 총데미지: 총알 데미지의 100~200%데미지 + 잃체비 피해 3%
+                        monsterStatus.Hit(calculatedDamage); 
+                        monsterStatus.Hit((maxHP - currentHP) * 0.03f);
+                    }
+                    else
+                    {
+                        monsterStatus.Hit(bulletDamage);
+                    }
+
+                    //충돌체가 '타겟 몬스터'인 경우에만
                     Destroy(gameObject);
+
+ 
+
                 }
             }
         }

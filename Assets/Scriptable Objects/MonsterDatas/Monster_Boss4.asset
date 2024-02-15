@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Monster_Boss4
   m_EditorClassIdentifier: 
   monster_Type: 7
-  status:
-    hp: 5200
+  curStatus:
+    hp: 0
+    attack: 0
+    speed: 0
+  Status:
+    hp: 5000
     attack: 20
-    speed: 20
+    speed: 30

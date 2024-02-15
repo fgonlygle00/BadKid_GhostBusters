@@ -17,8 +17,11 @@ public class Monster_Change : MonoBehaviour
 
     public GameObject changePaticle;
     GameObject paticle;
+
+    [SerializeField] private AudioSource _audioSource;
     void Start()
     {
+        _audioSource.clip = AudioManager.instance._backGroundMusics[7];
         _changeObject = new GameObject[18];
         _towelPosition = new GameObject[18];
     }
@@ -76,18 +79,21 @@ public class Monster_Change : MonoBehaviour
                 paticle = Instantiate(changePaticle, _changeObject[i].transform);
                 paticle.transform.position = _changeObject[i].transform.position;
 
-                Invoke("StopPaticle", 2f);
-
                 Destroy(_destroyObject);
 
 
             }
         }
+
+        StartCoroutine(PlayChange());
     }
 
 
-    void StopPaticle()
+    IEnumerator PlayChange()
     {
+        _audioSource.Play();
+        yield return new WaitForSeconds(2f);
+        _audioSource.Stop();
         Destroy(paticle);
     }
 }

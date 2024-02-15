@@ -37,8 +37,14 @@ public class Sniper_Tower : Tower_Prototype
 
             if (bulletScript != null)
             {
-
-                bulletScript.SetAttackDamage(attackDamage); //불릿의 공격력을 타워 공격력으로 설정
+                if (isUpgraded)
+                {
+                    bulletScript.SetAttackDamage(attackDamage * upgrade_Factor); //업그레이드 시 계수 추가
+                }
+                else
+                {
+                    bulletScript.SetAttackDamage(attackDamage);
+                }
                 bulletScript.SetTargetMonster(targetMonster); //불릿의 타겟을 타겟 몬스터로 설정
                 bulletScript.Upgraded(isUpgraded);
             }

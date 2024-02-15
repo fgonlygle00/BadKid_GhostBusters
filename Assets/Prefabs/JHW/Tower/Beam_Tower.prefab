@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967045befa6f59c4ca94a1ceb18ebf2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
-  Defalt_attackDamage: 10
+  attackDamage: 1
+  Defalt_attackDamage: 1
   baseAttackRate: 0.1
   skillCastRate: 0
   buffValue: 0
@@ -109,9 +109,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6639273671067313596, guid: c22a61b6c0f8ff044bd8c948275182c4, type: 3}
   towerType: Beam_Tower
   arr_Index: 0
-  upgrade_Factor: 2
+  upgrade_Factor: 20
   center: {x: 0, y: 0, z: 0}
   radius: 0
+  sum: 0
 --- !u!65 &-2175590304775626502
 BoxCollider:
   m_ObjectHideFlags: 0

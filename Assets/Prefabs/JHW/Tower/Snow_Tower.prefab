@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d346a25aeb2ac4d8260c574510cffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 20
-  Defalt_attackDamage: 20
+  attackDamage: 1
+  Defalt_attackDamage: 1
   baseAttackRate: 0.5
-  skillCastRate: 5
+  skillCastRate: 2.2
   buffValue: 0
   isUpgraded: 0
   bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}
@@ -112,6 +112,7 @@ MonoBehaviour:
   upgrade_Factor: 1.5
   center: {x: 0, y: 0, z: 0}
   radius: 0
+  snow_Summon: {fileID: 4615441141203718800, guid: 941248fa8f7ece2419293b0a414630ec, type: 3}
 --- !u!65 &3959825097932051183
 BoxCollider:
   m_ObjectHideFlags: 0

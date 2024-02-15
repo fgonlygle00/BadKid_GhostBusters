@@ -104,7 +104,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3866398516970789928
 MonoBehaviour:
@@ -121,4 +121,5 @@ MonoBehaviour:
   bulletSpeed: 300
   bulletDamage: 0
   bulletWeight: 0
+  isUpgraded: 0
   targetMonster: {fileID: 0}

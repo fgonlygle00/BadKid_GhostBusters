@@ -110,7 +110,7 @@ public class Monster_Manager : MonoBehaviour
                 _runTime = false;
                 Wave++;
                 // 웨이브 마다 배경 음악 설정
-                AudioManager.instanse.PlayBGM();
+                AudioManager.instance.PlayBGM();
 
                 //여기서 다음웨이브까지 몇초간 쉬는 타이밍 있으면 좋겠음, 때문에 인보크로 다음 웨이브 조절
                 Invoke("SetWaveManager", 5f); //임시 딜레이
@@ -131,37 +131,37 @@ public class Monster_Manager : MonoBehaviour
                 waveManager.setWave(1, 40f, 1.2f, 90, 93, 96, 100);
                 break;
             case 2:
-                waveManager.setWave(2, 40f, 1f, 90, 93, 96, 100);
+                waveManager.setWave(2, 40f, 1f, 85, 93, 96, 100);
                 break;
             case 3:
-                waveManager.setWave(3, 40f, 0.8f, 90, 93, 96, 100);
+                waveManager.setWave(3, 40f, 0.8f, 85, 93, 96, 100);
                 break;
             case 4:
-                waveManager.setWave(4, 40f, 0.8f, 80, 90, 95, 100);
+                waveManager.setWave(4, 40f, 0.8f, 75, 90, 95, 100);
                 break;
             case 5:
-                waveManager.setWave(5, 30f, 30f, 90, 100, 101, 102);
+                waveManager.setWave(5, 5f, 30f, 75, 100, 101, 102);
                 SpwanMonster(monsterPrefap[4]);
                 break;
             case 6:
-                Monster_HealthUP(1.5f);
-                waveManager.setWave(6, 40f, 1.2f, 80, 90, 95, 100);
+                Monster_HealthUP(2f);
+                waveManager.setWave(6, 40f, 1.2f, 70, 85, 95, 100);
                 break;
             case 7:
-                waveManager.setWave(7, 40f, 1f, 80, 90, 95, 100);
+                waveManager.setWave(7, 40f, 1f, 70, 85, 95, 100);
                 break;
             case 8:
-                waveManager.setWave(8, 40f, 1f, 70, 85, 95, 100);
+                waveManager.setWave(8, 40f, 1f, 65, 85, 95, 100);
                 break;
             case 9:
-                waveManager.setWave(9, 40f, 0.8f, 70, 85, 95, 100);
+                waveManager.setWave(9, 40f, 0.8f, 65, 85, 95, 100);
                 break;
             case 10:
-                waveManager.setWave(10, 20f, 4f, 85, 100, 101, 102);
+                waveManager.setWave(10, 10f, 4f, 70, 85, 95, 100);
                 SpwanMonster(monsterPrefap[5]);
                 break;
             case 11:
-                Monster_HealthUP(1.6f);
+                Monster_HealthUP(2f);
                 waveManager.setWave(11, 40f, 1.2f, 60, 85, 95, 100);
                 break;
             case 12:
@@ -178,7 +178,7 @@ public class Monster_Manager : MonoBehaviour
                 SpwanMonster(monsterPrefap[6]);
                 break;
             case 16:
-                Monster_HealthUP(1.7f);
+                Monster_HealthUP(2f);
                 waveManager.setWave(16, 40f, 1.2f, 40, 70, 90, 100);
                 break;
             case 17:
@@ -260,9 +260,9 @@ public class Monster_Manager : MonoBehaviour
     {
         foreach (var monster in Datas)
         {
-            float HP = monster.status.hp;
+            float HP = monster.curStatus.hp;
             HP *= UP;
-            monster.status.hp = HP;
+            monster.curStatus.hp = HP;
 
         }
     }
