@@ -3154,7 +3154,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8260875066926676870, guid: e6ac2d47e83c28b4cbd72d4e85a7bf9d, type: 3}
   towerType: Cannon_Tower
   arr_Index: 0
-  upgrade_Factor: 1.75
+  upgrade_Factor: 2
   center: {x: 0, y: 0, z: 0}
   radius: 0
 --- !u!65 &-7495727805843666300
