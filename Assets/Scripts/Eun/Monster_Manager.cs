@@ -128,6 +128,15 @@ public class Monster_Manager : MonoBehaviour
        
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 3f;
+        }
+
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            Time.timeScale = 1f;
+        }
 
     }
 
@@ -156,7 +165,7 @@ public class Monster_Manager : MonoBehaviour
                 SpwanMonster(monsterPrefap[4]);
                 break;
             case 6:
-                Monster_HealthUP(3f);
+                Monster_HealthUP(6f);
                 waveManager.setWave(6, 40f, 1.2f, 70, 85, 95, 100);
                 break;
             case 7:
@@ -173,7 +182,7 @@ public class Monster_Manager : MonoBehaviour
                 SpwanMonster(monsterPrefap[5]);
                 break;
             case 11:
-                Monster_HealthUP(3f);
+                Monster_HealthUP(6f);
                 waveManager.setWave(11, 40f, 1.2f, 60, 85, 95, 100);
                 break;
             case 12:
@@ -190,7 +199,7 @@ public class Monster_Manager : MonoBehaviour
                 SpwanMonster(monsterPrefap[6]);
                 break;
             case 16:
-                Monster_HealthUP(3.5f);
+                Monster_HealthUP(6f);
                 waveManager.setWave(16, 40f, 1.2f, 40, 70, 90, 100);
                 break;
             case 17:
