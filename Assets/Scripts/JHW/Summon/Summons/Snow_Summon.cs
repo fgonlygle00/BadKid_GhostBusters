@@ -46,16 +46,15 @@ public class Snow_Summon : MonoBehaviour
                     monster.Hit(summononDamage * 0.3f);
                     if (isUpgrade == true)
                     {
-                        monster.MovementDown(0.01f);
+                        monster.MovementDown(0.005f);
                     }
                     else
                     {
-                        monster.MovementDown(0.07f);
+                        monster.MovementDown(0.3f);
                     }
             }
         }
     }
-
     }
 
     void DestroySummon()

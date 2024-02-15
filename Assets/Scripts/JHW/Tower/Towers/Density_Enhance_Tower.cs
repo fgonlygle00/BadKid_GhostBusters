@@ -268,7 +268,7 @@ public class Density_Enhance_Tower : Tower_Prototype
         {
             isUpgraded = true;
             Ex_BuffCancel();   //버프가 중복 적용되지 않도록
-            buffValue *= 2;
+            buffValue *= 4.5f;
             transform.localScale *= 1.5f;
         }
         else

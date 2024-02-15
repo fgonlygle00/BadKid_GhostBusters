@@ -44,9 +44,9 @@ public class Sniper_Bullet : Bullet_Prototype
 
                         // 현재 체력과 최대 체력의 차이에서 일정 비율을 계산하여 피해를 입힘
 
-                        // 계산된 피해를 몬스터에게 입히기. 총데미지: 총알 데미지의 100~200%데미지 + 잃체비 피해 5%
+                        // 계산된 피해를 몬스터에게 입히기. 총데미지: 총알 데미지의 100~200%데미지 + 잃체비 피해 10%
                         monsterStatus.Hit(calculatedDamage); 
-                        monsterStatus.Hit((maxHP - currentHP) * 0.5f);
+                        monsterStatus.Hit((maxHP - currentHP) * 0.10f);
                     }
                     else
                     {
