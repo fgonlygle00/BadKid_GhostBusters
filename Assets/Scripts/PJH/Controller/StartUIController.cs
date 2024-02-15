@@ -56,7 +56,10 @@ public class StartUIController : MonoBehaviour
     // 게임 종료
     public void GameExit()
     {
-        // 후추
+        // 해당 코드는 에디터에 재생을 중지하는거
+        UnityEditor.EditorApplication.isPlaying = false;
+        // 진짜 게임을 종료하는거
+        Application.Quit();
     }
 
 
