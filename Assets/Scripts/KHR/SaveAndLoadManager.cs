@@ -35,8 +35,8 @@ public class SaveAndLoadManager : MonoBehaviour
         gameData.cookie = goodsData._cookies; // 쿠키의 수를 저장합니다.
 
         string json = JsonUtility.ToJson(gameData);
-        
-        File.WriteAllText(path , json);
+        //File.WriteAllText(Path.Combine(Application.persistentDataPath, gameDataFileName + ".json"), json);
+        File.WriteAllText(path, json);
 
         Debug.Log(json);
     }
@@ -45,7 +45,7 @@ public class SaveAndLoadManager : MonoBehaviour
     // 게임 상태 불러오기
     public void LoadGame()
     {
-        
+        //string path = Path.Combine(Application.persistentDataPath, gameDataFileName + ".json");
         LoadGameFromPath(path);
     }
 
@@ -58,7 +58,7 @@ public class SaveAndLoadManager : MonoBehaviour
             gameData = JsonUtility.FromJson<GameData>(json);
             //버튼이 있어야 
             Debug.Log(json);
-          
+            //GoodsData.instance._cookies = gameData.cookie; // 쿠키의 수를 복원합니다.
         }
         else
         {
@@ -83,9 +83,9 @@ public class SaveAndLoadManager : MonoBehaviour
 
         gameData = new GameData(); // gameData 객체를 초기화
 
-        //// 게임 데이터를 불러옵니다. "/path/to/save.json" 부분은 실제 파일 경로로 변경
-        //LoadGameFromPath("/path/to/save.json");
-        //path = Path.Combine(Application.dataPath, gameDataFileName);
+        // 게임 데이터를 불러옵니다. "/path/to/save.json" 부분은 실제 파일 경로로 변경
+        LoadGameFromPath("/path/to/save.json");
+        path = Path.Combine(Application.dataPath, gameDataFileName);
     }
 
     private void Update()
