@@ -57,7 +57,7 @@ public class Cannon_Bullet : Bullet_Prototype
             Monster_Controller monsterStatus = other.GetComponent<Monster_Controller>();
             if (monsterStatus != null)
             {
-                monsterStatus.Hit(bulletDamage);
+                monsterStatus.Hit(bulletDamage*0.75f);
             }
             splash_Damage();
         }
@@ -75,7 +75,7 @@ public class Cannon_Bullet : Bullet_Prototype
                 // 좌표 범위 내에 있는 몬스터들에게 스플래시 피해를 준다
                 if (Vector3.Distance(transform.position, monsterPosition) <= explosionRadius)
                 {
-                    monster.Hit(bulletDamage *1.2f);
+                    monster.Hit(bulletDamage *1f);
                 }
             }
         }

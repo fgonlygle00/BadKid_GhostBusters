@@ -103,7 +103,7 @@ MonoBehaviour:
   attackDamage: 1
   Defalt_attackDamage: 1
   baseAttackRate: 0.5
-  skillCastRate: 2.2
+  skillCastRate: 3
   buffValue: 0
   isUpgraded: 0
   bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}
