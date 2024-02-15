@@ -18701,6 +18701,7 @@ MonoBehaviour:
   Snow_Tower: {fileID: 3061867114529216920, guid: 6cad0d3e39458a74b8a0e47024f4dfdd, type: 3}
   Flame_Tower: {fileID: 1137221353445848, guid: 1ea1e2d583aef994b93946b0da394b7d, type: 3}
   Cookie: 0
+  BuffPaticle: {fileID: 0}
   Tower_Disposition_Arr:
   - {fileID: 0}
   - {fileID: 0}
@@ -43842,6 +43843,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cbba51093ceaf5c40bcb6fc83d907ce2, type: 2}
   - {fileID: 11400000, guid: 89d47df283ecd8c408fce4fe4162d341, type: 2}
   - {fileID: 11400000, guid: 1e98c8821e872c74692b1d7f2c73a665, type: 2}
+  resetStatus: []
 --- !u!4 &1786896681
 Transform:
   m_ObjectHideFlags: 0
