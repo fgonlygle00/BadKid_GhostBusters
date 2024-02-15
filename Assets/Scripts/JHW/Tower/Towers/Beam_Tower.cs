@@ -30,7 +30,7 @@ public class Beam_Tower : Tower_Prototype
                 {
                     if (sum <= attackDamage * upgrade_Factor)
                     {
-                        sum += 0.3f;
+                        sum += 0.4f;
                     }
                 }
                 else
