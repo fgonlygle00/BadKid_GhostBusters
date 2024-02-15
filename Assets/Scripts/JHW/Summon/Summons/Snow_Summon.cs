@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Snow_Summon : MonoBehaviour
 {
-    float creationTime = 0.6f;
+    float creationTime = 0.8f;
     float snowRadius = 40f;
     float ticRate = 0.2f;
     float summononDamage;
