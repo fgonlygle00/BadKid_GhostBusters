@@ -31,6 +31,11 @@ public class SaveAndLoadManager : MonoBehaviour
             return;
         }
 
+        // 게임데이터가 없다면 새로운 데이터를 만든다.
+        if (gameData == null)
+        {
+            gameData = new GameData();
+        }
         gameData.baseHealth = invasionController.ReturnHealth();
         gameData.cookie = goodsData._cookies; // 쿠키의 수를 저장합니다.
 
