@@ -76,6 +76,7 @@ public class Cannon_Bullet : Bullet_Prototype
                 if (Vector3.Distance(transform.position, monsterPosition) <= explosionRadius)
                 {
                     monster.Hit(bulletDamage *1f);
+
                 }
             }
         }

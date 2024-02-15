@@ -112,7 +112,7 @@ MonoBehaviour:
   upgrade_Factor: 1.5
   center: {x: 0, y: 0, z: 0}
   radius: 0
-  snow_Summon: {fileID: 4615441141203718800, guid: 941248fa8f7ece2419293b0a414630ec, type: 3}
+  snow_Summon: {fileID: 6516511944925779892, guid: bd4dd395d3184084a90d9d7ef81181fa, type: 3}
 --- !u!65 &3959825097932051183
 BoxCollider:
   m_ObjectHideFlags: 0
