@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15669483, g: 0.20435014, b: 0.36093792, a: 1}
+  m_IndirectSpecularColor: {r: 0.15669465, g: 0.2043497, b: 0.36093727, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5391,6 +5391,56 @@ Transform:
   - {fileID: 698737131}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &425542571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425542573}
+  - component: {fileID: 425542572}
+  m_Layer: 0
+  m_Name: SaveAndLoadManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &425542572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425542571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373e0431363971c479874c5d0eb24885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData:
+    baseHealth: 50
+    cookie: 150
+    towerPosition: []
+    towerUpgrades: 
+    currentWave: 1
+--- !u!4 &425542573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425542571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 215.0322, y: 103.2126, z: 135.8511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428059142
 GameObject:
@@ -50758,6 +50808,7 @@ MonoBehaviour:
   Snow_Tower: {fileID: 3061867114529216920, guid: 6cad0d3e39458a74b8a0e47024f4dfdd, type: 3}
   Flame_Tower: {fileID: 1137221353445848, guid: 1ea1e2d583aef994b93946b0da394b7d, type: 3}
   Cookie: 0
+  BuffPaticle: {fileID: 4090231052992747498, guid: 87ba0ceb53f88534296d000e15d90eaf, type: 3}
   Tower_Disposition_Arr:
   - {fileID: 0}
   - {fileID: 0}
@@ -50815,6 +50866,8 @@ MonoBehaviour:
   - 1
   - 1
   - 1
+  towerTransforms: []
+  towerUpgrades: 
 --- !u!4 &1988010235
 Transform:
   m_ObjectHideFlags: 0

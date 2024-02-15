@@ -213,6 +213,7 @@ public class Monster_Manager : MonoBehaviour
 
         }
 
+
         if (SaveAndLoadManager.Instance == null)
         {
             Debug.LogError("SaveAndLoadManager 인스턴스가 null입니다.");
@@ -224,7 +225,11 @@ public class Monster_Manager : MonoBehaviour
 
         SetWave();
     }
-    
+    public int GetCurrentWave()
+    {
+        return Wave;
+    }
+
 
     void SetWave()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -5,15 +6,17 @@ public class SaveAndLoadManager : MonoBehaviour
 {
     public static SaveAndLoadManager Instance { get; private set; }
 
+    [Serializable]
     public class GameData
     {
-        public float baseHealth; // 거점의 체력을 저장하는 변수
-        public int cookie;
-        public Vector3[] towerPosition; //타워 매니저
-        public bool towerUpgrades;
-        public int currentWave;
-        public float soundVolume;
+        public float baseHealth = 50f; // 거점의 체력을 저장하는 변수
+        public int cookie =150;
+        public int currentWave = 1;
+        public Tower_SaveData[] tower_Data;
+
+        //public float soundVolume;
     }
+
 
 
     public GameData gameData;
@@ -22,25 +25,29 @@ public class SaveAndLoadManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Invasion_Controller invasionController = FindObjectOfType<Invasion_Controller>(); // Invasion_Controller 인스턴스를 가져옵니다.
-        GoodsData goodsData = GoodsData.instance; // GoodsData 인스턴스를 가져옵니다.
+        Invasion_Controller invasionController = FindObjectOfType<Invasion_Controller>();
+        GoodsData goodsData = GoodsData.instance;
+        Tower_Manager towerManager = FindObjectOfType<Tower_Manager>();
+        Monster_Manager monsterManager = FindObjectOfType<Monster_Manager>();
 
-        if (invasionController == null || goodsData == null) // 인스턴스가 null인지 검사합니다.
+
+        if (invasionController == null || goodsData == null || towerManager == null || monsterManager == null)
         {
-            Debug.LogError("Invasion_Controller 인스턴스 또는 GoodsData 인스턴스를 찾을 수 없습니다.");
+            Debug.LogError("Invasion_Controller, GoodsData, TowerManager 또는 Monster_Manager 인스턴스를 찾을 수 없습니다.");
             return;
         }
 
-        // 게임데이터가 없다면 새로운 데이터를 만든다.
         if (gameData == null)
         {
             gameData = new GameData();
         }
+      
         gameData.baseHealth = invasionController.ReturnHealth();
-        gameData.cookie = goodsData._cookies; // 쿠키의 수를 저장합니다.
-
+        gameData.cookie = goodsData._cookies;
+        gameData.currentWave = monsterManager.GetCurrentWave(); // 현재 웨이브를 저장합니다.
+        
+        gameData.tower_Data = towerManager.Get_TowerData();
         string json = JsonUtility.ToJson(gameData);
-        //File.WriteAllText(Path.Combine(Application.persistentDataPath, gameDataFileName + ".json"), json);
         File.WriteAllText(path, json);
 
         Debug.Log(json);
@@ -51,6 +58,10 @@ public class SaveAndLoadManager : MonoBehaviour
     public void LoadGame()
     {
         //string path = Path.Combine(Application.persistentDataPath, gameDataFileName + ".json");
+        Tower_Manager towerManager = FindObjectOfType<Tower_Manager>();
+
+        
+        
         LoadGameFromPath(path);
     }
 
@@ -86,7 +97,7 @@ public class SaveAndLoadManager : MonoBehaviour
             return; // 이후 코드를 실행하지 않도록 합니다.
         }
 
-        //gameData = new GameData(); // gameData 객체를 초기화
+        gameData = new GameData(); // gameData 객체를 초기화
 
         // 게임 데이터를 불러옵니다. "/path/to/save.json" 부분은 실제 파일 경로로 변경
         //LoadGameFromPath("/path/to/save.json");

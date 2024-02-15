@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tower_Manager : MonoBehaviour
 {
@@ -27,6 +29,7 @@ public class Tower_Manager : MonoBehaviour
             }
             return _instance;
         }
+
     }
 
     // 기존 MonoBehaviour 메서드와 같이 사용 가능
@@ -162,7 +165,10 @@ public class Tower_Manager : MonoBehaviour
 
                 //타워 생성시 쿠키 소모
                 GoodsData.instance._cookies -= 50;
+
+               
             }
+
         }
     }
 
@@ -170,6 +176,7 @@ public class Tower_Manager : MonoBehaviour
     {
         // 타워 프리펩을 무작위로 선택합니다
         int randomIndex = Random.Range(0, 8);
+        
         switch (randomIndex)
         {
             case 0:
@@ -225,4 +232,70 @@ public class Tower_Manager : MonoBehaviour
             GoodsData.instance._cookies -= 100;
         }
     }
+    //// 타워 위치 정보 추가 ? ( 코드 한번 더 살펴보기)
+    //towerTransforms.Add(towerInstance.transform);
+    
+    public List<Tower_SaveData> tower_SaveDatas = new List<Tower_SaveData>();
+    // 타워 Transform 배열
+    public List<Transform>  towerTransforms = new List<Transform>(); 
+
+    // 타워 업그레이드 정보
+    public bool[] towerUpgrades;
+
+    // 타워 위치 가져오기 
+    public Vector3[] GetTowerPositions()
+    {
+        Vector3[] postions = new Vector3[towerTransforms.Count];
+        for(int i = 0; i < towerTransforms.Count; i++)
+        {
+            postions[i] = towerTransforms[i].position;
+        }
+        return postions;
+    }
+    // 타워 위치 설정하기
+    public void SetTowerPositions(Vector3[] positions)
+    {
+        for(int i = 0; i < positions.Length; i++) {
+            towerTransforms[i].position = positions[i];
+        }
+    }
+    //타워 업그레이드 정보 가져오기
+    public bool[] GetTowerUpgrades()
+    {
+        return towerUpgrades;
+    }
+
+    //타워 업그레이드 정보 설정하기
+    public void SetTowerUpgrades(bool[] upgrades)
+    {
+        towerUpgrades = upgrades;
+    }
+
+    public Tower_SaveData[] Get_TowerData()
+    {
+        Tower_SaveData[] tower_SaveDatas = new Tower_SaveData[Tower_Disposition_Arr.Length];
+        for (int i = 0; i < tower_SaveDatas.Length; i++)
+        {
+            if (Tower_Disposition_Arr[i] == null)
+            {
+                continue;
+            }
+            Tower_Prototype prototype = Tower_Disposition_Arr[i].GetComponent<Tower_Prototype>();
+            Tower_SaveData data = new Tower_SaveData();
+            data.Position = prototype.transform.position;
+            data.TowerUpgrade = prototype.isUpgraded;
+            data.TowerType = prototype.GetTowerType();
+            tower_SaveDatas[i] = data;
+
+        }
+        return tower_SaveDatas;
+    }
+}
+[Serializable]
+public  class Tower_SaveData
+{
+    public Vector3 Position;
+    public int TowerType;
+    public bool TowerUpgrade;
+
 }
