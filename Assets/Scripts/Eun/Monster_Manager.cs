@@ -134,6 +134,7 @@ public class Monster_Manager : MonoBehaviour
 
     void SetWaveManager()
     {
+
         _monsters.Clear();
         switch (Wave)
         {
@@ -211,7 +212,15 @@ public class Monster_Manager : MonoBehaviour
                 break;
 
         }
-        //SaveAndLoadManager.Instance.SaveGame();
+
+        if (SaveAndLoadManager.Instance == null)
+        {
+            Debug.LogError("SaveAndLoadManager 인스턴스가 null입니다.");
+            return;
+        }
+
+        // 웨이브가 끝날 때마다 게임 상태 저장(거점의 체력까지)
+        SaveAndLoadManager.Instance.SaveGame();
 
         SetWave();
     }
