@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Flame_Summon : MonoBehaviour
 {
-    float creationTime = 1.2f;
+    float creationTime = 1f;
     float flameRadius = 50f;
     float ticRate = 0.1f;
     float summononDamage;
