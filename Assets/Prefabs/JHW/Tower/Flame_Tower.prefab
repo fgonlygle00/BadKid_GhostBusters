@@ -559,7 +559,7 @@ MonoBehaviour:
   upgrade_Factor: 1.5
   center: {x: 0, y: 0, z: 0}
   radius: 0
-  flame_Summon: {fileID: 4615441141203718800, guid: 04ee7afc4c365d249830acca5c0fcb58, type: 3}
+  flame_Summon: {fileID: 4947613794430365927, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
 --- !u!65 &7788693851049577527
 BoxCollider:
   m_ObjectHideFlags: 0

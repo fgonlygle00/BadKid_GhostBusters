@@ -18701,7 +18701,7 @@ MonoBehaviour:
   Snow_Tower: {fileID: 3061867114529216920, guid: 6cad0d3e39458a74b8a0e47024f4dfdd, type: 3}
   Flame_Tower: {fileID: 1137221353445848, guid: 1ea1e2d583aef994b93946b0da394b7d, type: 3}
   Cookie: 0
-  BuffPaticle: {fileID: 0}
+  BuffPaticle: {fileID: 334052083574401059, guid: a608370798d77ac44862c741281ac915, type: 3}
   Tower_Disposition_Arr:
   - {fileID: 0}
   - {fileID: 0}
@@ -53333,3 +53333,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8041496101142182103, guid: 5712fd2b9b42a5448bd60aa3bc9fae30, type: 3}
   m_PrefabInstance: {fileID: 2142323919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5628902018711770562
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 205
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365920, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947613794430365927, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
+      propertyPath: m_Name
+      value: VFX_Fire_01_Big
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7556f82dc078c6444a83157ddaa591a7, type: 3}
