@@ -84,11 +84,15 @@ public class Tower_Prototype : MonoBehaviour
 
     public void Buffed(float newValue)  //버프 받기 메서드
     {
-        if (newValue >= 1)
+        if (newValue > 1)
         {
             attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //기본공격력 * 버프값
-        }
 
+        }
+        else
+        {
+            attackDamage = Defalt_attackDamage * Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //기본공격력 * 버프값
+        }
     }
 
 
