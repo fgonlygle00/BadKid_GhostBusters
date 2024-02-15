@@ -8,10 +8,13 @@ public class Monster_Bomb : MonoBehaviour
 
     GameObject BombObject;
 
+    public GameObject magicCircle;
 
+    public GameObject bombPaticle;
+    GameObject _paticle;
     void Start()
     {
-        
+        magicCircle.SetActive(false);
     }
 
     public void BombPrefeb(int a)
@@ -34,13 +37,18 @@ public class Monster_Bomb : MonoBehaviour
             BombObject.GetComponent<Density_Enhance_Tower>().Ex_BuffCancel();
         }
 
-        DestroyTowal();
+        magicCircle.SetActive(true);
+        _paticle = Instantiate(bombPaticle);
+        _paticle.transform.position = BombObject.transform.position;
+        Invoke("DestroyTowal", 0.5f);
     }
 
    
 
     void DestroyTowal()
     {
+        magicCircle.SetActive(false);
         Destroy(BombObject);
+        Destroy(_paticle);
     }
 }
