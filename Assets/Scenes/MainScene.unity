@@ -50260,6 +50260,7 @@ MonoBehaviour:
   Snow_Tower: {fileID: 3061867114529216920, guid: 6cad0d3e39458a74b8a0e47024f4dfdd, type: 3}
   Flame_Tower: {fileID: 1137221353445848, guid: 1ea1e2d583aef994b93946b0da394b7d, type: 3}
   Cookie: 0
+  BuffPaticle: {fileID: 334052083574401059, guid: a608370798d77ac44862c741281ac915, type: 3}
   Tower_Disposition_Arr:
   - {fileID: 0}
   - {fileID: 0}
