@@ -126,11 +126,11 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
             {
                 case Monster_Type.monster1: GoodsData.instance._cookies += 1; break;
                 case Monster_Type.monster2: GoodsData.instance._cookies += 2; break;
-                case Monster_Type.monster3: GoodsData.instance._cookies += 3; break;
-                case Monster_Type.monster4: GoodsData.instance._cookies += 4; break;
+                case Monster_Type.monster3: GoodsData.instance._cookies += 6; break;
+                case Monster_Type.monster4: GoodsData.instance._cookies += 10; break;
                 case Monster_Type.boss1: GoodsData.instance._cookies += 50; break;
-                case Monster_Type.boss2: GoodsData.instance._cookies += 75; break;
-                case Monster_Type.boss3: GoodsData.instance._cookies += 100; break;
+                case Monster_Type.boss2: GoodsData.instance._cookies += 175; break;
+                case Monster_Type.boss3: GoodsData.instance._cookies += 300; break;
                 case Monster_Type.boss4: GoodsData.instance._cookies += 500; break;
             }
             Destroy(gameObject);
