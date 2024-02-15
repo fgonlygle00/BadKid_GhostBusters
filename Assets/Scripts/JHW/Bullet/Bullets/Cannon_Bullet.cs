@@ -33,7 +33,7 @@ public class Cannon_Bullet : Bullet_Prototype
             transform.Translate(direction * bulletSpeed * Time.deltaTime, Space.World);
 
             // µµÂø È®ÀÎ
-            if (Vector3.Distance(transform.position, target_Point) < 0.1f)
+            if (Vector3.Distance(transform.position, target_Point) < 5f)
             {
                 hasReachedTarget = true;
                 arrivalTime = Time.time;
