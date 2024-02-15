@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Snow_Summon : MonoBehaviour
 {
-    float creationTime = 0.8f;
+    float creationTime = 0.6f;
     float snowRadius = 40f;
     float ticRate = 0.2f;
     float summononDamage;
@@ -26,7 +26,7 @@ public class Snow_Summon : MonoBehaviour
         if (isUpgrade == true)
         {
             ticRate = 0.15f;
-            snowRadius = 70f;
+            snowRadius = 50f;
         }
         InvokeRepeating("Snow_Rain", 0f, ticRate);
     }
@@ -46,11 +46,11 @@ public class Snow_Summon : MonoBehaviour
                     monster.Hit(summononDamage * 0.3f);
                     if (isUpgrade == true)
                     {
-                        monster.MovementDown(0.001f);
+                        monster.MovementDown(0.01f);
                     }
                     else
                     {
-                        monster.MovementDown(0.01f);
+                        monster.MovementDown(0.07f);
                     }
             }
         }
