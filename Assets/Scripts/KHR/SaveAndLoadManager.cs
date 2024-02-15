@@ -7,8 +7,7 @@ public class SaveAndLoadManager : MonoBehaviour
 
     public class GameData
     {
-        public float baseHealth;
-        public int baseLevel;
+        public float baseHealth; // 거점의 체력을 저장하는 변수
         public int cookie;
         public Vector3[] towerPosition; //타워 매니저
         public bool towerUpgrades;
@@ -16,16 +15,19 @@ public class SaveAndLoadManager : MonoBehaviour
         public float soundVolume;
     }
 
+
     public GameData gameData;
 
     private string gameDataFileName = "save.json";
 
-    // 게임 상태 저장
-    public void SaveGame()
+    public void SaveGame(Invasion_Controller invasionController)
     {
+        gameData.baseHealth = invasionController.ReturnHealth();
+
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, gameDataFileName), json);
     }
+
 
     // 게임 상태 불러오기
     public void LoadGame()
