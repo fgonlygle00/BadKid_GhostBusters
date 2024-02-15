@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ public class Cannon_Bullet : Bullet_Prototype
     private bool hasReachedTarget = false;
     private float arrivalTime;
     private float explosionRadius = 50f;
+
+    public GameObject paticleObject;
+    GameObject _paticle;
 
     public override void SetTargetMonster(Monster_Controller target)
     {
@@ -58,6 +62,7 @@ public class Cannon_Bullet : Bullet_Prototype
             if (monsterStatus != null)
             {
                 monsterStatus.Hit(bulletDamage*0.75f);
+                StartCoroutine(CannonBullet());
             }
             splash_Damage();
         }
@@ -81,6 +86,14 @@ public class Cannon_Bullet : Bullet_Prototype
             }
         }
         Destroy(gameObject);
+    }
+
+    IEnumerator CannonBullet()
+    {
+        _paticle = Instantiate(paticleObject);
+        _paticle.transform.position = transform.position;
+        yield return new WaitForSeconds(2f);
+        Destroy(_paticle);
     }
 }
 

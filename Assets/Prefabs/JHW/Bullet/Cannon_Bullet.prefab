@@ -123,3 +123,4 @@ MonoBehaviour:
   bulletWeight: 0
   isUpgraded: 0
   targetMonster: {fileID: 0}
+  paticleObject: {fileID: 7177549788876893207, guid: 0b1f568056df1e04081411bc7291c664, type: 3}
