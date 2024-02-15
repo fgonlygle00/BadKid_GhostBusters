@@ -109,6 +109,8 @@ public class Monster_Manager : MonoBehaviour
             {
                 _runTime = false;
                 Wave++;
+                // 웨이브 마다 배경 음악 설정
+                AudioManager.instanse.PlayBGM();
 
                 //여기서 다음웨이브까지 몇초간 쉬는 타이밍 있으면 좋겠음, 때문에 인보크로 다음 웨이브 조절
                 Invoke("SetWaveManager", 5f); //임시 딜레이
@@ -198,6 +200,7 @@ public class Monster_Manager : MonoBehaviour
                 break;
 
         }
+
         // Invasion_Controller 인스턴스를 가져와야 함
         // 이 부분은 실제 게임의 구현에 따라 수정해야 함
         Invasion_Controller invasionController = FindObjectOfType<Invasion_Controller>();
@@ -205,8 +208,8 @@ public class Monster_Manager : MonoBehaviour
         // 웨이브가 끝날 때마다 게임 상태 저장
         SaveAndLoadManager.Instance.SaveGame(invasionController);
 
-        // 웨이브 마다 배경 음악 설정
-        AudioManager.instanse.PlayBGM();
+     
+
 
         SetWave();
     }
