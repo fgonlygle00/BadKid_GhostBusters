@@ -3320,7 +3320,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1390362051999713115, guid: 78ecd5e1b6c4f2f4d8044999de10e00e, type: 3}
   towerType: Sniper_Tower
   arr_Index: 0
-  upgrade_Factor: 1.5
+  upgrade_Factor: 2
   center: {x: 0, y: 0, z: 0}
   radius: 0
 --- !u!65 &6977644495686481687
