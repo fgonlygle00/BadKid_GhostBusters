@@ -88,6 +88,7 @@ public class Tower_Prototype : MonoBehaviour
         {
             attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //기본공격력 * 버프값
 
+
         }
         else
         {
