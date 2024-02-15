@@ -121,7 +121,7 @@ public class Tower_Manager : MonoBehaviour
 
     public void tower_Arrange() //타워를 랜덤으로 골라 랜덤 칸에 배치하는 메서드
     {
-        if (GoodsData.instance._cookies >= 5)
+        if (GoodsData.instance._cookies >= 50)
         {
             // 타워 배치 배열에 빈자리가 있는지 체크하고, 그 빈자리의 리스트를 만든다
             List<int> emptySlots = new List<int>();
@@ -162,7 +162,7 @@ public class Tower_Manager : MonoBehaviour
                 tower_script.Index_Get(randomEmptySlotIndex);
 
                 //타워 생성시 쿠키 소모
-                GoodsData.instance._cookies -= 5;
+                GoodsData.instance._cookies -= 50;
             }
         }
     }
