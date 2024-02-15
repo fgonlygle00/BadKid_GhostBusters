@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
                 _audioSource.pitch = 0.6f;
                 break;
         }
-
+        if (_audioSource.clip == _backGroundMusics[0] && _audioSource.isPlaying) return;
         _audioSource.Play();
     }
 }
