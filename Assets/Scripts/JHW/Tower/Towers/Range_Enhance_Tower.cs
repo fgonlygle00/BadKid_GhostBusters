@@ -28,13 +28,22 @@ public class Range_Enhance_Tower : Tower_Prototype
         // 마우스 왼쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(0))
         {
-            Upgrade();
+            if (GoodsData.instance._cookies >= 150)
+            {
+                bool Up_check = isUpgraded;      //실제로 업그레이드 됐는지 여부를 판별해서 쿠키 소모
+                Upgrade();
+                if (Up_check != isUpgraded)
+                {
+                    GoodsData.instance._cookies -= 150;
+                }
+
+            }
         }
 
         // 마우스 오른쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(1))
         {
-            if (GoodsData.instance._cookies >= 1)
+            if (GoodsData.instance._cookies >= 100)
             {
                 Ex_BuffCancel();
                 Tower_Manager.Instance.ReRoll(arr_Index);

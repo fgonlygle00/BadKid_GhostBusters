@@ -54,22 +54,4 @@ public class Gun_Tower : Tower_Prototype
         }
     }
 
-    public override void Upgrade()  //업그레이드 시 총알 2번 발사
-    {
-        if (isUpgraded == false)
-        {
-            isUpgraded = true;
-            Defalt_attackDamage *= upgrade_Factor;
-            transform.localScale *= 1.5f;
-            /*
-            baseAttackRate = 0.2f;
-            CancelInvoke("BasicAttack");
-            InvokeRepeating("BasicAttack", 0f, baseAttackRate);
-            */
-        }
-        else
-        {
-            //여기에 업그레이드가 불가능할 시 작동을 입력하세요
-        }
-    }
 }
