@@ -6,12 +6,18 @@ public class Monster_Bomb : MonoBehaviour
 {
     public int[] bombIndex;
 
+    [SerializeField] private AudioSource _audioSource;
+
     GameObject BombObject;
 
+    public GameObject magicCircle;
 
+    public GameObject bombPaticle;
+    GameObject _paticle;
     void Start()
     {
-        
+        _audioSource.clip = AudioManager.instanse._backGroundMusics[6];
+        magicCircle.SetActive(false);
     }
 
     public void BombPrefeb(int a)
@@ -34,13 +40,20 @@ public class Monster_Bomb : MonoBehaviour
             BombObject.GetComponent<Density_Enhance_Tower>().Ex_BuffCancel();
         }
 
-        DestroyTowal();
+        StartCoroutine(PlayBomb());
+        _paticle = Instantiate(bombPaticle);
+        _paticle.transform.position = BombObject.transform.position;
     }
 
    
-
-    void DestroyTowal()
+    IEnumerator PlayBomb()
     {
+        _audioSource.Play();
+        magicCircle.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        _audioSource.Stop();
+        magicCircle.SetActive(false);
         Destroy(BombObject);
+        Destroy(_paticle);
     }
 }

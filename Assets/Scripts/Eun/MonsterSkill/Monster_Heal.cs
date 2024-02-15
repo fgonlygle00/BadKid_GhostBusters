@@ -8,9 +8,13 @@ public class Monster_Heal : MonoBehaviour
     [SerializeField]private float healPersent;
     [SerializeField]private float _curHealPersent;
 
+    [SerializeField] private AudioSource _audioSource;
+
     public GameObject particleObject;
     private void Start()
     {
+
+        _audioSource.clip = AudioManager.instanse._backGroundMusics[5];
         _curHealPersent = healPersent;
         particleObject.SetActive(false);
     }
@@ -18,9 +22,8 @@ public class Monster_Heal : MonoBehaviour
 
     public float Heal()
     {
-        particleObject.SetActive(true);
 
-        Invoke("PaticlrStop", 2f);
+        StartCoroutine(PlayHeal());
         return (_curHealPersent / 100);
 
     }
@@ -35,8 +38,14 @@ public class Monster_Heal : MonoBehaviour
         _curHealPersent = healPersent;
     }
 
-    void PaticlrStop()
+
+    IEnumerator PlayHeal()
     {
-        particleObject.SetActive(false); 
+        _audioSource.Play();
+        particleObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        _audioSource.Stop();
+        particleObject.SetActive(false);
+
     }
 }
