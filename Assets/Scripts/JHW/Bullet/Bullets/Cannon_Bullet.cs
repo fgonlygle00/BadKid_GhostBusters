@@ -42,7 +42,7 @@ public class Cannon_Bullet : Bullet_Prototype
         else
         {
             // 도착 후 2.5초가 지나면 splash_Damage 호출
-            if (Time.time - arrivalTime >= 2.5f)
+            if (Time.time - arrivalTime >= 2f)
             {
                 splash_Damage();
             }

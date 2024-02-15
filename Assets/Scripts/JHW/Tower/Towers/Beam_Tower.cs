@@ -15,7 +15,7 @@ public class Beam_Tower : Tower_Prototype
     // public float upgradedSkillCastRate;
 
     Monster_Controller past_Monster = null;
-    float sum = 0;
+    public float sum = 0;
 
 
     public override void BasicAttack() //기본공격
@@ -28,7 +28,10 @@ public class Beam_Tower : Tower_Prototype
             {
                 if (targetMonster == past_Monster)
                 {
-                    sum += 1;
+                    if (sum <= attackDamage * upgrade_Factor)
+                    {
+                        sum += 0.3f;
+                    }
                 }
                 else
                 {
@@ -48,8 +51,9 @@ public class Beam_Tower : Tower_Prototype
                 if (bulletScript != null)
                 {
 
-                    bulletScript.SetAttackDamage(attackDamage + sum); //불릿의 공격력을 타워 공격력으로 설정 // 빔 타워는 공증이 붙는다
+                    bulletScript.SetAttackDamage(attackDamage*1.15f + sum); //불릿의 공격력을 타워 공격력으로 설정 // 빔 타워는 업그레이드 시 공증이 붙는다
                     bulletScript.SetTargetMonster(targetMonster); //불릿의 타겟을 타겟 몬스터로 설정
+                    past_Monster = targetMonster;
                 }
                 else
                 {
@@ -71,7 +75,7 @@ public class Beam_Tower : Tower_Prototype
                 if (bulletScript != null)
                 {
 
-                    bulletScript.SetAttackDamage(attackDamage + sum); //불릿의 공격력을 타워 공격력으로 설정 // 빔 타워는 공증이 붙는다
+                    bulletScript.SetAttackDamage(attackDamage); //불릿의 공격력을 타워 공격력으로 설정 // 빔 타워는 공증이 붙는다
                     bulletScript.SetTargetMonster(targetMonster); //불릿의 타겟을 타겟 몬스터로 설정
                 }
                 else
@@ -118,7 +122,7 @@ public class Beam_Tower : Tower_Prototype
             return max_hp_Monster;
         }
 
-        past_Monster = max_hp_Monster;
+
 
         return max_hp_Monster;
     }
