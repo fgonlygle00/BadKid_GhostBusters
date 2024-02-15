@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Flame_Summon : MonoBehaviour
 {
-    float creationTime = 1f;
+    float creationTime = 1.5f;
     float flameRadius = 50f;
-    float ticRate = 0.1f;
+    float ticRate = 0.25f;
     float summononDamage;
     bool isUpgrade;
 
@@ -45,12 +45,12 @@ public class Flame_Summon : MonoBehaviour
                     if (isUpgrade == true)
                     {
                         monster.HPDown(0.1f);
-                        monster.Hit(monster.maxHP() * 0.012f + summononDamage * 0.06f);
+                        monster.Hit(monster.maxHP() * 0.02f + summononDamage * 0.4f);
                     }
                     else
                     {
                         monster.HPDown(0.5f);
-                        monster.Hit(monster.ReturnHP() * 0.01f + summononDamage * 0.05f);
+                        monster.Hit(monster.ReturnHP() * 0.02f + summononDamage * 0.3f);
                     }
             }
         }

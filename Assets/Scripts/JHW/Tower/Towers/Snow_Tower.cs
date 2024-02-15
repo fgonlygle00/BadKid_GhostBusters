@@ -30,7 +30,10 @@ public class Snow_Tower : Tower_Prototype
             direction.y = 0f;
             transform.rotation = Quaternion.LookRotation(direction);
 
-            GameObject snow = Instantiate(snow_Summon, targetMonster.transform.position, Quaternion.identity); //눈구름 프리펩 인스턴스 생성
+            Vector3 pos = targetMonster.transform.position;
+            pos.y += 1f;
+
+            GameObject snow = Instantiate(snow_Summon, pos, Quaternion.identity); //눈구름 프리펩 인스턴스 생성
 
             Snow_Summon snowScript = snow.GetComponent<Snow_Summon>(); //스노우 인스턴스의 스크립트를 가져온다
 
