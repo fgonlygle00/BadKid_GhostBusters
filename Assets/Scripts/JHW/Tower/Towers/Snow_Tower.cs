@@ -23,7 +23,7 @@ public class Snow_Tower : Tower_Prototype
 
     public void UseSkill()
     {
-        Monster_Controller targetMonster = MonsterTargeting();
+        Monster_Controller targetMonster = MonsterTargeting_Random();
         if (targetMonster != null)
         {
             GameObject snow = Instantiate(snow_Summon, targetMonster.transform.position, Quaternion.identity); //눈구름 프리펩 인스턴스 생성
@@ -45,7 +45,7 @@ public class Snow_Tower : Tower_Prototype
         }
     }
 
-    public override Monster_Controller MonsterTargeting()
+    public Monster_Controller MonsterTargeting_Random()
     {
         if (Monster_Manager.Instanse._monsters.Count == 0)
         {

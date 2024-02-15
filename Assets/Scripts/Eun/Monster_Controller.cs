@@ -176,7 +176,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     //현우님 사용
     public void MovementDown(float down)
     {
-        _movementDebuff += 2;
+        _movementDebuff += 0.3f;
         if(!_movementBool)
         {
             _stat.speed *= down; 

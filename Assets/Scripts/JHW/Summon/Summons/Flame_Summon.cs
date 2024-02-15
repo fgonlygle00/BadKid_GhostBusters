@@ -4,7 +4,7 @@ using UnityEngine;
 public class Flame_Summon : MonoBehaviour
 {
     float creationTime = 1f;
-    float flameRadius = 50f;
+    float flameRadius = 35f;
     float ticRate = 0.1f;
     float summononDamage;
     bool isUpgrade;
