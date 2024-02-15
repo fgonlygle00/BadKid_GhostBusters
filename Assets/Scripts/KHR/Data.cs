@@ -32,6 +32,7 @@ public class Data : MonoBehaviour
         // 게임 클리어 체크: 20 웨이브를 버티면 게임 클리어
         if (Monster_Manager.Instanse.Wave > 20)
         {
+            Time.timeScale = 0;
             ShowGameClearPanel();
         }
     }
