@@ -5,37 +5,37 @@ using UnityEngine;
 
 public class Tower_Prototype : MonoBehaviour
 {
-    // ±âº» ¼Ó¼º
-    public float attackDamage = 2; //±âº»°ø
+    // ê¸°ë³¸ ì†ì„±
+    public float attackDamage = 2; //ê¸°ë³¸ê³µ
     public float Defalt_attackDamage = 2;
-    public float baseAttackRate = 1f; //°ø¼Ó
-    public float skillCastRate = 3f; //½ºÅ³Äğ
-    public float buffValue; //¹öÇÁ°ª
+    public float baseAttackRate = 1f; //ê³µì†
+    public float skillCastRate = 3f; //ìŠ¤í‚¬ì¿¨
+    public float buffValue; //ë²„í”„ê°’
     public bool isUpgraded;
-    public GameObject bulletPrefab; //ÃÑ¾Ë ÇÁ¸®Æé
-    public string towerType; //Å¸¿ö Å¸ÀÔ
-    public int arr_Index; //ÀÌ Å¸¿öÀÇ ¹è¿­Ä­ À§Ä¡
-    public float upgrade_Factor; // <<< ¾÷±×·¹ÀÌµå ½Ã °ø°İ·Â Áõ°¡ ¹èÀ² 
+    public GameObject bulletPrefab; //ì´ì•Œ í”„ë¦¬í©
+    public string towerType; //íƒ€ì›Œ íƒ€ì…
+    public int arr_Index; //ì´ íƒ€ì›Œì˜ ë°°ì—´ì¹¸ ìœ„ì¹˜
+    public float upgrade_Factor; // <<< ì—…ê·¸ë ˆì´ë“œ ì‹œ ê³µê²©ë ¥ ì¦ê°€ ë°°ìœ¨ 
 
 
-    //»ç°Å¸® Áß½ÉÁ¡°ú ¹İ°æ
+    //ì‚¬ê±°ë¦¬ ì¤‘ì‹¬ì ê³¼ ë°˜ê²½
     public Vector3 center;
     public float radius;
 
     private GameObject _paticle;
 
-    // º¸·ù
+    // ë³´ë¥˜
     // public float upgradedAttackRate;
     // public float upgradedSkillCastRate;
-    // public string towerName; //Å¸¿ö ÀÌ¸§
+    // public string towerName; //íƒ€ì›Œ ì´ë¦„
     //
-    // public string bulletType; //ÃÑ¾Ë Å¸ÀÔ
-    // public float installationCost; //¼³Ä¡ºñ¿ë
+    // public string bulletType; //ì´ì•Œ íƒ€ì…
+    // public float installationCost; //ì„¤ì¹˜ë¹„ìš©
 
     private void Start()
     {
-        InvokeRepeating("BasicAttack", 0f, baseAttackRate); //±âº» °ø°İ ÁÖ±âÀûÀ¸·Î 
-        /*InvokeRepeating("UseSkill", 0f, skillCastRate); //½ºÅ³ ÁÖ±âÀûÀ¸·Î*/
+        InvokeRepeating("BasicAttack", 0f, baseAttackRate); //ê¸°ë³¸ ê³µê²© ì£¼ê¸°ì ìœ¼ë¡œ 
+        /*InvokeRepeating("UseSkill", 0f, skillCastRate); //ìŠ¤í‚¬ ì£¼ê¸°ì ìœ¼ë¡œ*/
     }
 
     private void Update()
@@ -45,12 +45,12 @@ public class Tower_Prototype : MonoBehaviour
 
     private void OnMouseOver()
     {
-        // ¸¶¿ì½º ¿ŞÂÊ ¹öÆ°ÀÌ ´­·ÈÀ» ¶§ Ã¼Å©
+        // ë§ˆìš°ìŠ¤ ì™¼ìª½ ë²„íŠ¼ì´ ëˆŒë ¸ì„ ë•Œ ì²´í¬
         if (Input.GetMouseButtonDown(0))
         {
             if (GoodsData.instance._cookies >= 150)
             {
-                bool Up_check = isUpgraded;      //½ÇÁ¦·Î ¾÷±×·¹ÀÌµå µÆ´ÂÁö ¿©ºÎ¸¦ ÆÇº°ÇØ¼­ ÄíÅ° ¼Ò¸ğ
+                bool Up_check = isUpgraded;      //ì‹¤ì œë¡œ ì—…ê·¸ë ˆì´ë“œ ëëŠ”ì§€ ì—¬ë¶€ë¥¼ íŒë³„í•´ì„œ ì¿ í‚¤ ì†Œëª¨
                 Upgrade();
                 if (Up_check != isUpgraded)
                 {
@@ -60,7 +60,7 @@ public class Tower_Prototype : MonoBehaviour
             }
         }
 
-            // ¸¶¿ì½º ¿À¸¥ÂÊ ¹öÆ°ÀÌ ´­·ÈÀ» ¶§ Ã¼Å©
+            // ë§ˆìš°ìŠ¤ ì˜¤ë¥¸ìª½ ë²„íŠ¼ì´ ëˆŒë ¸ì„ ë•Œ ì²´í¬
             if (Input.GetMouseButtonDown(1))
             {
                 if (GoodsData.instance._cookies >= 100)
@@ -72,7 +72,7 @@ public class Tower_Prototype : MonoBehaviour
             }
     }
 
-    public virtual void Upgrade()  //¾÷±×·¹ÀÌµå ¸Ş¼­µå
+    public virtual void Upgrade()  //ì—…ê·¸ë ˆì´ë“œ ë©”ì„œë“œ
     {
         if (isUpgraded == false)
         {
@@ -81,27 +81,28 @@ public class Tower_Prototype : MonoBehaviour
         }
         else
         {
-            //¿©±â¿¡ ¾÷±×·¹ÀÌµå°¡ ºÒ°¡´ÉÇÒ ½Ã ÀÛµ¿À» ÀÔ·ÂÇÏ¼¼¿ä
+            //ì—¬ê¸°ì— ì—…ê·¸ë ˆì´ë“œê°€ ë¶ˆê°€ëŠ¥í•  ì‹œ ì‘ë™ì„ ì…ë ¥í•˜ì„¸ìš”
         }
     }
 
-    public void Buffed(float newValue)  //¹öÇÁ ¹Ş±â ¸Ş¼­µå
+    public void Buffed(float newValue)  //ë²„í”„ ë°›ê¸° ë©”ì„œë“œ
     {
         if (newValue > 1)
         {
-            attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //±âº»°ø°İ·Â * ¹öÇÁ°ª
+            attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //ê¸°ë³¸ê³µê²©ë ¥ * ë²„í”„ê°’
+
             StartCoroutine(PlayBuff());
         }
         else
         {
-            attackDamage = Defalt_attackDamage * Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //±âº»°ø°İ·Â * ¹öÇÁ°ª
+            attackDamage = Defalt_attackDamage * Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //ê¸°ë³¸ê³µê²©ë ¥ * ë²„í”„ê°’
         }
     }
 
 
-    public virtual void BasicAttack() //±âº»°ø°İ
+    public virtual void BasicAttack() //ê¸°ë³¸ê³µê²©
     {
-        Monster_Controller targetMonster = MonsterTargeting(); //Å¸°Ù ¸ó½ºÅÍ¸¦ ¸®ÅÏ¹Ş´Â´Ù
+        Monster_Controller targetMonster = MonsterTargeting(); //íƒ€ê²Ÿ ëª¬ìŠ¤í„°ë¥¼ ë¦¬í„´ë°›ëŠ”ë‹¤
 
         if (targetMonster != null)
         {
@@ -112,21 +113,21 @@ public class Tower_Prototype : MonoBehaviour
             Vector3 currentPosition = transform.position;
             currentPosition.y += 5f;
 
-            GameObject bullet = Instantiate(bulletPrefab, currentPosition, Quaternion.identity); //ÃÑ¾Ë ÇÁ¸®Æé ÀÎ½ºÅÏ½º »ı¼º
+            GameObject bullet = Instantiate(bulletPrefab, currentPosition, Quaternion.identity); //ì´ì•Œ í”„ë¦¬í© ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
 
-            Bullet_Prototype bulletScript = bullet.GetComponent<Bullet_Prototype>(); //ÃÑ¾Ë ÀÎ½ºÅÏ½ºÀÇ ºÒ¸´ ÇÁ·ÎÅäÅ¸ÀÔ ½ºÅ©¸³Æ®¸¦ °¡Á®¿Â´Ù
+            Bullet_Prototype bulletScript = bullet.GetComponent<Bullet_Prototype>(); //ì´ì•Œ ì¸ìŠ¤í„´ìŠ¤ì˜ ë¶ˆë¦¿ í”„ë¡œí† íƒ€ì… ìŠ¤í¬ë¦½íŠ¸ë¥¼ ê°€ì ¸ì˜¨ë‹¤
 
             if (bulletScript != null)
             {
                 if (isUpgraded)
                 {
-                    bulletScript.SetAttackDamage(attackDamage*upgrade_Factor); //¾÷±×·¹ÀÌµå ½Ã °è¼ö Ãß°¡
+                    bulletScript.SetAttackDamage(attackDamage*upgrade_Factor); //ì—…ê·¸ë ˆì´ë“œ ì‹œ ê³„ìˆ˜ ì¶”ê°€
                 }
                 else
                 {
                     bulletScript.SetAttackDamage(attackDamage);
                 }
-                bulletScript.SetTargetMonster(targetMonster); //ºÒ¸´ÀÇ Å¸°ÙÀ» Å¸°Ù ¸ó½ºÅÍ·Î ¼³Á¤
+                bulletScript.SetTargetMonster(targetMonster); //ë¶ˆë¦¿ì˜ íƒ€ê²Ÿì„ íƒ€ê²Ÿ ëª¬ìŠ¤í„°ë¡œ ì„¤ì •
             }
             else
             {
@@ -149,13 +150,13 @@ public class Tower_Prototype : MonoBehaviour
         {
             if (monster != null)
             {
-                // ÀÌ ¿ÀºêÁ§Æ®ÀÇ À§Ä¡¸¦ °¡Á®¿À±â
+                // ì´ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜ë¥¼ ê°€ì ¸ì˜¤ê¸°
                 Vector3 monsterPosition = monster.transform.position;
 
-                // ÁÂÇ¥ ¹üÀ§ ³»¿¡ ÀÖ´ÂÁö È®ÀÎ
+                // ì¢Œí‘œ ë²”ìœ„ ë‚´ì— ìˆëŠ”ì§€ í™•ì¸
                 if (Vector3.Distance(center, monsterPosition) <= radius)
                 {
-                    // 'moveDistanse'°ªÀÌ ÇöÀç ÃÖ´ë°ªº¸´Ù Å«Áö È®ÀÎ
+                    // 'moveDistanse'ê°’ì´ í˜„ì¬ ìµœëŒ€ê°’ë³´ë‹¤ í°ì§€ í™•ì¸
                     if (monster.moveDistanse > max_moveDistanse)
                     {
                         max_moveDistanse = monster.moveDistanse;
@@ -169,7 +170,7 @@ public class Tower_Prototype : MonoBehaviour
     
 
 
-    void LookTargetMonster() //¸ó½ºÅÍ¸¦ ¹Ù¶óº¸´Â ¸Ş¼­µå
+    void LookTargetMonster() //ëª¬ìŠ¤í„°ë¥¼ ë°”ë¼ë³´ëŠ” ë©”ì„œë“œ
     {
         Monster_Controller targetMonster = MonsterTargeting();
 
@@ -221,7 +222,7 @@ public class Tower_Prototype : MonoBehaviour
 
     // void UniqueSkillEffect()
     // {
-    //     °íÀ¯ÇÑ ½ºÅ³ È¿°ú ·ÎÁ÷ Ãß°¡
+    //     ê³ ìœ í•œ ìŠ¤í‚¬ íš¨ê³¼ ë¡œì§ ì¶”ê°€
     // }
 
     /*
@@ -235,19 +236,19 @@ public class Tower_Prototype : MonoBehaviour
 
         foreach (Monster_Controller monster in monsterList)
         {
-            // ÀÌ ¿ÀºêÁ§Æ®ÀÇ À§Ä¡¸¦ °¡Á®¿À±â
+            // ì´ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜ë¥¼ ê°€ì ¸ì˜¤ê¸°
             Vector3 monsterPosition = monster.transform.position;
             Vector3 center = transform.position;
 
-            // ·¹ÀÌÄ³½ºÆ®¸¦ ÀÌ¿ëÇÏ¿© ¸ó½ºÅÍÀÇ À§Ä¡¿ÍÀÇ Ãæµ¹À» °¨Áö
+            // ë ˆì´ìºìŠ¤íŠ¸ë¥¼ ì´ìš©í•˜ì—¬ ëª¬ìŠ¤í„°ì˜ ìœ„ì¹˜ì™€ì˜ ì¶©ëŒì„ ê°ì§€
             RaycastHit hit;
             if (Physics.Raycast(center, monsterPosition - center, out hit, 150f))
             {
-                // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ ¸ó½ºÅÍÀÎÁö È®ÀÎ
+                // ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ê°€ ëª¬ìŠ¤í„°ì¸ì§€ í™•ì¸
                 Monster_Controller hitMonster = hit.collider.GetComponent<Monster_Controller>();
                 if (hitMonster != null)
                 {
-                    // 'moveDistanse'°ªÀÌ ÇöÀç ÃÖ´ë°ªº¸´Ù Å«Áö È®ÀÎ
+                    // 'moveDistanse'ê°’ì´ í˜„ì¬ ìµœëŒ€ê°’ë³´ë‹¤ í°ì§€ í™•ì¸
                     if (hitMonster.moveDistanse > max_moveDistanse)
                     {
                         max_moveDistanse = hitMonster.moveDistanse;
@@ -262,16 +263,16 @@ public class Tower_Prototype : MonoBehaviour
     */
 
 
-    /* Monster_Controller MonsterTargeting() //¸ó½ºÅÍ¸¦ Å¸°ÙÆÃÇÏ´Â ¸Ş¼­µå
+    /* Monster_Controller MonsterTargeting() //ëª¬ìŠ¤í„°ë¥¼ íƒ€ê²ŸíŒ…í•˜ëŠ” ë©”ì„œë“œ
     {
-        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //¸ó½ºÅÍ ¸®½ºÆ®¸¦ ºÒ·¯¿Â´Ù.
+        List<Monster_Controller> monsterList = Monster_Manager.Instanse._monsters; //ëª¬ìŠ¤í„° ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
 
         Monster_Controller targetMonster = null;
         float maxMoveDistance = float.MinValue;
 
-        foreach (Monster_Controller monster in monsterList) //¸ó½ºÅÍ ¸®½ºÆ® Áß¿¡¼­ °¡Àå ¾Õ¼­³ª°¡´Â ¸ó½ºÅÍ¸¦ Ã£´Â´Ù.
+        foreach (Monster_Controller monster in monsterList) //ëª¬ìŠ¤í„° ë¦¬ìŠ¤íŠ¸ ì¤‘ì—ì„œ ê°€ì¥ ì•ì„œë‚˜ê°€ëŠ” ëª¬ìŠ¤í„°ë¥¼ ì°¾ëŠ”ë‹¤.
         {
-            float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse; //moveDistanse°ªÀÌ °¡Àå ³ôÀº ¸ó½ºÅÍ¸¦ Ã£´Â´Ù.
+            float monsterMoveDistance = monster.GetComponent<Monster_Controller>().moveDistanse; //moveDistanseê°’ì´ ê°€ì¥ ë†’ì€ ëª¬ìŠ¤í„°ë¥¼ ì°¾ëŠ”ë‹¤.
 
             if (monsterMoveDistance > maxMoveDistance)
             {
@@ -280,7 +281,7 @@ public class Tower_Prototype : MonoBehaviour
             }
         }
 
-        return targetMonster;  //°¡Àå ¾Õ¼± ¸ó½ºÅÍ¸¦ ¸®ÅÏ
+        return targetMonster;  //ê°€ì¥ ì•ì„  ëª¬ìŠ¤í„°ë¥¼ ë¦¬í„´
     }
     */
 }
