@@ -22,21 +22,23 @@ public class SaveAndLoadManager : MonoBehaviour
 
     public void SaveGame(Invasion_Controller invasionController)
     {
+        GoodsData goodsData = GoodsData.instance; // GoodsData 인스턴스를 가져옴
         gameData.baseHealth = invasionController.ReturnHealth();
-
+        gameData.cookie = goodsData._cookies; // 쿠키의 수를 저장
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, gameDataFileName), json);
     }
 
 
     // 게임 상태 불러오기
-    public void LoadGame()
+    public void LoadGame(GoodsData goodsData)
     {
         string path = Path.Combine(Application.persistentDataPath, gameDataFileName);
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             gameData = JsonUtility.FromJson<GameData>(json);
+            goodsData._cookies = gameData.cookie; // 쿠키의 수를 복원합니다.
         }
         else
         {
@@ -44,6 +46,7 @@ public class SaveAndLoadManager : MonoBehaviour
             gameData = new GameData();
         }
     }
+
 
     private void Awake()
     {
