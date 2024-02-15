@@ -16521,9 +16521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca1c8e5f0b450d41ab65728eedd4949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiPanel: {fileID: 2116596443}
-  _creditPanel: {fileID: 0}
-  _endingVdieo: {fileID: 455949308}
 --- !u!328 &455949310
 VideoPlayer:
   m_ObjectHideFlags: 0

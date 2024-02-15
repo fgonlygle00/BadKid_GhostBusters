@@ -128,6 +128,15 @@ public class Monster_Manager : MonoBehaviour
        
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 3f;
+        }
+
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            Time.timeScale = 1f;
+        }
 
     }
 
