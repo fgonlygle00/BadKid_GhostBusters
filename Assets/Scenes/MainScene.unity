@@ -12478,8 +12478,8 @@ MonoBehaviour:
   - {fileID: 3485747573435326417, guid: 711794c1169a0954c81be9f5e1ce8c41, type: 3}
   - {fileID: 6257708180002520262, guid: 48eeb2d46a9454b47afd9a13d43af000, type: 3}
   - {fileID: 8554624949808344996, guid: 9000b2e1c8549aa4d93fdb08c3ce9e75, type: 3}
-  - {fileID: 1120481004533076328, guid: eb20da50a4b19194b98fe94ad984c224, type: 3}
   - {fileID: 9163432630341825017, guid: e422d8c931e7546498137f82c1b26ef8, type: 3}
+  - {fileID: 1120481004533076328, guid: eb20da50a4b19194b98fe94ad984c224, type: 3}
   _monsters: []
   Points:
   - {fileID: 953631143}
@@ -12491,6 +12491,15 @@ MonoBehaviour:
   - {fileID: 339023276}
   - {fileID: 564959590}
   Datas:
+  - {fileID: 11400000, guid: 87a53583c65024e4d81464b97aa78761, type: 2}
+  - {fileID: 11400000, guid: cbba51093ceaf5c40bcb6fc83d907ce2, type: 2}
+  - {fileID: 11400000, guid: 89d47df283ecd8c408fce4fe4162d341, type: 2}
+  - {fileID: 11400000, guid: 1e98c8821e872c74692b1d7f2c73a665, type: 2}
+  resetStatus:
+  - {fileID: 11400000, guid: 882a9c5a88acc37429796125f5f022b7, type: 2}
+  - {fileID: 11400000, guid: 937158d2dff6ce14384347578f230531, type: 2}
+  - {fileID: 11400000, guid: 7b16b9cc4734cc2419fbf40385a95c05, type: 2}
+  - {fileID: 11400000, guid: 3776660dd9cdb724595c33e2efc6c503, type: 2}
   - {fileID: 11400000, guid: 87a53583c65024e4d81464b97aa78761, type: 2}
   - {fileID: 11400000, guid: cbba51093ceaf5c40bcb6fc83d907ce2, type: 2}
   - {fileID: 11400000, guid: 89d47df283ecd8c408fce4fe4162d341, type: 2}
