@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class StartUIController : MonoBehaviour
 {
+    [SerializeField] private GameObject _description;
+    [SerializeField] private GameObject[] _descriptionPage;
+    int currentPageNum;
+
     // 게임 시작
     public void GamePlay()
     {
@@ -12,7 +16,41 @@ public class StartUIController : MonoBehaviour
     // 게임 설명
     public void GameDescription()
     {
-        // 후추
+        _description.SetActive(true);
+    }
+    // 게임 설명 창 닫기
+    public void GameDescriptionClose()
+    {
+        _description.SetActive(false);
+    }
+    // 페이지 넘기기
+    public void NextPage(bool isRight)
+    {
+        // 페이지 넘기기
+        if (isRight)
+        {
+            if (0 <= currentPageNum && currentPageNum < 5)
+            {
+                for (int i = 0; i < _descriptionPage.Length; i++)
+                {
+                    _descriptionPage[i].SetActive(false);
+                }
+                currentPageNum++;
+                _descriptionPage[currentPageNum].SetActive(true);
+            }
+        }
+        else
+        {
+            if (0 < currentPageNum && currentPageNum < 6)
+            {
+                for (int i = 0; i < _descriptionPage.Length; i++)
+                {
+                    _descriptionPage[i].SetActive(false);
+                }
+                currentPageNum--;
+                _descriptionPage[currentPageNum].SetActive(true);
+            }
+        }
     }
 
     // 게임 종료
@@ -20,4 +58,6 @@ public class StartUIController : MonoBehaviour
     {
         // 후추
     }
+
+
 }
