@@ -1492,6 +1492,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9112532962842727835, guid: f662590ae7fd17245903818b4f7d3930, type: 3}
   m_PrefabInstance: {fileID: 75203889}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &78432357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78432359}
+  - component: {fileID: 78432358}
+  m_Layer: 0
+  m_Name: SaveAndLoadManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &78432358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78432357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373e0431363971c479874c5d0eb24885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &78432359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78432357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 340.10147, y: 143.1217, z: 131.5872}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &80896517
 GameObject:
   m_ObjectHideFlags: 0
@@ -32155,7 +32199,7 @@ MonoBehaviour:
   Snow_Tower: {fileID: 3061867114529216920, guid: 6cad0d3e39458a74b8a0e47024f4dfdd, type: 3}
   Flame_Tower: {fileID: 1137221353445848, guid: 1ea1e2d583aef994b93946b0da394b7d, type: 3}
   Cookie: 0
-  BuffPaticle: {fileID: 334052083574401059, guid: a608370798d77ac44862c741281ac915, type: 3}
+  BuffPaticle: {fileID: 4090231052992747498, guid: 87ba0ceb53f88534296d000e15d90eaf, type: 3}
   Tower_Disposition_Arr:
   - {fileID: 0}
   - {fileID: 0}
