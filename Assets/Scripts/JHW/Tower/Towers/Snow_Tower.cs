@@ -26,6 +26,10 @@ public class Snow_Tower : Tower_Prototype
         Monster_Controller targetMonster = MonsterTargeting_Random();
         if (targetMonster != null)
         {
+            Vector3 direction = targetMonster.transform.position - transform.position;
+            direction.y = 0f;
+            transform.rotation = Quaternion.LookRotation(direction);
+
             GameObject snow = Instantiate(snow_Summon, targetMonster.transform.position, Quaternion.identity); //눈구름 프리펩 인스턴스 생성
 
             Snow_Summon snowScript = snow.GetComponent<Snow_Summon>(); //스노우 인스턴스의 스크립트를 가져온다
@@ -34,13 +38,13 @@ public class Snow_Tower : Tower_Prototype
             {
                 if (isUpgraded)
                 {
-                    snowScript.SetAttackDamage(attackDamage * upgrade_Factor); //업그레이드 시 계수 추가
-                    snowScript.checkUpgrade(isUpgraded);
+                    snowScript.SetAttackDamage(attackDamage * upgrade_Factor); //업그레이드 시 계수 추가    
                 }
                 else
                 {
                     snowScript.SetAttackDamage(attackDamage);
                 }
+                snowScript.checkUpgrade(isUpgraded);
             }
         }
     }

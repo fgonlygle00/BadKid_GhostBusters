@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Flame_Summon : MonoBehaviour
 {
-    float creationTime = 1f;
-    float flameRadius = 35f;
+    float creationTime = 1.2f;
+    float flameRadius = 50f;
     float ticRate = 0.1f;
     float summononDamage;
     bool isUpgrade;
@@ -22,6 +22,10 @@ public class Flame_Summon : MonoBehaviour
     public void checkUpgrade(bool _isUpgrade)
     {
         isUpgrade = _isUpgrade;
+        if (isUpgrade == true)
+        {
+            ticRate = 0.07f;
+        }
     }
 
     void Flame_floor()
@@ -36,14 +40,16 @@ public class Flame_Summon : MonoBehaviour
             // 좌표 범위 내에 있는 몬스터들에게 치유 감소와 틱뎀을 준다
             if (Vector3.Distance(transform.position, monsterPosition) <= flameRadius)
             {
-                    monster.Hit(monster.maxHP() * 0.01f + summononDamage *0.1f);
+                    
                     if (isUpgrade == true)
                     {
-                        monster.HPDown(0f);
+                        monster.HPDown(0.1f);
+                        monster.Hit(monster.maxHP() * 0.012f + summononDamage * 0.06f);
                     }
                     else
                     {
                         monster.HPDown(0.5f);
+                        monster.Hit(monster.ReturnHP() * 0.01f + summononDamage * 0.05f);
                     }
             }
         }

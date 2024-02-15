@@ -75,7 +75,7 @@ public class Beam_Tower : Tower_Prototype
                 if (bulletScript != null)
                 {
 
-                    bulletScript.SetAttackDamage(attackDamage + sum); //불릿의 공격력을 타워 공격력으로 설정 // 빔 타워는 공증이 붙는다
+                    bulletScript.SetAttackDamage(attackDamage); //불릿의 공격력을 타워 공격력으로 설정 // 빔 타워는 공증이 붙는다
                     bulletScript.SetTargetMonster(targetMonster); //불릿의 타겟을 타겟 몬스터로 설정
                 }
                 else

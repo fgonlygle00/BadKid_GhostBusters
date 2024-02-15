@@ -11,7 +11,6 @@ public class Snow_Summon : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("Snow_Rain", 0f, ticRate);
         Invoke("DestroySummon", creationTime);
     }
 
@@ -24,6 +23,12 @@ public class Snow_Summon : MonoBehaviour
     public void checkUpgrade(bool _isUpgrade)
     {
         isUpgrade = _isUpgrade;
+        if (isUpgrade == true)
+        {
+            ticRate = 0.15f;
+            snowRadius = 60f;
+        }
+        InvokeRepeating("Snow_Rain", 0f, ticRate);
     }
 
     void Snow_Rain()
@@ -45,7 +50,7 @@ public class Snow_Summon : MonoBehaviour
                     }
                     else
                     {
-                        monster.MovementDown(0.001f);
+                        monster.MovementDown(0.01f);
                     }
             }
         }

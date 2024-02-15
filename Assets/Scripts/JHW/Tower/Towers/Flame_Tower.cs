@@ -26,6 +26,11 @@ public class Flame_Tower : Tower_Prototype
         Monster_Controller targetMonster = MonsterTargeting_Random();
         if (targetMonster != null)
         {
+            Vector3 direction = targetMonster.transform.position - transform.position;
+            direction.y = 0f;
+            transform.rotation = Quaternion.LookRotation(direction);
+
+
             GameObject flame = Instantiate(flame_Summon, targetMonster.transform.position, Quaternion.identity); //플레임 프리펩 인스턴스 생성
 
             Flame_Summon flameScript = flame.GetComponent<Flame_Summon>(); //플레임 인스턴스의 스크립트를 가져온다
@@ -35,12 +40,12 @@ public class Flame_Tower : Tower_Prototype
                 if (isUpgraded)
                 {
                     flameScript.SetAttackDamage(attackDamage * upgrade_Factor); //업그레이드 시 계수 추가
-                    flameScript.checkUpgrade(isUpgraded);
                 }
                 else
                 {
                     flameScript.SetAttackDamage(attackDamage);
                 }
+                flameScript.checkUpgrade(isUpgraded);
             }
         }
     }
