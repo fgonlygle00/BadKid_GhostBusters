@@ -7,7 +7,7 @@ using UnityEngine;
 public class Wave_Manager
 {
     int wave;
-    public float Time; //웨이브 종료 시간
+    public float Time;
     [SerializeField] float delay;
     [SerializeField] int[] monsterPersent;
 
@@ -101,9 +101,9 @@ public class Monster_Manager : MonoBehaviour
             }
             time -= Time.deltaTime;
         }
-        if(time <=0&& _runTime)
+        if(time <=0&& _runTime)  //멈춰야 3초 false
         {
-            time = 0;
+            time = 0; //
             //모든 적 처치
             if (_spwanPos.childCount == 0)
             {
@@ -193,11 +193,13 @@ public class Monster_Manager : MonoBehaviour
                 SpwanMonster(monsterPrefap[7]);
                 break;
             case 21:
-                //클리어 판정
+                waveManager.setWave(21, 20f, 4f, 40, 70, 90, 100);
+                //클리어판정
                 break;
 
         }
         SaveAndLoadManager.Instance.SaveGame();
+
 
         SetWave();
     }

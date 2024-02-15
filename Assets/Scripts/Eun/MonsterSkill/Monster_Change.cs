@@ -12,12 +12,15 @@ public class Monster_Change : MonoBehaviour
     Tower_Prototype tower;
     Vector3 currentPosition;
     GameObject ChangePrefeb;
-    GameObject DestroyObject;
+    GameObject _destroyObject;
 
+
+    public GameObject changePaticle;
+    GameObject paticle;
     void Start()
     {
-        _changeObject = Tower_Manager.Instance.Tower_Disposition_Arr;
-        _towelPosition = Tower_Manager.Instance.Tower_Coordinate_Arr;
+        _changeObject = new GameObject[18];
+        _towelPosition = new GameObject[18];
     }
 
     public void RandomTowel()
@@ -42,26 +45,49 @@ public class Monster_Change : MonoBehaviour
 
     void RandomPrefeb(int start,int length)
     {
-        for (int i = _changeObject.Length; i>=0;i--)
+        _changeObject = Tower_Manager.Instance.Tower_Disposition_Arr;
+        _towelPosition = Tower_Manager.Instance.Tower_Coordinate_Arr;
+        for (int i = _changeObject.Length-1; i>=0;i--)
         {
+            if (_changeObject[i] == null) continue;
+
+
             tower = _changeObject[i].GetComponent<Tower_Prototype>();
             int I = 0;
             if (tower.arr_Index >= start && tower.arr_Index <= length)
             {
                 I = tower.arr_Index;
-                DestroyObject = _changeObject[i];
+                _destroyObject = _changeObject[i];
                 ChangePrefeb = Tower_Manager.Instance.GetRandomTowerPrefab();
                 currentPosition = _towelPosition[i].transform.position;
                 currentPosition.y += 33f;
 
 
+
                 _changeObject[i] = Instantiate(ChangePrefeb);
+
+
+                Tower_Manager.Instance.Tower_Disposition_Arr[i] = _changeObject[i];
                 _changeObject[i].transform.position = currentPosition;
                 _changeObject[i].GetComponent<Tower_Prototype>().Index_Get(I);
 
 
-                Destroy(DestroyObject);
+                //ÆÄÆ¼Å¬
+                paticle = Instantiate(changePaticle, _changeObject[i].transform);
+                paticle.transform.position = _changeObject[i].transform.position;
+
+                Invoke("StopPaticle", 2f);
+
+                Destroy(_destroyObject);
+
+
             }
         }
+    }
+
+
+    void StopPaticle()
+    {
+        Destroy(paticle);
     }
 }
