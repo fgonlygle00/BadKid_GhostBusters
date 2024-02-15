@@ -36,17 +36,17 @@ public class Sniper_Bullet : Bullet_Prototype
                 {
                     if (isUpgraded == true)   //업그레이드 시 더 강한 공격력 계수 + 잃은 체력 비례 추가 피해
                     {
-                        monsterStatus.Hit(bulletDamage * 1.5f);
-
                         float currentHP = monsterStatus.ReturnHP();
                         float maxHP = monsterStatus.maxHP();
 
-                        // 현재 체력과 최대 체력의 차이에서 일정 비율을 계산하여 피해를 입힘
-                        float damagePercentage = 0.25f; // 잃은 체력의 25% 피해
-                        float damage = (maxHP - currentHP) * damagePercentage;
+                        float damageMultiplier = 1.0f + (1.0f - currentHP / maxHP); 
+                        float calculatedDamage = bulletDamage * damageMultiplier; //잃은 체력 비례 피해 증가 (최대 원래 총알 데미지의 2배)
 
-                        // 계산된 피해를 몬스터에게 입히기
-                        monsterStatus.Hit(damage);
+                        // 현재 체력과 최대 체력의 차이에서 일정 비율을 계산하여 피해를 입힘
+
+                        // 계산된 피해를 몬스터에게 입히기. 총데미지: 총알 데미지의 100~200%데미지 + 잃체비 피해 3%
+                        monsterStatus.Hit(calculatedDamage); 
+                        monsterStatus.Hit((maxHP - currentHP) * 0.03f);
                     }
                     else
                     {

@@ -25,6 +25,7 @@ public class Flame_Summon : MonoBehaviour
         if (isUpgrade == true)
         {
             ticRate = 0.07f;
+            flameRadius = 60f;
         }
     }
 

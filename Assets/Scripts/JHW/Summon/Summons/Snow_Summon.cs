@@ -26,7 +26,7 @@ public class Snow_Summon : MonoBehaviour
         if (isUpgrade == true)
         {
             ticRate = 0.15f;
-            snowRadius = 60f;
+            snowRadius = 70f;
         }
         InvokeRepeating("Snow_Rain", 0f, ticRate);
     }
