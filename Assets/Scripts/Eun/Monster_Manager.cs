@@ -124,6 +124,7 @@ public class Monster_Manager : MonoBehaviour
 
     void SetWaveManager()
     {
+
         _monsters.Clear();
         switch (Wave)
         {
@@ -201,16 +202,14 @@ public class Monster_Manager : MonoBehaviour
 
         }
 
-        // Invasion_Controller 인스턴스를 가져와야 함
-        // 이 부분은 실제 게임의 구현에 따라 수정해야 함
-        Invasion_Controller invasionController = FindObjectOfType<Invasion_Controller>();
-        GoodsData goodsData = GoodsData.instance; // GoodsData 인스턴스를 가져옵니다.
+        if (SaveAndLoadManager.Instance == null)
+        {
+            Debug.LogError("SaveAndLoadManager 인스턴스가 null입니다.");
+            return;
+        }
 
         // 웨이브가 끝날 때마다 게임 상태 저장(거점의 체력까지)
-        SaveAndLoadManager.Instance.SaveGame(invasionController);
-
-     
-
+        SaveAndLoadManager.Instance.SaveGame();
 
         SetWave();
     }

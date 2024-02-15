@@ -17,28 +17,48 @@ public class SaveAndLoadManager : MonoBehaviour
 
 
     public GameData gameData;
-
+    string path;
     private string gameDataFileName = "save.json";
 
-    public void SaveGame(Invasion_Controller invasionController)
+    public void SaveGame()
     {
-        GoodsData goodsData = GoodsData.instance; // GoodsData 인스턴스를 가져옴
+        Invasion_Controller invasionController = FindObjectOfType<Invasion_Controller>(); // Invasion_Controller 인스턴스를 가져옵니다.
+        GoodsData goodsData = GoodsData.instance; // GoodsData 인스턴스를 가져옵니다.
+
+        if (invasionController == null || goodsData == null) // 인스턴스가 null인지 검사합니다.
+        {
+            Debug.LogError("Invasion_Controller 인스턴스 또는 GoodsData 인스턴스를 찾을 수 없습니다.");
+            return;
+        }
+
         gameData.baseHealth = invasionController.ReturnHealth();
-        gameData.cookie = goodsData._cookies; // 쿠키의 수를 저장
+        gameData.cookie = goodsData._cookies; // 쿠키의 수를 저장합니다.
+
         string json = JsonUtility.ToJson(gameData);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, gameDataFileName), json);
+        //File.WriteAllText(Path.Combine(Application.persistentDataPath, gameDataFileName + ".json"), json);
+        File.WriteAllText(path , json);
+
+        Debug.Log(json);
     }
 
 
     // 게임 상태 불러오기
-    public void LoadGame(GoodsData goodsData)
+    public void LoadGame()
     {
-        string path = Path.Combine(Application.persistentDataPath, gameDataFileName);
+        //string path = Path.Combine(Application.persistentDataPath, gameDataFileName + ".json");
+        LoadGameFromPath(path);
+    }
+
+    // 지정된 경로에서 게임 상태 불러오기
+    public void LoadGameFromPath(string path)
+    {
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             gameData = JsonUtility.FromJson<GameData>(json);
-            goodsData._cookies = gameData.cookie; // 쿠키의 수를 복원합니다.
+            //버튼이 있어야 
+            Debug.Log(json);
+            GoodsData.instance._cookies = gameData.cookie; // 쿠키의 수를 복원합니다.
         }
         else
         {
@@ -58,6 +78,20 @@ public class SaveAndLoadManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return; // 이후 코드를 실행하지 않도록 합니다.
         }
+
+        gameData = new GameData(); // gameData 객체를 초기화
+
+        // 게임 데이터를 불러옵니다. "/path/to/save.json" 부분은 실제 파일 경로로 변경
+        LoadGameFromPath("/path/to/save.json");
+        path = Path.Combine(Application.dataPath, gameDataFileName);
     }
+
+    private void Update()
+    {
+        LoadGame();
+    }
+
+
 }
