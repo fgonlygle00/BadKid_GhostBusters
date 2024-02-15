@@ -24,7 +24,8 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     private void Start()
     {
-        _stat.Set(Datas.status.hp, Datas.status.attack, Datas.status.speed);
+        Datas.Status.Set(Datas.Status.hp, Datas.Status.attack, Datas.Status.speed);
+        _stat.Set(Datas.curStatus.hp, Datas.curStatus.attack, Datas.curStatus.speed);
         _monsterHeal = gameObject.GetComponent<Monster_Heal>();
         _monsterBomb = gameObject.GetComponent<Monster_Bomb>();
         _monsterChange = gameObject.GetComponent<Monster_Change>();
@@ -38,7 +39,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
         {
 
             //이동
-            moveDistanse += Datas.status.speed *Time.deltaTime;
+            moveDistanse += Datas.curStatus.speed *Time.deltaTime;
             transform.position = Vector3.MoveTowards
                 (transform.position,
                 Monster_Manager.Instanse.Points[_pointIndex].transform.position, _stat.speed * Time.deltaTime);
@@ -64,8 +65,8 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
                     {
                         if (_pointIndex == P)
                         {
-                            _stat.hp += Datas.status.hp * _monsterHeal.Heal();
-                            if (_stat.hp > Datas.status.hp) _stat.hp = Datas.status.hp;
+                            _stat.hp += Datas.curStatus.hp * _monsterHeal.Heal();
+                            if (_stat.hp > Datas.curStatus.hp) _stat.hp = Datas.curStatus.hp;
                         }
                     }
                 }
@@ -142,14 +143,14 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     void SetHealthBar()
     {
-        float fill = _stat.hp / Datas.status.hp;
+        float fill = _stat.hp / Datas.curStatus.hp;
         healthBar.fillAmount = fill;
     }
 
 
     public float maxHP()
     {
-        return Datas.status.hp;
+        return Datas.curStatus.hp;
     }
 
     public float Attack()
@@ -176,7 +177,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
     //현우님 사용
     public void MovementDown(float down)
     {
-        _movementDebuff += 0.3f;
+        _movementDebuff += 0.25f;
         if(!_movementBool)
         {
             _stat.speed *= down; 
@@ -197,7 +198,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     void MovementReset()
     {
-        _stat.speed = Datas.status.speed;
+        _stat.speed = Datas.curStatus.speed;
         _movementBool = false;
         _movementDebuff = 0;
     }
