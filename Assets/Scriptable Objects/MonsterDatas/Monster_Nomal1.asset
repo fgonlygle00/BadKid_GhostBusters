@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monster_Type: 0
   curStatus:
-    hp: 30
+    hp: 20
     attack: 5
     speed: 25
   Status:
-    hp: 20
+    hp: 15
     attack: 5
     speed: 25
