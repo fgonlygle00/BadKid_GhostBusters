@@ -198,6 +198,7 @@ public class Monster_Manager : MonoBehaviour
                 break;
 
         }
+        SaveAndLoadManager.Instance.SaveGame();
 
 
         SetWave();
