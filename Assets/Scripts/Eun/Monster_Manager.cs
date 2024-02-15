@@ -147,6 +147,7 @@ public class Monster_Manager : MonoBehaviour
                 waveManager.setWave(3, 40f, 0.8f, 85, 93, 96, 100);
                 break;
             case 4:
+                Monster_HealthUP(1.3f);
                 waveManager.setWave(4, 40f, 0.8f, 75, 90, 95, 100);
                 break;
             case 5:

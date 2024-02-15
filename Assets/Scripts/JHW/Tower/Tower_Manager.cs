@@ -223,7 +223,7 @@ public class Tower_Manager : MonoBehaviour
             tower_script.Index_Get(i);
 
             //타워 생성시 쿠키 소모
-            GoodsData.instance._cookies -= 1;
+            GoodsData.instance._cookies -= 100;
         }
     }
 }
