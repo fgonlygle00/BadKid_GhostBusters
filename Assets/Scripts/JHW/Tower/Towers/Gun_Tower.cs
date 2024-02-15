@@ -60,6 +60,7 @@ public class Gun_Tower : Tower_Prototype
         {
             isUpgraded = true;
             Defalt_attackDamage *= upgrade_Factor;
+            transform.localScale *= 1.5f;
             /*
             baseAttackRate = 0.2f;
             CancelInvoke("BasicAttack");

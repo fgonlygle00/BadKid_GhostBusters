@@ -73,6 +73,7 @@ public class Tower_Prototype : MonoBehaviour
         if (isUpgraded == false)
         {
             isUpgraded = true;
+            transform.localScale *= 1.5f;
         }
         else
         {

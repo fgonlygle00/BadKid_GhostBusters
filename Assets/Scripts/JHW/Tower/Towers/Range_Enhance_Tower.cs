@@ -49,6 +49,7 @@ public class Range_Enhance_Tower : Tower_Prototype
         {
             buffOn = true;
             Ex_UseBuff();
+
         }
         else
         {
@@ -306,7 +307,8 @@ public class Range_Enhance_Tower : Tower_Prototype
         if (isUpgraded == false)
         {
             isUpgraded = true;
-            Ex_BuffCancel();
+            Ex_BuffCancel(); //버프가 중복 적용되지 않도록
+            transform.localScale *= 1.5f;
             buffValue *= 2;
         }
         else
