@@ -59,8 +59,6 @@ public class Tower_Manager : MonoBehaviour
     public GameObject Flame_Tower;
 
 
-
-
     public int Cookie = 0;
 
     public void Add_Cookie(int drop)    //유령 죽을 때 이 메서드를 쓰세요
@@ -71,8 +69,8 @@ public class Tower_Manager : MonoBehaviour
 
     // 타워 배치 배열은 타워 인스턴스가 들어가는 배열.
     // 타워 좌표 배열은 큐브(발판)들의 위치가 들어가있는 배열.
-    public GameObject[] Tower_Disposition_Arr = new GameObject[18];
-    public GameObject[] Tower_Coordinate_Arr = new GameObject[18];
+    public GameObject[] Tower_Disposition_Arr = new GameObject[18];        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<이거 타워 인스턴스들 다 들어있는 배열입니다
+    public GameObject[] Tower_Coordinate_Arr = new GameObject[18];        //
 
     //버프 효과 배열. 모두 1로 초기화.
     public float[] Buff_Value_Arr = new float[18];
