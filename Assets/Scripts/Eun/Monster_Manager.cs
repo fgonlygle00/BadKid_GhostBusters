@@ -151,7 +151,7 @@ public class Monster_Manager : MonoBehaviour
                 waveManager.setWave(4, 40f, 0.8f, 75, 90, 95, 100);
                 break;
             case 5:
-                waveManager.setWave(5, 5f, 30f, 75, 100, 101, 102);
+                waveManager.setWave(5, 5f, 5f, 75, 100, 101, 102);
                 SpwanMonster(monsterPrefap[4]);
                 break;
             case 6:
@@ -168,7 +168,7 @@ public class Monster_Manager : MonoBehaviour
                 waveManager.setWave(9, 40f, 0.8f, 65, 85, 95, 100);
                 break;
             case 10:
-                waveManager.setWave(10, 10f, 4f, 70, 85, 95, 100);
+                waveManager.setWave(10, 5f, 1f, 70, 85, 95, 100);
                 SpwanMonster(monsterPrefap[5]);
                 break;
             case 11:
@@ -185,7 +185,7 @@ public class Monster_Manager : MonoBehaviour
                 waveManager.setWave(14, 40f, 0.8f, 40, 70, 90, 100);
                 break;
             case 15:
-                waveManager.setWave(15, 10f, 4f, 0, 0, 100, 101);
+                waveManager.setWave(15, 10f, 1f, 0, 0, 100, 101);
                 SpwanMonster(monsterPrefap[6]);
                 break;
             case 16:
@@ -202,7 +202,7 @@ public class Monster_Manager : MonoBehaviour
                 waveManager.setWave(19, 40f, 0.8f, 30, 60, 85, 100);
                 break;
             case 20:
-                waveManager.setWave(20, 20f, 4f, 40, 70, 90, 100);
+                waveManager.setWave(20, 5f, 1f, 40, 70, 90, 100);
                 SpwanMonster(monsterPrefap[7]);
                 break;
             case 21:
