@@ -18,6 +18,6 @@ MonoBehaviour:
     attack: 0
     speed: 0
   Status:
-    hp: 5000
+    hp: 7000
     attack: 20
     speed: 30
