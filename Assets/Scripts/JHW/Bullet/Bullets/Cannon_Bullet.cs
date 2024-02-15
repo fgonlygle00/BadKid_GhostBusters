@@ -62,6 +62,7 @@ public class Cannon_Bullet : Bullet_Prototype
             if (monsterStatus != null)
             {
                 monsterStatus.Hit(bulletDamage*0.75f);
+                StartCoroutine(CannonBullet());
             }
             splash_Damage();
         }
