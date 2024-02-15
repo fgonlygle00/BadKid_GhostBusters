@@ -5,10 +5,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] _backGroundMusics;
     [SerializeField] private AudioSource _audioSource;
 
-    public static AudioManager instanse;
+    public static AudioManager instance;
     public void Awake()
     {
-        instanse = this;
+        instance = this;
     }
 
     private void Start()
@@ -20,7 +20,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM()
     {
-        switch(Monster_Manager.Instanse.Wave)
+        _audioSource.pitch = 1.0f;
+        switch (Monster_Manager.Instanse.Wave)
         {
             case 5: _audioSource.clip = _backGroundMusics[1]; break;
             case 10: _audioSource.clip = _backGroundMusics[2]; break;
