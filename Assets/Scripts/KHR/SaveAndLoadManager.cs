@@ -63,7 +63,7 @@ public class SaveAndLoadManager : MonoBehaviour
         else
         {
             // 저장된 게임 상태가 없는 경우, 기본 게임 상태로 시작
-            gameData = new GameData();
+            //gameData = new GameData();
         }
     }
 
@@ -81,17 +81,17 @@ public class SaveAndLoadManager : MonoBehaviour
             return; // 이후 코드를 실행하지 않도록 합니다.
         }
 
-        gameData = new GameData(); // gameData 객체를 초기화
+        //gameData = new GameData(); // gameData 객체를 초기화
 
         // 게임 데이터를 불러옵니다. "/path/to/save.json" 부분은 실제 파일 경로로 변경
-        LoadGameFromPath("/path/to/save.json");
+        //LoadGameFromPath("/path/to/save.json");
         path = Path.Combine(Application.dataPath, gameDataFileName);
     }
 
-    private void Update()
-    {
-        LoadGame();
-    }
+    //private void Update()
+    //{
+    //    LoadGame();
+    //}
 
 
 }
