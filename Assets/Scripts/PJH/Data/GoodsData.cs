@@ -13,10 +13,15 @@ public class GoodsData : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        _cookies = 150;
+    }
+
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 1.0f)
+        if (timer >= 0.75f)
         {
             _cookies++;
             timer = 0.0f;
