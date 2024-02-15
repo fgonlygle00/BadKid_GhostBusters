@@ -200,6 +200,8 @@ public class Monster_Manager : MonoBehaviour
         }
         SaveAndLoadManager.Instance.SaveGame();
 
+        // 웨이브 마다 배경 음악 설정
+        AudioManager.instanse.PlayBGM();
 
         SetWave();
     }
