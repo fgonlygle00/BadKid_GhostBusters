@@ -34,7 +34,7 @@ public class Range_Enhance_Tower : Tower_Prototype
         // 마우스 오른쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(1))
         {
-            if (GoodsData.instance._cookies >= 10)
+            if (GoodsData.instance._cookies >= 1)
             {
                 Ex_BuffCancel();
                 Tower_Manager.Instance.ReRoll(arr_Index);
@@ -306,7 +306,6 @@ public class Range_Enhance_Tower : Tower_Prototype
         if (isUpgraded == false)
         {
             isUpgraded = true;
-            Defalt_attackDamage *= upgrade_Factor;
             Ex_BuffCancel();
             buffValue *= 2;
         }

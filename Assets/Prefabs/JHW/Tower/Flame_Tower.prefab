@@ -547,10 +547,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501ada75e9ba62343b00a2c470cb1fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 20
-  Defalt_attackDamage: 20
+  attackDamage: 1
+  Defalt_attackDamage: 1
   baseAttackRate: 0.5
-  skillCastRate: 5
+  skillCastRate: 1.2
   buffValue: 0
   isUpgraded: 0
   bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}
@@ -559,6 +559,7 @@ MonoBehaviour:
   upgrade_Factor: 1.5
   center: {x: 0, y: 0, z: 0}
   radius: 0
+  flame_Summon: {fileID: 4615441141203718800, guid: 04ee7afc4c365d249830acca5c0fcb58, type: 3}
 --- !u!65 &7788693851049577527
 BoxCollider:
   m_ObjectHideFlags: 0

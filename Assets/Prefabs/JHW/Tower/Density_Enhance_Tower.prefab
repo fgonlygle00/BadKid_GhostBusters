@@ -100,11 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa15c75b60acef947ad21f999517ce97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 20
-  Defalt_attackDamage: 20
+  attackDamage: 1
+  Defalt_attackDamage: 1
   baseAttackRate: 0.5
   skillCastRate: 3
-  buffValue: 0.5
+  buffValue: 1
   isUpgraded: 0
   bulletPrefab: {fileID: 8260875066926676870, guid: 3aa6ed0831e070d44b9a4e2e3dacb04d, type: 3}
   towerType: Density_Enhance_Tower

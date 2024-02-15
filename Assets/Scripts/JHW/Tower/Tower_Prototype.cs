@@ -45,21 +45,27 @@ public class Tower_Prototype : MonoBehaviour
         // 마우스 왼쪽 버튼이 눌렸을 때 체크
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Left Clicked on Object: " + gameObject.name);
-            Upgrade();
-        }
-
-        // 마우스 오른쪽 버튼이 눌렸을 때 체크
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (GoodsData.instance._cookies >= 10)
-            { 
-                Tower_Manager.Instance.ReRoll(arr_Index);
-                Destroy(gameObject);
+            if (GoodsData.instance._cookies >= 5)
+            {
+                bool Up_check = isUpgraded;      //실제로 업그레이드 됐는지 여부를 판별해서 쿠키 소모
+                Upgrade();
+                if (Up_check != isUpgraded)
+                {
+                        GoodsData.instance._cookies -= 5;
+                }
+                
             }
-
-            Debug.Log("Right Clicked on Object: " + gameObject.name);
         }
+
+            // 마우스 오른쪽 버튼이 눌렸을 때 체크
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (GoodsData.instance._cookies >= 1)
+                {
+                    Tower_Manager.Instance.ReRoll(arr_Index);
+                    Destroy(gameObject);
+                }
+            }
     }
 
     public virtual void Upgrade()  //업그레이드 메서드
@@ -67,7 +73,6 @@ public class Tower_Prototype : MonoBehaviour
         if (isUpgraded == false)
         {
             isUpgraded = true;
-            Defalt_attackDamage *= upgrade_Factor;
         }
         else
         {
@@ -104,8 +109,14 @@ public class Tower_Prototype : MonoBehaviour
 
             if (bulletScript != null)
             {
-
-                bulletScript.SetAttackDamage(attackDamage); //불릿의 공격력을 타워 공격력으로 설정
+                if (isUpgraded)
+                {
+                    bulletScript.SetAttackDamage(attackDamage*upgrade_Factor); //업그레이드 시 계수 추가
+                }
+                else
+                {
+                    bulletScript.SetAttackDamage(attackDamage);
+                }
                 bulletScript.SetTargetMonster(targetMonster); //불릿의 타겟을 타겟 몬스터로 설정
             }
             else
