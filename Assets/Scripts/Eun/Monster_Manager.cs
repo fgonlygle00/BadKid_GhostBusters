@@ -68,6 +68,10 @@ public class Monster_Manager : MonoBehaviour
 
     static public Monster_Manager Instanse; //½Ì±ÛÅæ
 
+    //-------------------------------------------
+
+    [SerializeField] private Monster_Status[] resetStatus;
+
 
     private void Awake()
     {
@@ -76,6 +80,12 @@ public class Monster_Manager : MonoBehaviour
 
     void Start()
     {
+        foreach (var Data in resetStatus)
+        {
+            Data.curStatus.Set(Data.Status.hp, Data.Status.attack, Data.Status.speed);
+        }
+
+
         _monsters.Clear();
         waveManager.setWave(1, 40f, 1.2f, 90, 93, 96, 100);//¿şÀÌºê1
 
