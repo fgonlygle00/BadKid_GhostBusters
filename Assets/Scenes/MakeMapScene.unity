@@ -22282,8 +22282,8 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.1
-  m_Pitch: 0.6
-  Loop: 0
+  m_Pitch: 1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -22394,10 +22394,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backGroundMusics:
   - {fileID: 8300000, guid: 6140a7b08afe4464895f003c745c1ef4, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 2fd89e3a207767c44ae4dcf06511c21b, type: 3}
+  - {fileID: 8300000, guid: ef0ed80ce0fb93348a750e0a96f0ee95, type: 3}
+  - {fileID: 8300000, guid: 6102d9640e7fec142815faf807ffb54c, type: 3}
+  - {fileID: 8300000, guid: 07401fcc0a16dfa4faa8b463e43de238, type: 3}
+  - {fileID: 8300000, guid: 792efcef168537241bb269eadfdae868, type: 3}
+  - {fileID: 8300000, guid: 2fe0bcf845647ad46ad3b443c2350e5f, type: 3}
+  - {fileID: 8300000, guid: e1b370648231d154096eea9348612a92, type: 3}
+  _audioSource: {fileID: 1064656673}
 --- !u!1001 &1069186027
 PrefabInstance:
   m_ObjectHideFlags: 0
