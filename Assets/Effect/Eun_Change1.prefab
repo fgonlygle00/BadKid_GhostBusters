@@ -4836,7 +4836,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53546c84955177a43bd8b3245c6fddab, type: 2}
+  - {fileID: 2100000, guid: 58447a1f287e0a14baf590fa4581b46f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9812,7 +9812,7 @@ GameObject:
   - component: {fileID: 3880684351403455153}
   - component: {fileID: 3923847947893975213}
   m_Layer: 0
-  m_Name: Eun_Debuff_03
+  m_Name: Eun_Change1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
