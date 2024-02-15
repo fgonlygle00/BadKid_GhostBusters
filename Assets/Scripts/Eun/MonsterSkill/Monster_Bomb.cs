@@ -16,7 +16,7 @@ public class Monster_Bomb : MonoBehaviour
     GameObject _paticle;
     void Start()
     {
-        _audioSource.clip = AudioManager.instanse._backGroundMusics[6];
+        _audioSource.clip = AudioManager.instance._backGroundMusics[6];
         magicCircle.SetActive(false);
     }
 

@@ -14,7 +14,7 @@ public class Monster_Heal : MonoBehaviour
     private void Start()
     {
 
-        _audioSource.clip = AudioManager.instanse._backGroundMusics[5];
+        _audioSource.clip = AudioManager.instance._backGroundMusics[5];
         _curHealPersent = healPersent;
         particleObject.SetActive(false);
     }

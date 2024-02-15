@@ -21,7 +21,7 @@ public class Monster_Change : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     void Start()
     {
-        _audioSource.clip = AudioManager.instanse._backGroundMusics[7];
+        _audioSource.clip = AudioManager.instance._backGroundMusics[7];
         _changeObject = new GameObject[18];
         _towelPosition = new GameObject[18];
     }
