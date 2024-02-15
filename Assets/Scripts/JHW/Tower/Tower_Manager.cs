@@ -60,6 +60,7 @@ public class Tower_Manager : MonoBehaviour
 
 
     public int Cookie = 0;
+    public GameObject BuffPaticle;
 
     public void Add_Cookie(int drop)    //유령 죽을 때 이 메서드를 쓰세요
     {
