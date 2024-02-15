@@ -3,7 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip[] _backGroundMusics;
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSource;
 
     public static AudioManager instanse;
     public void Awake()
@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         _audioSource.clip = _backGroundMusics[0];
+        _audioSource.pitch = 0.6f;
+        _audioSource.Play();
     }
 
     public void PlayBGM()
@@ -24,7 +26,10 @@ public class AudioManager : MonoBehaviour
             case 10: _audioSource.clip = _backGroundMusics[2]; break;
             case 15: _audioSource.clip = _backGroundMusics[3]; break;
             case 20: _audioSource.clip = _backGroundMusics[4]; break;
-            default: _audioSource.clip = _backGroundMusics[0]; break;
+            default: 
+                _audioSource.clip = _backGroundMusics[0];
+                _audioSource.pitch = 0.6f;
+                break;
         }
 
         _audioSource.Play();
