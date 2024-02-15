@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class Tower_Prototype : MonoBehaviour
     public Vector3 center;
     public float radius;
 
+    private GameObject _paticle;
 
     // 보류
     // public float upgradedAttackRate;
@@ -38,6 +40,7 @@ public class Tower_Prototype : MonoBehaviour
 
     private void Update()
     {
+
     }
 
     private void OnMouseOver()
@@ -87,7 +90,7 @@ public class Tower_Prototype : MonoBehaviour
         if (newValue > 1)
         {
             attackDamage = Defalt_attackDamage*Tower_Manager.Instance.Buff_Value_Arr[arr_Index]; //기본공격력 * 버프값
-
+            StartCoroutine(PlayBuff());
         }
         else
         {
@@ -203,6 +206,18 @@ public class Tower_Prototype : MonoBehaviour
             // Handle invalid arr_Index here if needed
         }
     }
+
+
+    IEnumerator PlayBuff()
+    {
+        _paticle = Instantiate(Tower_Manager.Instance.BuffPaticle);
+        _paticle.transform.position = transform.position;
+        yield return new WaitForSeconds(2f);
+        Destroy(_paticle);
+    }
+
+
+
 
     // void UniqueSkillEffect()
     // {
