@@ -24,7 +24,7 @@ public class Monster_Controller : MonoBehaviour  //이동 회전 로직
 
     private void Start()
     {
-        Datas.Status.Set(Datas.Status.hp, Datas.Status.attack, Datas.Status.speed);
+        Datas.curStatus.Set(Datas.Status.hp, Datas.Status.attack, Datas.Status.speed);
         _stat.Set(Datas.curStatus.hp, Datas.curStatus.attack, Datas.curStatus.speed);
         _monsterHeal = gameObject.GetComponent<Monster_Heal>();
         _monsterBomb = gameObject.GetComponent<Monster_Bomb>();
