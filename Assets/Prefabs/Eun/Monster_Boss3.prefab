@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80021ba340f1f124fb6fff5ef3b11100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Datas: {fileID: 11400000, guid: 7b16b9cc4734cc2419fbf40385a95c05, type: 2}
+  Datas: {fileID: 11400000, guid: 3776660dd9cdb724595c33e2efc6c503, type: 2}
   _stat:
     hp: 0
     attack: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6a5dfd905416a408c1b4cd77b972f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombIndex: 010000000200000005000000
+  bombIndex: 0000000001000000020000000400000005000000
   _audioSource: {fileID: 1680774643379145639}
   magicCircle: {fileID: 8032085369953778593}
   bombPaticle: {fileID: 7152205447661529937, guid: 9569753cb1dc1b2439a5aa1b5422904e, type: 3}

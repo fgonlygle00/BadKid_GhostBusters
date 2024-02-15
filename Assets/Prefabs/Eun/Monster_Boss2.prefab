@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692fca2d1c51aae46991fc354942ae4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Healindex: 0200000006000000
+  Healindex: 010000000300000005000000
   healPersent: 20
   _curHealPersent: 0
   _audioSource: {fileID: 5754624048149758062}

@@ -29,7 +29,6 @@ public class Status
         attack = A;
         speed = S;
     }
-
 }
 
 [CreateAssetMenu(fileName = "NewMonsterStatus", menuName = "Monster_Status")]
@@ -37,7 +36,8 @@ public class Monster_Status : ScriptableObject
 {
     [Header("Status")]
     public Monster_Type monster_Type;
-    public Status status;
+    [HideInInspector] public Status curStatus;
+    public Status Status;
 
 }
 

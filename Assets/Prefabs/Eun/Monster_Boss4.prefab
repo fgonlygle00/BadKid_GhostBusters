@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80021ba340f1f124fb6fff5ef3b11100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Datas: {fileID: 11400000, guid: 3776660dd9cdb724595c33e2efc6c503, type: 2}
+  Datas: {fileID: 11400000, guid: 7b16b9cc4734cc2419fbf40385a95c05, type: 2}
   _stat:
     hp: 0
     attack: 0
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a556d360a91af429142d8c2027fe89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changeIndex: 0200000005000000
+  _changeIndex: 010000000400000006000000
   changePaticle: {fileID: 8648285262179760618, guid: 8506fa9e8e9e15c40a0cd292ca44316e, type: 3}
   _audioSource: {fileID: -2700629600144662028}
 --- !u!82 &-2700629600144662028
