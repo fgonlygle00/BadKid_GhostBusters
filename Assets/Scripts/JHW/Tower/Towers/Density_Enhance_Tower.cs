@@ -33,7 +33,6 @@ public class Density_Enhance_Tower : Tower_Prototype
                 {
                     GoodsData.instance._cookies -= 150;
                 }
-
             }
         }
 

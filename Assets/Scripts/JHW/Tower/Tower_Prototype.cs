@@ -60,10 +60,11 @@ public class Tower_Prototype : MonoBehaviour
             // 마우스 오른쪽 버튼이 눌렸을 때 체크
             if (Input.GetMouseButtonDown(1))
             {
-                if (GoodsData.instance._cookies >= 1)
+                if (GoodsData.instance._cookies >= 100)
                 {
                     Tower_Manager.Instance.ReRoll(arr_Index);
-                    Destroy(gameObject);
+                
+                Destroy(gameObject);
                 }
             }
     }
