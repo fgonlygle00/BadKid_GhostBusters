@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        _audioSource.pitch = 0.6f;
         _audioSource.Play();
     }
 

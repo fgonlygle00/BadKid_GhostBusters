@@ -6,6 +6,7 @@ public class EndUIController : MonoBehaviour
     public void StartHome()
     {
         SceneManager.LoadScene("StartScene");
+        Destroy(AudioManager.instance.gameObject);
     }
 
     public void RetryGame()
@@ -16,5 +17,6 @@ public class EndUIController : MonoBehaviour
     public void GameEnding()
     {
         SceneManager.LoadScene("EndingScene");
+        AudioManager.instance._audioSource.clip = null;
     }
 }

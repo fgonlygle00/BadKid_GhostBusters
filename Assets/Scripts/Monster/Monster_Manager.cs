@@ -130,7 +130,7 @@ public class Monster_Manager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Time.timeScale = 10f;
+            Time.timeScale = 5f;
         }
 
         if(Input.GetKeyDown(KeyCode.K))
@@ -223,14 +223,14 @@ public class Monster_Manager : MonoBehaviour
         }
 
 
-        if (SaveAndLoadManager.Instance == null)
-        {
-            Debug.LogError("SaveAndLoadManager 인스턴스가 null입니다.");
-            return;
-        }
+        //if (SaveAndLoadManager.Instance == null)
+        //{
+        //    Debug.LogError("SaveAndLoadManager 인스턴스가 null입니다.");
+        //    return;
+        //}
 
-        // 웨이브가 끝날 때마다 게임 상태 저장(거점의 체력까지)
-        SaveAndLoadManager.Instance.SaveGame();
+        //// 웨이브가 끝날 때마다 게임 상태 저장(거점의 체력까지)
+        //SaveAndLoadManager.Instance.SaveGame();
 
         SetWave();
     }

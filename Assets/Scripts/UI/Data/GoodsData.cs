@@ -15,14 +15,7 @@ public class GoodsData : MonoBehaviour
 
     void Start()
     {
-        if (SaveAndLoadManager.Instance.gameData != null)
-        {
-            _cookies = SaveAndLoadManager.Instance.gameData.cookie;
-        }
-        else
-        {
-            _cookies = 150;
-        }
+        _cookies = 150;
     }
 
     void Update()
