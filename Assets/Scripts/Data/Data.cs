@@ -9,11 +9,6 @@ public class Data : MonoBehaviour
     public Invasion_Controller invasionController; // Invasion_Controller 스크립트를 불러오기 위한 변수
     public int waveCount = 0; // 현재까지 버틴 웨이브 수
 
-    public void Awake()
-    {
-        Time.timeScale = 1.0f;
-    }
-
     public void Start()
     {
         // Invasion_Controller 스크립트의 인스턴스를 찾아서 할당
