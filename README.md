@@ -81,7 +81,7 @@ BadKid_GhostBusters : 악동들이 마을을 악령으로 부터 지켜내자
 
 -----------------------------------------------------------------------------
 
-## <유아이>
+## <U.I>
 * < AudioVolumeController > 게임의 전체적인 BGM의 볼륨을 조절하는 기능
 * < CameraMoveController > 인게임 카메라 줌인,아웃 및 이동 기능
 * < EndUIController > 게임이 클리어, 오버 가 되면 나타나는 UI의 기능 제어
@@ -95,7 +95,7 @@ BadKid_GhostBusters : 악동들이 마을을 악령으로 부터 지켜내자
 * < FrameSetting > 게임의 프레임을 설정
 * < GameUITextAnimation > 게임 UI버튼에 붙어있는 Text를 버튼의 동작과 같이 움직이게 하는 기능
 
-## <Data>
+## <데이터>
 * <Data> : 게임의 승리 조건, 패배 조건
 * <SaveAndLoadManager> : 게임의 데이터 저장 (타워정보,웨이브당 저장) // 현재 해당 부분  부분 구현
 
