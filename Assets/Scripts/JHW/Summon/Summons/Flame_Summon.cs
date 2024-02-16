@@ -45,12 +45,12 @@ public class Flame_Summon : MonoBehaviour
                     if (isUpgrade == true)
                     {
                         monster.HPDown(0.1f);
-                        monster.Hit(monster.maxHP() * 0.02f + summononDamage * 0.4f);
+                        monster.Hit(monster.maxHP() * 0.003f + summononDamage * 0.5f);
                     }
                     else
                     {
                         monster.HPDown(0.5f);
-                        monster.Hit(monster.ReturnHP() * 0.02f + summononDamage * 0.3f);
+                        monster.Hit(monster.ReturnHP() * 0.003f + summononDamage * 0.5f);
                     }
             }
         }
