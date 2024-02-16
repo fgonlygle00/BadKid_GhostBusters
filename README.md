@@ -78,7 +78,9 @@ BadKid_GhostBusters : 악동들이 마을을 악령으로 부터 지켜내자
 * <Flame_Summon> 플레임 타워의 소환물 기능 제어. 범위 내 적에게 치유 감소와 체력 비례 피해를 입히는 로직.
 * <Snow_Summon> 스노우 타워의 소환물 기능 제어. 범위 내 적에게 슬로우 효과를 거는 로직.
 
-## <UI>
+
+
+### <UI>
 * < AudioVolumeController > 게임의 전체적인 BGM의 볼륨을 조절하는 기능
 * < CameraMoveController > 인게임 카메라 줌인,아웃 및 이동 기능
 * < EndUIController > 게임이 클리어, 오버 가 되면 나타나는 UI의 기능 제어
