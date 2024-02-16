@@ -57,7 +57,7 @@ BadKid_GhostBusters : 악동들이 마을을 악령으로 부터 지켜내자
 ### <기타>
 * <TimeScail_Controller> 인게임 타임스케일을 관리
 
-## <타워>
+### <타워>
 * <Tower_Manager> 타워 전체 데이터 관리, 타워 배치, 리롤 기능
 * <Tower_Prototype> 타워 스크립트 전체의 부모 클래스 / 스탯 설정, 공격, 타겟팅, 업그레이드 기능
 * <Beam_Tower> 빔 타워의 기능 제어. 같은 적 연속 공격시 공격력 증가 로직
@@ -79,8 +79,8 @@ BadKid_GhostBusters : 악동들이 마을을 악령으로 부터 지켜내자
 * <Snow_Summon> 스노우 타워의 소환물 기능 제어. 범위 내 적에게 슬로우 효과를 거는 로직.
 
 
-
-### <UI>
+-----------------------------------------------------------------------------
+##<UI>
 * < AudioVolumeController > 게임의 전체적인 BGM의 볼륨을 조절하는 기능
 * < CameraMoveController > 인게임 카메라 줌인,아웃 및 이동 기능
 * < EndUIController > 게임이 클리어, 오버 가 되면 나타나는 UI의 기능 제어
