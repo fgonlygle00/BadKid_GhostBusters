@@ -27171,9 +27171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca1c8e5f0b450d41ab65728eedd4949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiPanel: {fileID: 1823793661}
-  _creditPanel: {fileID: 1502689546}
-  _endingVdieo: {fileID: 950485499}
 --- !u!328 &950485501
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -28815,7 +28812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1062073540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50260,7 +50257,7 @@ MonoBehaviour:
   Snow_Tower: {fileID: 3061867114529216920, guid: 6cad0d3e39458a74b8a0e47024f4dfdd, type: 3}
   Flame_Tower: {fileID: 1137221353445848, guid: 1ea1e2d583aef994b93946b0da394b7d, type: 3}
   Cookie: 0
-  BuffPaticle: {fileID: 334052083574401059, guid: a608370798d77ac44862c741281ac915, type: 3}
+  BuffPaticle: {fileID: 4090231052992747498, guid: 87ba0ceb53f88534296d000e15d90eaf, type: 3}
   Tower_Disposition_Arr:
   - {fileID: 0}
   - {fileID: 0}
