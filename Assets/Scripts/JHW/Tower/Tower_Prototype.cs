@@ -32,6 +32,7 @@ public class Tower_Prototype : MonoBehaviour
     // public string bulletType; //총알 타입
     // public float installationCost; //설치비용
 
+
     private void Start()
     {
         InvokeRepeating("BasicAttack", 0f, baseAttackRate); //기본 공격 주기적으로 
@@ -217,6 +218,19 @@ public class Tower_Prototype : MonoBehaviour
         Destroy(_paticle);
     }
 
+    public int GetTowerType()
+    {
+        switch(towerType)
+        {
+            case "Gun_Tower":
+                return 0;
+            case "":
+                return 1;
+            //case "":
+            //    return 2;
+        }
+        return 0;
+    }
 
 
 
