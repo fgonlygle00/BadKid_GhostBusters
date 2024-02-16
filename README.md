@@ -80,7 +80,8 @@ BadKid_GhostBusters : 악동들이 마을을 악령으로 부터 지켜내자
 
 
 -----------------------------------------------------------------------------
-##<UI>
+
+## <ui>
 * < AudioVolumeController > 게임의 전체적인 BGM의 볼륨을 조절하는 기능
 * < CameraMoveController > 인게임 카메라 줌인,아웃 및 이동 기능
 * < EndUIController > 게임이 클리어, 오버 가 되면 나타나는 UI의 기능 제어
